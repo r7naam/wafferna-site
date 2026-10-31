@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wafferna.qd.je/</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/tips.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/about.html</loc><lastmod>2026-10-31</lastmod></url>
@@ -7,10 +7,12 @@
   <url><loc>https://wafferna.qd.je/fake-stores.html</loc>
     <image:image><image:loc>https://wafferna.qd.je/covers/fake-stores.jpg</image:loc></image:image><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/real-discount.html</loc>
+    <video:video><video:thumbnail_loc>https://wafferna.qd.je/covers/video-fake-friday.jpg</video:thumbnail_loc><video:title>خصم وهمي في الجمعة البيضاء؟ 3 خطوات تكشفه</video:title><video:description>3 خطوات بسيطة تكشف الخصم الوهمي قبل الشراء، تنفع مع أي متجر.</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/0zsb32AG3nU</video:player_loc><video:duration>70</video:duration><video:publication_date>2026-10-30</video:publication_date></video:video>
     <image:image><image:loc>https://wafferna.qd.je/covers/real-discount.jpg</image:loc></image:image><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/sale-seasons.html</loc>
     <image:image><image:loc>https://wafferna.qd.je/covers/sale-seasons.jpg</image:loc></image:image><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/shopping-mistakes.html</loc>
+    <video:video><video:thumbnail_loc>https://wafferna.qd.je/covers/video-cheap-product.jpg</video:thumbnail_loc><video:title>ليش المنتج الرخيص يكلّفك أكثر؟ (مثال الطابعة)</video:title><video:description>شفت منتج رخيص وفرحت بالسعر؟ انتبه! بعض المنتجات تكلّفك بعد الشراء أكثر من سعرها.</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/Q8kDqnhkSzA</video:player_loc><video:duration>35</video:duration><video:publication_date>2026-10-31</video:publication_date></video:video>
     <image:image><image:loc>https://wafferna.qd.je/covers/shopping-mistakes.jpg</image:loc></image:image><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.qd.je/fake-reviews.html</loc>
     <image:image><image:loc>https://wafferna.qd.je/covers/fake-reviews.jpg</image:loc></image:image><lastmod>2026-10-31</lastmod></url>

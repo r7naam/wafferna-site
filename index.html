@@ -4,11 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wafferna | وفّر أكثر، وادفع أقل</title>
-<meta name="description" content="عروض وكوبونات ونصائح تسوق من علي إكسبرس وغيره، تتحدث يومياً. وفّر أكثر، وادفع أقل مع Wafferna.">
+<meta name="description" content="عروض ونصائح تسوق ذكي من أشهر المتاجر. وفّر أكثر، وادفع أقل مع Wafferna.">
 <meta name="theme-color" content="#eeece2">
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="canonical" href="https://wafferna.qd.je/">
+<meta property="og:url" content="https://wafferna.qd.je/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://wafferna.qd.je/#website", "url": "https://wafferna.qd.je/", "name": "Wafferna", "inLanguage": "ar", "description": "عروض ونصائح تسوق ذكي من أشهر المتاجر"}, {"@type": "Organization", "@id": "https://wafferna.qd.je/#org", "name": "Wafferna", "url": "https://wafferna.qd.je/", "logo": "https://wafferna.qd.je/logo.png", "sameAs": ["https://t.me/Wafferna", "https://www.instagram.com/wafferna", "https://x.com/Waffernaa", "https://www.tiktok.com/@waffernaa"]}]}</script>
 <meta property="og:title" content="Wafferna | وفّر أكثر، وادفع أقل">
-<meta property="og:description" content="عروض وكوبونات ونصائح تسوق تتحدث يومياً.">
+<meta property="og:description" content="عروض ونصائح تسوق ذكي من أشهر المتاجر.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,6 +76,13 @@ h2::after{content:"";display:block;width:52px;height:4px;border-radius:4px;backg
 footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
 footer .note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px}
 footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tip{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);transition:.15s}
+.tip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tip b{font-size:17px;line-height:1.6}
+.tip span:last-child{color:var(--muted);font-size:14px;line-height:1.7}
+.tip .tag{align-self:flex-start;font-size:12px;background:var(--gold);padding:1px 10px;border-radius:999px;font-weight:700;line-height:1.8}
+.more{margin-top:16px;text-align:center}
 @media(max-width:560px){nav{display:none}.hero{padding-top:36px}}
 </style>
 </head>
@@ -86,6 +96,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
     </a>
     <nav>
       <a href="#offers">العروض</a>
+      <a href="tips.html">نصائح</a>
       <a href="#how">كيف نشتغل</a>
       <a href="#join">تابعنا</a>
     </nav>
@@ -95,7 +106,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
 <main id="top">
   <div class="wrap hero">
     <h1>وفّر أكثر، <span>وادفع أقل</span></h1>
-    <p>عروض وكوبونات ونصائح تسوق من علي إكسبرس وغيره، نجمعها لك ونحدّثها كل يوم عشان تشتري بذكاء.</p>
+    <p>عروض ونصائح تسوق من أشهر المتاجر، نجمعها لك عشان تشتري بذكاء.</p>
     <div class="btns">
       <a class="btn primary" href="#offers">شوف أحدث العروض</a>
       <a class="btn ghost" href="https://t.me/Wafferna" target="_blank" rel="noopener">قناة تيليجرام</a>
@@ -108,6 +119,22 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
       <p class="sub">منتجات مختارة تتحدث تلقائياً. الأسعار قد تتغير، فتأكد منها في صفحة المتجر.</p>
       <div id="grid" class="grid" aria-live="polite"></div>
       <div id="empty" class="empty" hidden>العروض قادمة قريباً. تابعنا في تيليجرام لحين التحديث.</div>
+    </div>
+  </section>
+
+    <section id="tips">
+    <div class="wrap">
+      <h2>نصائح التسوق الذكي</h2>
+      <p class="sub">معلومات عملية تساعدك تشتري بثقة وتتجنب الأخطاء.</p>
+      <div class="tips">
+        <a class="tip" href="fake-stores.html"><span class="tag">أمان وثقة</span><b>كيف تتأكد أن المتجر الإلكتروني حقيقي وغير وهمي</b><span>علامات تكشف المتجر الوهمي قبل الدفع، وخطوات سريعة تتأكد بها من أي متجر.</span></a>
+        <a class="tip" href="real-discount.html"><span class="tag">توفير</span><b>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً</b><span>طرق عملية تكشف الخصومات الوهمية وتساعدك تحسب السعر الحقيقي قبل الشراء.</span></a>
+        <a class="tip" href="sale-seasons.html"><span class="tag">توفير</span><b>مواسم التخفيضات في السعودية: متى تشتري ومتى تنتظر</b><span>أبرز مواسم العروض في السعودية وكيف تستعد لها بدون ما تصرف أكثر من اللازم.</span></a>
+        <a class="tip" href="shopping-mistakes.html"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية، وكيف تتجنبها.</span></a>
+        <a class="tip" href="fake-reviews.html"><span class="tag">شراء ذكي</span><b>كيف تقرأ تقييمات المنتجات وتكشف التقييمات المزيفة</b><span>علامات التقييمات المزيفة وطريقة ذكية لقراءة آراء المشترين قبل الشراء.</span></a>
+        <a class="tip" href="safe-payment.html"><span class="tag">أمان وثقة</span><b>الدفع الآمن: كيف تحمي بطاقتك عند الشراء أونلاين</b><span>عادات بسيطة تحمي بطاقتك وحسابك البنكي أثناء التسوق عبر الإنترنت.</span></a>
+      </div>
+      <div class="more"><a class="btn ghost" href="tips.html">كل النصائح</a></div>
     </div>
   </section>
 
@@ -158,7 +185,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
     <div class="note"><b>إفصاح:</b> بعض الروابط في هذا الموقع روابط تسويقية، وقد نحصل على عمولة عند الشراء عبرها دون أي تكلفة إضافية عليك. الأسعار والتوفر تتغير من المتجر، والتأكد منها قبل الشراء مسؤوليتك.</div>
     <div class="row">
       <span>© <span id="y"></span> Wafferna</span>
-      <span><a href="about.html">من نحن</a> · <a href="privacy.html">سياسة الخصوصية</a></span>
+      <span><a href="tips.html">نصائح</a> · <a href="about.html">من نحن</a> · <a href="privacy.html">سياسة الخصوصية</a></span>
     </div>
   </div>
 </footer>

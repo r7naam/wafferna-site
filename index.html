@@ -16,12 +16,15 @@
 <meta property="og:description" content="عروض ونصائح تسوق ذكي من أشهر المتاجر.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/tajawal-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/tajawal-800.woff" as="font" type="font/woff" crossorigin>
 <style>
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/tajawal-400.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/tajawal-500.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/tajawal-700.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/tajawal-800.woff') format('woff')}
 :root{
-  --bg:#eeece2; --ink:#3d3929; --accent:#bd5d3a; --gold:#e8b931;
+  --bg:#eeece2; --ink:#3d3929; --accent:#bd5d3a; --accent-d:#a8502d; --gold:#e8b931;
   --card:#f8f6ee; --line:#d9d5c4; --muted:#6f6a57;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,14 +40,14 @@ header{position:sticky;top:0;z-index:10;background:rgba(238,236,226,.92);backdro
 .word b{color:var(--accent)}
 header nav a{margin-inline-start:18px;text-decoration:none;font-weight:500;font-size:15px}
 header nav a:hover{color:var(--accent)}
-header nav{display:flex;align-items:center;white-space:nowrap}nav a.navvid{background:var(--accent);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#a14c2e}
+header nav{display:flex;align-items:center;white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#a14c2e}
 .hero{padding:56px 0 40px;text-align:center}
 .hero h1{font-size:clamp(30px,6vw,52px);font-weight:800;line-height:1.35}
 .hero h1 span{color:var(--accent)}
 .hero p{max-width:560px;margin:14px auto 26px;color:var(--muted)}
 .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:.15s}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary{background:var(--accent-d);border-color:var(--accent-d);color:#fff}
 .btn.primary:hover{filter:brightness(1.08)}
 .btn.ghost:hover{background:var(--ink);color:var(--bg)}
 section{padding:40px 0}
@@ -90,7 +93,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
 
 .hero{padding:44px 0 30px;text-align:start}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
-.hero-txt .kick{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--accent);font-weight:800;font-size:14px;padding:2px 14px;border-radius:999px}
+.hero-txt .kick{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--accent-d);font-weight:800;font-size:14px;padding:2px 14px;border-radius:999px}
 .hero h1{margin-top:12px;font-size:clamp(34px,6.2vw,58px)}
 .hero p{margin:14px 0 24px;max-width:520px;font-size:18px}
 .btns{justify-content:flex-start}
@@ -116,7 +119,7 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
 <header>
   <div class="wrap bar">
     <a class="brand" href="/" aria-label="Wafferna">
-      <img src="logo.png" alt="" onerror="this.style.display='none'">
+      <img src="logo.png" alt="" width="65" height="38" onerror="this.style.display='none'">
       <span class="word">Waffer<b>na</b></span>
     </a>
     <nav>
@@ -187,12 +190,12 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
       <h2>نصائح التسوق الذكي</h2>
       <p class="sub">معلومات عملية تساعدك تشتري بثقة وتتجنب الأخطاء.</p>
       <div class="tips">
-        <a class="tip" href="fake-stores.html"><img src="covers/fake-stores.jpg" width="1200" height="630" alt="درع بعلامة صح وتذكرة خصم يرمزان للتأكد من أن المتجر الإلكتروني حقيقي" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>كيف تتأكد أن المتجر الإلكتروني حقيقي وغير وهمي</b><span>علامات تكشف المتجر الوهمي قبل الدفع، وخطوات سريعة تتأكد بها من أي متجر.</span></a>
-        <a class="tip" href="real-discount.html"><img src="covers/real-discount.jpg" width="1200" height="630" alt="بطاقة سعر عليها 300 مشطوبة و199 مع عدسة مكبرة لكشف الخصم الوهمي" loading="lazy" decoding="async"><span class="tag">توفير</span><b>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً</b><span>طرق عملية تكشف الخصومات الوهمية وتساعدك تحسب السعر الحقيقي قبل الشراء.</span></a>
-        <a class="tip" href="sale-seasons.html"><img src="covers/sale-seasons.jpg" width="1200" height="630" alt="تقويم عليه علامة خصم يمثل مواسم التخفيضات في السعودية" loading="lazy" decoding="async"><span class="tag">توفير</span><b>مواسم التخفيضات في السعودية: متى تشتري ومتى تنتظر</b><span>أبرز مواسم العروض في السعودية وكيف تستعد لها بدون ما تصرف أكثر من اللازم.</span></a>
-        <a class="tip" href="shopping-mistakes.html"><img src="covers/shopping-mistakes.jpg" width="1200" height="630" alt="عربة تسوق عليها علامة تحذير ترمز لأخطاء التسوق أونلاين" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية، وكيف تتجنبها.</span></a>
-        <a class="tip" href="fake-reviews.html"><img src="covers/fake-reviews.jpg" width="1200" height="630" alt="نجوم تقييم مع عدسة مكبرة وعلامة خطأ لكشف التقييمات المزيفة" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>كيف تقرأ تقييمات المنتجات وتكشف التقييمات المزيفة</b><span>علامات التقييمات المزيفة وطريقة ذكية لقراءة آراء المشترين قبل الشراء.</span></a>
-        <a class="tip" href="safe-payment.html"><img src="covers/safe-payment.jpg" width="1200" height="630" alt="بطاقة دفع عليها قفل ترمز للدفع الآمن عبر الإنترنت" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>الدفع الآمن: كيف تحمي بطاقتك عند الشراء أونلاين</b><span>عادات بسيطة تحمي بطاقتك وحسابك البنكي أثناء التسوق عبر الإنترنت.</span></a>
+        <a class="tip" href="fake-stores.html"><img src="covers/fake-stores-600.webp" srcset="covers/fake-stores-600.webp 600w, covers/fake-stores.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="درع بعلامة صح وتذكرة خصم يرمزان للتأكد من أن المتجر الإلكتروني حقيقي" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>كيف تتأكد أن المتجر الإلكتروني حقيقي وغير وهمي</b><span>علامات تكشف المتجر الوهمي قبل الدفع، وخطوات سريعة تتأكد بها من أي متجر.</span></a>
+        <a class="tip" href="real-discount.html"><img src="covers/real-discount-600.webp" srcset="covers/real-discount-600.webp 600w, covers/real-discount.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="بطاقة سعر عليها 300 مشطوبة و199 مع عدسة مكبرة لكشف الخصم الوهمي" loading="lazy" decoding="async"><span class="tag">توفير</span><b>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً</b><span>طرق عملية تكشف الخصومات الوهمية وتساعدك تحسب السعر الحقيقي قبل الشراء.</span></a>
+        <a class="tip" href="sale-seasons.html"><img src="covers/sale-seasons-600.webp" srcset="covers/sale-seasons-600.webp 600w, covers/sale-seasons.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="تقويم عليه علامة خصم يمثل مواسم التخفيضات في السعودية" loading="lazy" decoding="async"><span class="tag">توفير</span><b>مواسم التخفيضات في السعودية: متى تشتري ومتى تنتظر</b><span>أبرز مواسم العروض في السعودية وكيف تستعد لها بدون ما تصرف أكثر من اللازم.</span></a>
+        <a class="tip" href="shopping-mistakes.html"><img src="covers/shopping-mistakes-600.webp" srcset="covers/shopping-mistakes-600.webp 600w, covers/shopping-mistakes.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="عربة تسوق عليها علامة تحذير ترمز لأخطاء التسوق أونلاين" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية، وكيف تتجنبها.</span></a>
+        <a class="tip" href="fake-reviews.html"><img src="covers/fake-reviews-600.webp" srcset="covers/fake-reviews-600.webp 600w, covers/fake-reviews.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="نجوم تقييم مع عدسة مكبرة وعلامة خطأ لكشف التقييمات المزيفة" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>كيف تقرأ تقييمات المنتجات وتكشف التقييمات المزيفة</b><span>علامات التقييمات المزيفة وطريقة ذكية لقراءة آراء المشترين قبل الشراء.</span></a>
+        <a class="tip" href="safe-payment.html"><img src="covers/safe-payment-600.webp" srcset="covers/safe-payment-600.webp 600w, covers/safe-payment.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="بطاقة دفع عليها قفل ترمز للدفع الآمن عبر الإنترنت" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>الدفع الآمن: كيف تحمي بطاقتك عند الشراء أونلاين</b><span>عادات بسيطة تحمي بطاقتك وحسابك البنكي أثناء التسوق عبر الإنترنت.</span></a>
       </div>
       <div class="more"><a class="btn ghost" href="tips.html">كل النصائح</a></div>
     </div>
@@ -224,7 +227,7 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
   <section>
     <div class="wrap">
       <div class="cta">
-        <img src="wordmark-light.png" alt="Wafferna" style="height:34px;width:auto;display:block;margin:0 auto 14px" onerror="this.style.display='none'">
+        <img src="wordmark-light.png" alt="Wafferna" width="200" height="34" style="height:34px;width:auto;display:block;margin:0 auto 14px" onerror="this.style.display='none'">
         <h2>جرّب بوت وفّرنا</h2>
         <p>أرسل رابط المنتج للبوت واحصل على أفضل العروض والروابط بثواني.</p>
         <div class="btns">

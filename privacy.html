@@ -13,10 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:url" content="https://wafferna.qd.je/privacy.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/tajawal-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/tajawal-800.woff" as="font" type="font/woff" crossorigin>
 <style>
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/tajawal-400.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/tajawal-500.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/tajawal-700.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/tajawal-800.woff') format('woff')}
 :root{--bg:#eeece2;--ink:#3d3929;--accent:#bd5d3a;--gold:#e8b931;--card:#f8f6ee;--line:#d9d5c4;--muted:#6f6a57}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:17px}
@@ -43,7 +46,7 @@ footer a{margin-inline-end:14px}
 <header>
   <div class="wrap bar">
     <a class="brand" href="/" aria-label="Wafferna">
-      <img src="logo.png" alt="" onerror="this.style.display='none'">
+      <img src="logo.png" alt="" width="65" height="38" onerror="this.style.display='none'">
       <span class="word">Waffer<b>na</b></span>
     </a>
     <a class="back" href="/">الرئيسية</a>

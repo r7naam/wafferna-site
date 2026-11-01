@@ -13,24 +13,23 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:url" content="https://wafferna.qd.je/offers/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/tajawal-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/tajawal-800.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/style.css">
 <style>
 .pbox{display:flex;align-items:center;flex-wrap:wrap;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:16px 0}
 .pbox .now{font-size:28px;font-weight:800;color:var(--accent)}
 .pbox s{color:var(--muted)}
 .pbox .off{background:var(--gold);color:var(--ink);font-weight:800;border-radius:999px;padding:0 12px;font-size:14px}
-.obtn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;padding:12px 28px;border-radius:999px;margin-top:8px}
-.obtn:hover{background:#a14c2e}
+.obtn{display:inline-block;background:var(--accent-d);color:#fff;text-decoration:none;font-weight:800;padding:12px 28px;border-radius:999px;margin-top:8px}
+.obtn:hover{background:#8f4326}
 .oimg{display:block;width:100%;max-width:520px;height:auto;border-radius:18px;border:1px solid var(--line);margin:14px auto;background:#fff}
 .ogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:14px}
 .ocard{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;color:var(--ink)}
 .ocard:hover{border-color:var(--accent)}
 .ocard img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#fff}
 .ocard b{font-size:16px;line-height:1.6}
-.ocard .p{color:var(--accent);font-weight:800}
+.ocard .p{color:var(--accent-d);font-weight:800}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "أحدث العروض", "url": "https://wafferna.qd.je/offers/", "inLanguage": "ar", "description": "أحدث عروض Wafferna: منتجات مختارة من أشهر المتاجر مع الأسعار والخصومات، وتتحدث باستمرار."}</script>
 </head>
@@ -38,7 +37,7 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="/" aria-label="Wafferna">
-      <img src="/logo.png" alt="" onerror="this.style.display='none'">
+      <img src="/logo.png" alt="" width="65" height="38" onerror="this.style.display='none'">
       <span class="word">Waffer<b>na</b></span>
     </a>
     <nav><a href="/">الرئيسية</a><a href="/offers/">العروض</a><a href="/tips.html">نصائح</a><a href="/about.html">من نحن</a><a class="navvid" href="/tips.html#videos">▶ فيديوهات وفّرنا</a></nav>
@@ -50,6 +49,7 @@
   <p class="lead">منتجات مختارة من أشهر المتاجر. الأسعار وقت النشر وقد تتغير، فتأكد منها في صفحة المتجر. بعض الروابط تسويقية، راجع <a href="/about.html">الإفصاح</a>.</p>
   <p class="note"><b>تصفح حسب:</b> <a href="/offers/under-100.html">أفضل عروض تحت 100 ريال</a> · <a href="/offers/under-50.html">عروض تحت 50 ريال</a> · <a href="/offers/big-discounts.html">عروض بخصم 50% وأكثر</a></p>
   <div class="ogrid">
+    <a class="ocard" href="/offers/offer-1005010247655014.html"><img src="/offers/img/offer-1005010247655014.jpg" width="800" height="800" alt="شاحن Toocki 45 واط GaN" loading="lazy" decoding="async"><span class="tag">AliExpress</span><b>شاحن Toocki 45 واط GaN</b><span class="p">36.64 ر.س</span></a>
     <a class="ocard" href="/offers/offer-1005012588925269.html"><img src="/offers/img/offer-1005012588925269.jpg" width="800" height="800" alt="موصلات XT60 بدون لحام" loading="lazy" decoding="async"><span class="tag">AliExpress</span><b>موصلات XT60 بدون لحام</b><span class="p">13.61 ر.س</span></a>
     <a class="ocard" href="/offers/offer-1005009985577507.html"><img src="/offers/img/offer-1005009985577507.jpg" width="800" height="800" alt="كابل DisplayPort إلى HDMI بطول 1.8 متر" loading="lazy" decoding="async"><span class="tag">AliExpress</span><b>كابل DisplayPort إلى HDMI بطول 1.8 متر</b><span class="p">15.86 ر.س</span></a>
     <a class="ocard" href="/offers/offer-1005006967752138.html"><img src="/offers/img/offer-1005006967752138.jpg" width="800" height="800" alt="موديول ExpressLRS EMAX Aeris Link" loading="lazy" decoding="async"><span class="tag">AliExpress</span><b>موديول ExpressLRS EMAX Aeris Link</b><span class="p">159.15 ر.س</span></a>

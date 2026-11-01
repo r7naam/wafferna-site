@@ -1,8 +1,12 @@
-:root{--bg:#eeece2;--ink:#3d3929;--accent:#bd5d3a;--gold:#e8b931;--card:#f8f6ee;--line:#d9d5c4;--muted:#6f6a57}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/tajawal-400.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/tajawal-500.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/tajawal-700.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/tajawal-800.woff') format('woff')}
+:root{--bg:#eeece2;--ink:#3d3929;--accent:#bd5d3a;--accent-d:#a8502d;--gold:#e8b931;--card:#f8f6ee;--line:#d9d5c4;--muted:#6f6a57}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:17px}
-a{color:var(--accent)}
+a{color:var(--accent-d)}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 header{position:sticky;top:0;z-index:10;background:rgba(238,236,226,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -34,7 +38,7 @@ p{margin-top:8px}
 .tip .tag{align-self:flex-start}
 footer{border-top:1px solid var(--line);padding:22px 0 36px;color:var(--muted);font-size:14px;margin-top:30px}
 footer a{margin-inline-end:14px}
-nav{white-space:nowrap}nav a.navvid{background:var(--accent);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#a14c2e}
+nav{white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#8f4326}
 @media(max-width:560px){nav a:not(:first-child):not(.navvid){display:none}}
 
 .cover{display:block;width:100%;height:auto;border-radius:18px;margin:14px 0 6px;border:1px solid var(--line)}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاسبة الجمارك والضريبة للشحنات في السعودية | Wafferna</title>
+<meta name="description" content="احسب التكلفة النهائية لطلبك من علي اكسبرس وغيره: ضريبة القيمة المضافة 15% ورسوم الجمارك ورسوم المعالجة للشحنات الشخصية إلى السعودية.">
+<meta name="theme-color" content="#eeece2">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="canonical" href="https://wafferna.qd.je/customs-calculator.html">
+<meta property="og:title" content="حاسبة الجمارك والضريبة للشحنات في السعودية">
+<meta property="og:description" content="اعرف كم يصلك الطلب فعلياً بعد الضريبة والجمارك ورسوم المعالجة، قبل ما تدفع.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:url" content="https://wafferna.qd.je/customs-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.calc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.calc .row{grid-template-columns:1fr}}
+.calc label{display:block;font-weight:700;font-size:15px;margin-bottom:4px}
+.calc input{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);direction:ltr;text-align:right}
+.calc input:focus{outline:3px solid var(--gold);border-color:var(--accent)}
+.calc .hint{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.6}
+#dutyWrap{margin-top:14px;display:none}
+.res{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px}
+.res dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px}
+.res dt{color:var(--muted)}
+.res dd{font-weight:700;direction:ltr;text-align:left}
+.res .total{grid-column:1/-1;display:flex;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:12px 16px;margin-top:8px;font-size:19px;font-weight:800}
+.res .total span:last-child{color:var(--gold);direction:ltr}
+.status{margin-top:10px;font-size:15px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.ex{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px;background:var(--card);border-radius:12px;overflow:hidden}
+table.ex th,table.ex td{padding:8px 8px;font-size:14px;border:1px solid var(--line);text-align:right}
+table.ex th{background:var(--gold)}
+.faq h3{font-size:18px;margin-top:16px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"حاسبة الجمارك والضريبة للشحنات في السعودية","url":"https://wafferna.qd.je/customs-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"ar","offers":{"@type":"Offer","price":"0","priceCurrency":"SAR"},"publisher":{"@type":"Organization","name":"Wafferna"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://wafferna.qd.je/"},{"@type":"ListItem","position":2,"name":"حاسبة الجمارك والضريبة","item":"https://wafferna.qd.je/customs-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"هل علي اكسبرس يفرض جمارك على الشحنات إلى السعودية؟","acceptedAnswer":{"@type":"Answer","text":"حسب توضيح هيئة الزكاة والضريبة والجمارك، تُعفى الشحنات الشخصية من الرسوم الجمركية إذا كانت قيمة المشتريات شاملة الشحن أقل من 1000 ريال. وتبقى ضريبة القيمة المضافة 15% ورسوم معالجة البيان."}},
+{"@type":"Question","name":"كم ضريبة القيمة المضافة على الواردات؟","acceptedAnswer":{"@type":"Answer","text":"نسبتها 15% على جميع الواردات حسب ما نشرته هيئة الزكاة والضريبة والجمارك، وتُحسب على قيمة الشحنة مضافاً إليها الرسم الجمركي إن وُجد ورسوم المعالجة."}},
+{"@type":"Question","name":"كم رسوم المعالجة الجمركية؟","acceptedAnswer":{"@type":"Answer","text":"ذكرت الهيئة رسماً قدره 15 ريالاً على شحنات الأفراد الواردة عبر المتاجر الإلكترونية. وللشحنات الأعلى من 1000 ريال تذكر مصادر منشورة نسبة 0.15% من القيمة بحد أدنى 15 ريالاً وأقصى 500 ريال."}},
+{"@type":"Question","name":"ماذا يحدث إذا تجاوز طلبي 1000 ريال؟","acceptedAnswer":{"@type":"Answer","text":"قد يُفرض رسم جمركي بحسب نوع المنتج وتصنيفه الجمركي، إضافة إلى الضريبة ورسوم المعالجة. لذلك تتيح الحاسبة إدخال نسبة الجمارك التي تعرفها لمنتجك."}},
+{"@type":"Question","name":"هل الحاسبة دقيقة؟","acceptedAnswer":{"@type":"Answer","text":"هي تقدير مبني على القواعد المنشورة، وقد تتغير الأنظمة، وبعض المتاجر أو شركات الشحن تحصّل الضريبة عند الدفع. راجع صفحة الدفع وموقع الهيئة الرسمي قبل الاعتماد على الرقم."}}
+]}</script>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Wafferna">
+      <img src="logo.png" alt="" onerror="this.style.display='none'">
+      <span class="word">Waffer<b>na</b></span>
+    </a>
+    <nav><a href="/">الرئيسية</a><a href="tips.html">نصائح</a><a href="about.html">من نحن</a><a class="navvid" href="tips.html#videos">▶ فيديوهات وفّرنا</a></nav>
+  </div>
+</header>
+
+<main class="wrap article">
+  <p class="crumbs"><a href="/">الرئيسية</a> › حاسبة الجمارك والضريبة</p>
+  <span class="tag">أداة مجانية</span>
+  <h1>حاسبة الجمارك والضريبة للشحنات في السعودية</h1>
+  <p class="meta">فريق Wafferna · 1 نوفمبر 2026</p>
+  <p class="lead">اشتريت من علي اكسبرس أو أي متجر خارجي؟ اكتب سعر المنتج والشحن بالريال، وشوف التكلفة النهائية التقريبية بعد ضريبة القيمة المضافة والجمارك ورسوم المعالجة.</p>
+
+  <section class="calc" aria-labelledby="ct">
+    <h2 id="ct" style="margin-top:0">احسب تكلفة طلبك</h2>
+    <div class="row">
+      <div>
+        <label for="price">سعر المنتجات (ريال)</label>
+        <input id="price" type="number" inputmode="decimal" min="0" step="0.01" placeholder="مثال: 200">
+      </div>
+      <div>
+        <label for="ship">الشحن (ريال)</label>
+        <input id="ship" type="number" inputmode="decimal" min="0" step="0.01" placeholder="مثال: 30">
+      </div>
+    </div>
+    <div id="dutyWrap">
+      <label for="rate">نسبة الرسم الجمركي لمنتجك (%)</label>
+      <input id="rate" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="5">
+      <p class="hint">طلبك تجاوز 1000 ريال، والرسم الجمركي يختلف حسب نوع المنتج. القيمة 5% افتراضية للتجربة فقط، عدّلها بحسب تصنيف منتجك.</p>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite">اكتب السعر لتظهر النتيجة.</p>
+    <div class="res" id="res" hidden>
+      <dl>
+        <dt>قيمة الطلب مع الشحن</dt><dd id="rBase"></dd>
+        <dt>الرسم الجمركي</dt><dd id="rDuty"></dd>
+        <dt>رسوم المعالجة</dt><dd id="rFee"></dd>
+        <dt>ضريبة القيمة المضافة 15%</dt><dd id="rVat"></dd>
+        <div class="total"><span>الإجمالي التقريبي</span><span id="rTotal"></span></div>
+      </dl>
+      <p class="hint" id="rExtra"></p>
+    </div>
+  </section>
+
+  <div class="box note">الحاسبة تقدير مبني على القواعد المنشورة، وليست إقراراً جمركياً رسمياً. بعض المتاجر وشركات الشحن تحصّل الضريبة وقت الدفع، فتأكد من صفحة الدفع حتى لا تحسبها مرتين.</div>
+
+  <h2>كيف تُحسب التكلفة؟</h2>
+  <ol>
+    <li><b>الرسم الجمركي:</b> حسب هيئة الزكاة والضريبة والجمارك، تُعفى الشحنات الشخصية من الرسوم الجمركية إذا كانت قيمتها مع الشحن أقل من 1000 ريال. فوق ذلك يتحدد الرسم حسب نوع المنتج.</li>
+    <li><b>رسوم المعالجة:</b> 15 ريالاً على شحنات الأفراد من المتاجر الإلكترونية. وللشحنات الأعلى تذكر مصادر منشورة 0.15% من القيمة بحد أدنى 15 وأقصى 500 ريال.</li>
+    <li><b>ضريبة القيمة المضافة:</b> 15% على الواردات، تُحسب على القيمة مع الشحن مضافاً إليها الرسم الجمركي ورسوم المعالجة.</li>
+  </ol>
+
+  <h2>أمثلة محسوبة</h2>
+  <div class="tw"><table class="ex">
+    <thead><tr><th>الحالة</th><th>الجمارك</th><th>المعالجة</th><th>الضريبة</th><th>الإجمالي</th></tr></thead>
+    <tbody>
+      <tr><td>200 + شحن 30</td><td>0</td><td>15</td><td>36.75</td><td>281.75</td></tr>
+      <tr><td>500 + شحن 0</td><td>0</td><td>15</td><td>77.25</td><td>592.25</td></tr>
+      <tr><td>1200 + شحن 100 (جمارك 5% افتراضية)</td><td>65</td><td>15</td><td>207</td><td>1587</td></tr>
+    </tbody>
+  </table></div>
+  <p class="hint">الأرقام بالريال، والمثال الثالث يفترض نسبة جمارك 5% لتوضيح الطريقة فقط.</p>
+
+  <h2>نصائح قبل ما تدفع</h2>
+  <ul>
+    <li>قارن السعر النهائي بين المتاجر، لا سعر المنتج وحده. اقرأ أيضاً <a href="real-discount.html">كيف تعرف أن الخصم حقيقي</a>.</li>
+    <li>انتبه عندما يقترب طلبك من حد 1000 ريال، فتجاوزه قد يضيف رسماً جمركياً، فاحسب الإجمالي قبل تأكيد الطلب.</li>
+    <li>اختر وسيلة دفع آمنة، وراجع <a href="safe-payment.html">دليل الدفع الآمن</a>.</li>
+  </ul>
+
+  <section class="faq" aria-labelledby="fq">
+    <h2 id="fq">أسئلة شائعة</h2>
+    <h3>هل علي اكسبرس يفرض جمارك على الشحنات إلى السعودية؟</h3>
+    <p>حسب توضيح هيئة الزكاة والضريبة والجمارك، تُعفى الشحنات الشخصية من الرسوم الجمركية إذا كانت قيمتها شاملة الشحن أقل من 1000 ريال، وتبقى الضريبة ورسوم المعالجة.</p>
+    <h3>كم ضريبة القيمة المضافة على الواردات؟</h3>
+    <p>15% على جميع الواردات حسب ما نشرته الهيئة.</p>
+    <h3>كم رسوم المعالجة الجمركية؟</h3>
+    <p>ذكرت الهيئة 15 ريالاً على شحنات الأفراد من المتاجر الإلكترونية، وللشحنات الأعلى تذكر مصادر منشورة 0.15% بحد أدنى 15 وأقصى 500 ريال.</p>
+    <h3>ماذا يحدث إذا تجاوز طلبي 1000 ريال؟</h3>
+    <p>قد يُفرض رسم جمركي بحسب نوع المنتج وتصنيفه، لذلك أضفنا خانة لنسبة الجمارك تظهر تلقائياً عند تجاوز الحد.</p>
+    <h3>هل الحاسبة دقيقة؟</h3>
+    <p>هي تقدير، والأنظمة قد تتغير. راجع صفحة الدفع وموقع الهيئة الرسمي قبل الاعتماد على الرقم.</p>
+  </section>
+
+  <div class="box note">المصادر: <a href="https://ajel.sa/thehour/685uknhqla" target="_blank" rel="noopener">توضيح هيئة الزكاة والضريبة والجمارك (سبتمبر 2025)</a> · <a href="https://ajel.sa/thehour/bw69vndrsh" target="_blank" rel="noopener">الرسوم الجمركية والقيمة المضافة على الشحنات الشخصية (يناير 2025)</a> · <a href="https://saudiexportpro.com/%D8%B1%D8%B3%D9%88%D9%85-%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%B1%D9%83-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B4%D8%AD%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9/" target="_blank" rel="noopener">طريقة الحساب (saudiexportpro)</a>. تأكد دائماً من موقع الهيئة الرسمي.</div>
+
+  <h2>اقرأ أيضاً</h2>
+  <div class="tips">
+    <a class="tip" href="shopping-mistakes.html"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية.</span></a>
+    <a class="tip" href="fake-stores.html"><span class="tag">أمان</span><b>كيف تعرف المتجر الحقيقي من المزيّف</b><span>علامات تكشف المتاجر الوهمية قبل ما تدفع.</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">الرئيسية</a><a href="tips.html">نصائح</a><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a>
+    <div style="margin-top:8px">© <span id="y"></span> Wafferna</div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var price=$('price'),ship=$('ship'),rate=$('rate');
+  function f(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+' ر.س'}
+  function calc(){
+    var p=parseFloat(price.value),s=parseFloat(ship.value);
+    if(!(p>0)){$('res').hidden=true;$('dutyWrap').style.display='none';$('status').textContent='اكتب السعر لتظهر النتيجة.';return}
+    if(!(s>=0))s=0;
+    var base=p+s,duty=0,fee,extra='';
+    var over=base>=1000;
+    $('dutyWrap').style.display=over?'block':'none';
+    if(over){
+      var r=parseFloat(rate.value);if(!(r>=0))r=0;
+      duty=base*r/100;
+      fee=Math.min(500,Math.max(15,base*0.0015));
+      extra='تجاوز الطلب 1000 ريال، فحُسب الرسم الجمركي بنسبة '+r+'%. تأكد من نسبة منتجك الفعلية.';
+    }else{
+      fee=15;
+      extra='طلبك أقل من 1000 ريال، فلا رسوم جمركية عليه حسب توضيح الهيئة.';
+    }
+    var vat=0.15*(base+duty+fee),total=base+duty+fee+vat;
+    $('rBase').textContent=f(base);$('rDuty').textContent=f(duty);$('rFee').textContent=f(fee);$('rVat').textContent=f(vat);$('rTotal').textContent=f(total);
+    $('rExtra').textContent=extra;
+    $('res').hidden=false;
+    $('status').textContent='النتيجة تقريبية وتتحدث مباشرة عند تغيير الأرقام.';
+  }
+  ['input','change'].forEach(function(e){price.addEventListener(e,calc);ship.addEventListener(e,calc);rate.addEventListener(e,calc)});
+})();
+</script>
+</body>
+</html>

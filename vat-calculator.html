@@ -3,43 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>حاسبة ضريبة القيمة المضافة 15% في السعودية | Wafferna</title>
-<meta name="description" content="احسب ضريبة القيمة المضافة 15% بسرعة: أضف الضريبة على السعر، أو استخرجها من سعر شامل الضريبة، مع شرح القانون والأمثلة والأسئلة الشائعة.">
+<title>حاسبة ضريبة القيمة المضافة 15% السعودية | احسب السعر قبل وبعد الضريبة</title>
+<meta name="description" content="احسب ضريبة القيمة المضافة 15% فوراً: أضف الضريبة على السعر، أو استخرج الضريبة من سعر شامل، مع جداول جاهزة وأمثلة وأسئلة شائعة. مجاناً وبدون تسجيل.">
 <meta name="theme-color" content="#eeece2">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="canonical" href="https://wafferna.qd.je/vat-calculator.html">
-<meta property="og:title" content="حاسبة ضريبة القيمة المضافة 15% في السعودية">
-<meta property="og:description" content="احسب ضريبة القيمة المضافة 15% بسرعة: أضف الضريبة على السعر، أو استخرجها من سعر شامل الضريبة، مع شرح القانون والأمثلة والأسئلة الشائعة.">
+<meta property="og:title" content="حاسبة ضريبة القيمة المضافة 15% السعودية | احسب السعر قبل وبعد الضريبة">
+<meta property="og:description" content="احسب ضريبة القيمة المضافة 15% فوراً: أضف الضريبة على السعر، أو استخرج الضريبة من سعر شامل، مع جداول جاهزة وأمثلة وأسئلة شائعة. مجاناً وبدون تسجيل.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
+<meta property="og:url" content="https://wafferna.qd.je/vat-calculator.html">
+<meta property="og:image" content="https://wafferna.qd.je/covers/vat-calculator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wafferna.qd.je/covers/vat-calculator.jpg">
 <link rel="preload" href="/fonts/tajawal-400.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/fonts/tajawal-800.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
-.calc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px}
-.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:560px){.calc .row{grid-template-columns:1fr}}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:14px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.tabs button{font:inherit;font-weight:700;font-size:15px;padding:12px 8px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .calc label{display:block;font-weight:700;font-size:15px;margin-bottom:4px}
-.calc input{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);direction:ltr;text-align:right}
+.calc input{width:100%;font:inherit;font-size:20px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);direction:ltr;text-align:right}
 .calc input:focus{outline:3px solid var(--gold);border-color:var(--accent)}
-.calc .hint{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.6}
-#dutyWrap{margin-top:14px;display:none}
-.res{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chips2 button{font:inherit;font-size:15px;min-height:44px;min-width:56px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.rate{margin-top:8px;font-size:14px;color:var(--muted)}
+.rate input{width:90px;font-size:15px;padding:6px 8px;display:inline-block}
+.res{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}
 .res dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px}
 .res dt{color:var(--muted)}
 .res dd{font-weight:700;direction:ltr;text-align:left}
 .res .total{grid-column:1/-1;display:flex;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:12px 16px;margin-top:8px;font-size:19px;font-weight:800}
 .res .total span:last-child{color:var(--gold);direction:ltr}
+.copyb{margin-top:10px;font:inherit;font-weight:700;min-height:44px;padding:10px 18px;border-radius:12px;border:1px solid var(--accent-d);background:transparent;color:var(--accent-d);cursor:pointer}
 .status{margin-top:10px;font-size:15px}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table.ex{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px;background:var(--card);border-radius:12px;overflow:hidden}
-table.ex th,table.ex td{padding:8px 8px;font-size:14px;border:1px solid var(--line);text-align:right}
+table.ex th,table.ex td{padding:8px;font-size:14px;border:1px solid var(--line);text-align:right}
 table.ex th{background:var(--gold)}
-.faq h3{font-size:18px;margin-top:16px}
+.faq h3{font-size:17px;margin-top:16px}
+.article h3{font-size:1.05rem}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "حاسبة ضريبة القيمة المضافة 15% في السعودية", "url": "https://wafferna.qd.je/vat-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "inLanguage": "ar", "description": "احسب ضريبة القيمة المضافة 15% بسرعة: أضف الضريبة على السعر، أو استخرجها من سعر شامل الضريبة، مع شرح القانون والأمثلة والأسئلة الشائعة.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "SAR"}, "publisher": {"@type": "Organization", "name": "Wafferna"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "حاسبة ضريبة القيمة المضافة 15% في السعودية", "url": "https://wafferna.qd.je/vat-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "inLanguage": "ar", "description": "احسب ضريبة القيمة المضافة 15% فوراً: أضف الضريبة على السعر، أو استخرج الضريبة من سعر شامل، مع جداول جاهزة وأمثلة وأسئلة شائعة. مجاناً وبدون تسجيل.", "image": "https://wafferna.qd.je/covers/vat-calculator.jpg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "SAR"}, "publisher": {"@type": "Organization", "name": "Wafferna", "url": "https://wafferna.qd.je/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://wafferna.qd.je/"}, {"@type": "ListItem", "position": 2, "name": "حاسبة ضريبة القيمة المضافة", "item": "https://wafferna.qd.je/vat-calculator.html"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "كيف أحسب ضريبة القيمة المضافة 15% على سعر؟", "acceptedAnswer": {"@type": "Answer", "text": "اضرب السعر قبل الضريبة في 0.15 لتحصل على قيمة الضريبة، ثم اجمعها مع السعر. مثال: سعر 200 ريال، الضريبة 30 ريالاً، والإجمالي 230 ريالاً. أو اضرب السعر في 1.15 مباشرة."}}, {"@type": "Question", "name": "كيف أستخرج الضريبة من سعر شامل الضريبة؟", "acceptedAnswer": {"@type": "Answer", "text": "اقسم السعر الشامل على 1.15 لتحصل على السعر قبل الضريبة، والباقي هو الضريبة. مثال: سعر شامل 230 ريالاً، فالسعر قبل الضريبة 200 ريال والضريبة 30 ريالاً. ولا تحسب 15% من السعر الشامل لأن هذا يعطي رقماً خاطئاً."}}, {"@type": "Question", "name": "ما نسبة ضريبة القيمة المضافة في السعودية؟", "acceptedAnswer": {"@type": "Answer", "text": "النسبة الأساسية 15% بعد أن كانت 5% عند بدء التطبيق، وتُطبق على أغلب السلع والخدمات. وبعض الخدمات والسلع تعامل بنسبة صفر أو تكون معفاة، فتأكد من وضع ما تشتريه."}}, {"@type": "Question", "name": "هل أستطيع تغيير النسبة في الحاسبة؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، النسبة الافتراضية 15% ويمكنك تغييرها في الخانة المخصصة إذا احتجت لحساب نسبة أخرى."}}, {"@type": "Question", "name": "هل الحاسبة بديل عن الفاتورة الرسمية؟", "acceptedAnswer": {"@type": "Answer", "text": "لا. هي أداة للتقدير السريع، والمرجع هو الفاتورة الضريبية ونظام الضريبة المنشور من هيئة الزكاة والضريبة والجمارك."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "كيف أحسب ضريبة القيمة المضافة 15% على سعر؟", "acceptedAnswer": {"@type": "Answer", "text": "اضرب السعر قبل الضريبة في 0.15 لتحصل على قيمة الضريبة، ثم اجمعها مع السعر. مثال: سعر 200 ريال، الضريبة 30 ريالاً، والإجمالي 230 ريالاً. أو اضرب السعر في 1.15 مباشرة."}}, {"@type": "Question", "name": "كيف أستخرج الضريبة من سعر شامل الضريبة؟", "acceptedAnswer": {"@type": "Answer", "text": "اقسم السعر الشامل على 1.15 لتحصل على السعر قبل الضريبة، والباقي هو الضريبة. مثال: سعر شامل 230 ريالاً، فالسعر قبل الضريبة 200 ريال والضريبة 30 ريالاً. لا تحسب 15% من السعر الشامل لأن هذا يعطي رقماً خاطئاً."}}, {"@type": "Question", "name": "ما نسبة ضريبة القيمة المضافة في السعودية؟", "acceptedAnswer": {"@type": "Answer", "text": "النسبة الأساسية 15%، بعد أن كانت 5% عند بدء التطبيق، وتُطبق على أغلب السلع والخدمات. وبعض السلع والخدمات تعامل بنسبة صفر أو تكون معفاة، فتأكد من وضع ما تشتريه."}}, {"@type": "Question", "name": "كم ضريبة 1000 ريال؟", "acceptedAnswer": {"@type": "Answer", "text": "إذا كان المبلغ 1000 ريال قبل الضريبة، فالضريبة 150 ريالاً والإجمالي 1150 ريالاً. وإذا كان 1000 ريال شاملاً للضريبة، فالسعر قبل الضريبة 869.57 ريالاً والضريبة 130.43 ريالاً."}}, {"@type": "Question", "name": "ما الفرق بين السعر الشامل وغير الشامل للضريبة؟", "acceptedAnswer": {"@type": "Answer", "text": "السعر غير الشامل هو السعر قبل إضافة الضريبة، والشامل هو السعر النهائي الذي تدفعه بعد إضافتها. افحص الفاتورة أو بطاقة السعر لتعرف أيهما المكتوب."}}, {"@type": "Question", "name": "هل ضريبة المشتريات من متاجر خارجية تُحسب بنفس الطريقة؟", "acceptedAnswer": {"@type": "Answer", "text": "الشحنات من الخارج لها حساب أوسع قد يشمل الرسوم الجمركية ورسوم المعالجة إضافة للضريبة، فاستخدم حاسبة الجمارك والضريبة للشحنات في موقعنا."}}, {"@type": "Question", "name": "هل أستطيع تغيير النسبة في الحاسبة؟", "acceptedAnswer": {"@type": "Answer", "text": "نعم، النسبة الافتراضية 15% ويمكنك تغييرها من خانة النسبة إذا احتجت لحساب نسبة أخرى."}}, {"@type": "Question", "name": "هل الحاسبة بديل عن الفاتورة الضريبية؟", "acceptedAnswer": {"@type": "Answer", "text": "لا. هي أداة للتقدير السريع، والمرجع هو الفاتورة الضريبية والنظام المنشور من هيئة الزكاة والضريبة والجمارك."}}]}</script>
 </head>
 <body>
 <header>
@@ -56,99 +67,125 @@ table.ex th{background:var(--gold)}
   <p class="crumbs"><a href="/">الرئيسية</a> › حاسبة ضريبة القيمة المضافة</p>
   <span class="tag">أداة مجانية</span>
   <h1>حاسبة ضريبة القيمة المضافة 15% في السعودية</h1>
-  <p class="meta">فريق <bdi>Wafferna</bdi> · <bdi>2 نوفمبر 2026</bdi></p>
-  <p class="lead">اكتب المبلغ، واختر هل تريد إضافة الضريبة على السعر أو استخراجها من سعر شامل الضريبة، وشوف النتيجة فوراً بالريال.</p>
+  <p class="lead">اكتب المبلغ، واختر إضافة الضريبة على السعر أو استخراجها من سعر شامل، وتظهر النتيجة فوراً. مجاناً وبدون تسجيل.</p>
 
   <section class="calc" aria-labelledby="ct">
-    <h2 id="ct" style="margin-top:0">احسب الضريبة</h2>
-    <fieldset style="border:0;padding:0;margin:0 0 12px">
-      <legend style="font-weight:700;font-size:15px;margin-bottom:6px">نوع الحساب</legend>
-      <label style="display:flex;gap:8px;align-items:center;font-weight:400;margin:6px 0"><input type="radio" name="mode" value="add" checked style="width:auto"> أضف الضريبة على السعر (السعر قبل الضريبة)</label>
-      <label style="display:flex;gap:8px;align-items:center;font-weight:400;margin:6px 0"><input type="radio" name="mode" value="extract" style="width:auto"> استخرج الضريبة من سعر شامل الضريبة</label>
-    </fieldset>
-    <div class="row">
-      <div>
-        <label for="amt" id="amtL">المبلغ قبل الضريبة (ريال)</label>
-        <input id="amt" type="number" inputmode="decimal" min="0" step="0.01" placeholder="مثال: 200">
-      </div>
-      <div>
-        <label for="rt">نسبة الضريبة (%)</label>
-        <input id="rt" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="15">
-      </div>
+    <h2 id="ct" style="margin-top:0;font-size:1.15rem">احسب الضريبة الآن</h2>
+    <div class="tabs" role="group" aria-label="نوع الحساب">
+      <button type="button" id="tAdd" aria-pressed="true">أضف الضريبة على السعر</button>
+      <button type="button" id="tEx" aria-pressed="false">استخرج الضريبة من سعر شامل</button>
     </div>
-    <p class="status" id="status" role="status" aria-live="polite">اكتب المبلغ لتظهر النتيجة.</p>
+    <label for="amt" id="amtL">المبلغ قبل الضريبة (ريال)</label>
+    <input id="amt" type="number" inputmode="decimal" min="0" step="0.01" placeholder="مثال: 200">
+    <div class="chips2" aria-label="مبالغ سريعة">
+      <button type="button" data-v="50">50</button><button type="button" data-v="100">100</button><button type="button" data-v="200">200</button><button type="button" data-v="500">500</button><button type="button" data-v="1000">1000</button><button type="button" data-v="5000">5000</button>
+    </div>
+    <p class="rate"><label for="rt" style="display:inline;font-weight:400">نسبة الضريبة %</label> <input id="rt" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="15"></p>
+    <p class="status" id="status" role="status" aria-live="polite">اكتب المبلغ أو اختر رقماً سريعاً.</p>
     <div class="res" id="res" hidden>
       <dl>
         <dt>السعر قبل الضريبة</dt><dd id="rNet"></dd>
         <dt id="rVatL">قيمة الضريبة</dt><dd id="rVat"></dd>
         <div class="total"><span>الإجمالي شامل الضريبة</span><span id="rTotal"></span></div>
       </dl>
+      <button type="button" class="copyb" id="copyB">نسخ النتيجة</button>
     </div>
   </section>
 
-  <div class="box note">الحاسبة للتقدير السريع، والمرجع هو الفاتورة الضريبية. بعض السلع والخدمات تعامل بنسبة صفر أو تكون معفاة، وبعض الأسعار تحتمل فروقاً بسبب التقريب.</div>
+  <div class="box note">الحاسبة للتقدير السريع، والمرجع هو الفاتورة الضريبية. بعض السلع والخدمات تعامل بنسبة صفر أو تكون معفاة، وقد تحتمل الأسعار فروقاً بسبب التقريب.</div>
 
-  <h2>القانون ببساطة</h2>
+  <h2>كيف أحسب ضريبة القيمة المضافة 15%؟</h2>
   <ul>
-    <li><b>إضافة الضريبة:</b> الإجمالي = السعر × 1.15، والضريبة = السعر × 0.15.</li>
+    <li><b>إضافة الضريبة على السعر:</b> الضريبة = السعر × 0.15، والإجمالي = السعر × 1.15.</li>
     <li><b>استخراج الضريبة من سعر شامل:</b> السعر قبل الضريبة = الإجمالي ÷ 1.15، والضريبة = الإجمالي − السعر قبل الضريبة.</li>
   </ul>
+  <p class="note">خطأ شائع: عند استخراج الضريبة من سعر شامل، لا تحسب 15% من الإجمالي. اقسم عليه 1.15، فمثلاً الضريبة الصحيحة في 230 ريالاً هي 30 ريالاً وليست 34.5.</p>
 
-  <h2>أمثلة سريعة</h2>
+  <h2>جدول الضريبة 15% على مبالغ شائعة (السعر غير شامل)</h2>
   <div class="tw"><table class="ex">
     <tr><th>السعر قبل الضريبة</th><th>الضريبة 15%</th><th>الإجمالي</th></tr>
-    <tr><td>100 ريال</td><td>15 ريال</td><td>115 ريال</td></tr>
-    <tr><td>200 ريال</td><td>30 ريال</td><td>230 ريال</td></tr>
-    <tr><td>500 ريال</td><td>75 ريال</td><td>575 ريال</td></tr>
-    <tr><td>1000 ريال</td><td>150 ريال</td><td>1150 ريال</td></tr>
+<tr><td>50 ريال</td><td>7.50 ريال</td><td>57.50 ريال</td></tr>
+<tr><td>100 ريال</td><td>15 ريال</td><td>115 ريال</td></tr>
+<tr><td>200 ريال</td><td>30 ريال</td><td>230 ريال</td></tr>
+<tr><td>500 ريال</td><td>75 ريال</td><td>575 ريال</td></tr>
+<tr><td>1,000 ريال</td><td>150 ريال</td><td>1,150 ريال</td></tr>
+<tr><td>2,000 ريال</td><td>300 ريال</td><td>2,300 ريال</td></tr>
+<tr><td>5,000 ريال</td><td>750 ريال</td><td>5,750 ريال</td></tr>
+<tr><td>10,000 ريال</td><td>1,500 ريال</td><td>11,500 ريال</td></tr>
+<tr><td>20,000 ريال</td><td>3,000 ريال</td><td>23,000 ريال</td></tr>
+<tr><td>50,000 ريال</td><td>7,500 ريال</td><td>57,500 ريال</td></tr>
   </table></div>
-  <p class="note">خطأ شائع: عند استخراج الضريبة من سعر شامل، لا تحسب 15% من الإجمالي. اقسم عليه 1.15 كما في القانون أعلاه، فمثلاً الضريبة الصحيحة في 230 ريالاً هي 30 ريالاً وليست 34.5.</p>
+
+  <h2>جدول استخراج الضريبة من سعر شامل</h2>
+  <div class="tw"><table class="ex">
+    <tr><th>السعر الشامل</th><th>السعر قبل الضريبة</th><th>الضريبة</th></tr>
+<tr><td>100 ريال</td><td>86.96 ريال</td><td>13.04 ريال</td></tr>
+<tr><td>200 ريال</td><td>173.91 ريال</td><td>26.09 ريال</td></tr>
+<tr><td>500 ريال</td><td>434.78 ريال</td><td>65.22 ريال</td></tr>
+<tr><td>1,000 ريال</td><td>869.57 ريال</td><td>130.43 ريال</td></tr>
+<tr><td>2,000 ريال</td><td>1,739.13 ريال</td><td>260.87 ريال</td></tr>
+<tr><td>5,000 ريال</td><td>4,347.83 ريال</td><td>652.17 ريال</td></tr>
+<tr><td>10,000 ريال</td><td>8,695.65 ريال</td><td>1,304.35 ريال</td></tr>
+<tr><td>20,000 ريال</td><td>17,391.30 ريال</td><td>2,608.70 ريال</td></tr>
+  </table></div>
 
   <h2>للتسوق من الخارج</h2>
-  <p>لو طلبك من متجر خارجي، فالحساب يشمل أيضاً الجمارك ورسوم المعالجة في بعض الحالات. استخدم <a href="customs-calculator.html">حاسبة الجمارك والضريبة للشحنات</a>، وتعلّم <a href="real-discount.html">كيف تعرف أن الخصم حقيقي</a>.</p>
+  <p>لو طلبك من متجر خارجي، فالحساب قد يشمل الجمارك ورسوم المعالجة مع الضريبة. استخدم <a href="customs-calculator.html">حاسبة الجمارك والضريبة للشحنات</a>، وتعلّم <a href="real-discount.html">كيف تعرف أن الخصم حقيقي</a>.</p>
 
   <section class="faq">
-  <h2 id="fq">أسئلة شائعة</h2>
+  <h2 id="fq">أسئلة شائعة عن ضريبة القيمة المضافة</h2>
   <h3>كيف أحسب ضريبة القيمة المضافة 15% على سعر؟</h3>
   <p>اضرب السعر قبل الضريبة في 0.15 لتحصل على قيمة الضريبة، ثم اجمعها مع السعر. مثال: سعر 200 ريال، الضريبة 30 ريالاً، والإجمالي 230 ريالاً. أو اضرب السعر في 1.15 مباشرة.</p>
   <h3>كيف أستخرج الضريبة من سعر شامل الضريبة؟</h3>
-  <p>اقسم السعر الشامل على 1.15 لتحصل على السعر قبل الضريبة، والباقي هو الضريبة. مثال: سعر شامل 230 ريالاً، فالسعر قبل الضريبة 200 ريال والضريبة 30 ريالاً. ولا تحسب 15% من السعر الشامل لأن هذا يعطي رقماً خاطئاً.</p>
+  <p>اقسم السعر الشامل على 1.15 لتحصل على السعر قبل الضريبة، والباقي هو الضريبة. مثال: سعر شامل 230 ريالاً، فالسعر قبل الضريبة 200 ريال والضريبة 30 ريالاً. لا تحسب 15% من السعر الشامل لأن هذا يعطي رقماً خاطئاً.</p>
   <h3>ما نسبة ضريبة القيمة المضافة في السعودية؟</h3>
-  <p>النسبة الأساسية 15% بعد أن كانت 5% عند بدء التطبيق، وتُطبق على أغلب السلع والخدمات. وبعض الخدمات والسلع تعامل بنسبة صفر أو تكون معفاة، فتأكد من وضع ما تشتريه.</p>
+  <p>النسبة الأساسية 15%، بعد أن كانت 5% عند بدء التطبيق، وتُطبق على أغلب السلع والخدمات. وبعض السلع والخدمات تعامل بنسبة صفر أو تكون معفاة، فتأكد من وضع ما تشتريه.</p>
+  <h3>كم ضريبة 1000 ريال؟</h3>
+  <p>إذا كان المبلغ 1000 ريال قبل الضريبة، فالضريبة 150 ريالاً والإجمالي 1150 ريالاً. وإذا كان 1000 ريال شاملاً للضريبة، فالسعر قبل الضريبة 869.57 ريالاً والضريبة 130.43 ريالاً.</p>
+  <h3>ما الفرق بين السعر الشامل وغير الشامل للضريبة؟</h3>
+  <p>السعر غير الشامل هو السعر قبل إضافة الضريبة، والشامل هو السعر النهائي الذي تدفعه بعد إضافتها. افحص الفاتورة أو بطاقة السعر لتعرف أيهما المكتوب.</p>
+  <h3>هل ضريبة المشتريات من متاجر خارجية تُحسب بنفس الطريقة؟</h3>
+  <p>الشحنات من الخارج لها حساب أوسع قد يشمل الرسوم الجمركية ورسوم المعالجة إضافة للضريبة، فاستخدم حاسبة الجمارك والضريبة للشحنات في موقعنا.</p>
   <h3>هل أستطيع تغيير النسبة في الحاسبة؟</h3>
-  <p>نعم، النسبة الافتراضية 15% ويمكنك تغييرها في الخانة المخصصة إذا احتجت لحساب نسبة أخرى.</p>
-  <h3>هل الحاسبة بديل عن الفاتورة الرسمية؟</h3>
-  <p>لا. هي أداة للتقدير السريع، والمرجع هو الفاتورة الضريبية ونظام الضريبة المنشور من هيئة الزكاة والضريبة والجمارك.</p>
+  <p>نعم، النسبة الافتراضية 15% ويمكنك تغييرها من خانة النسبة إذا احتجت لحساب نسبة أخرى.</p>
+  <h3>هل الحاسبة بديل عن الفاتورة الضريبية؟</h3>
+  <p>لا. هي أداة للتقدير السريع، والمرجع هو الفاتورة الضريبية والنظام المنشور من هيئة الزكاة والضريبة والجمارك.</p>
   </section>
 </main>
 
 <script>
 (function(){
   var $=function(i){return document.getElementById(i)};
-  var amt=$('amt'),rt=$('rt');
+  var amt=$('amt'),rt=$('rt'),mode='add',last='';
   function f(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+' ر.س'}
-  function mode(){return document.querySelector('input[name="mode"]:checked').value}
+  function setMode(m){mode=m;$('tAdd').setAttribute('aria-pressed',m==='add');$('tEx').setAttribute('aria-pressed',m==='ex');calc()}
   function calc(){
-    var m=mode(),a=parseFloat(amt.value),r=parseFloat(rt.value);
-    $('amtL').textContent=m==='add'?'المبلغ قبل الضريبة (ريال)':'المبلغ شامل الضريبة (ريال)';
-    if(!(a>0)){$('res').hidden=true;$('status').textContent='اكتب المبلغ لتظهر النتيجة.';return}
+    var a=parseFloat(amt.value),r=parseFloat(rt.value);
+    $('amtL').textContent=mode==='add'?'المبلغ قبل الضريبة (ريال)':'المبلغ شامل الضريبة (ريال)';
+    if(!(a>0)){$('res').hidden=true;$('status').textContent='اكتب المبلغ أو اختر رقماً سريعاً.';return}
     if(!(r>=0))r=0;
     var net,vat,tot;
-    if(m==='add'){net=a;vat=a*r/100;tot=net+vat}
-    else{tot=a;net=a/(1+r/100);vat=tot-net}
+    if(mode==='add'){net=a;vat=a*r/100;tot=net+vat}else{tot=a;net=a/(1+r/100);vat=tot-net}
     $('rNet').textContent=f(net);$('rVat').textContent=f(vat);$('rTotal').textContent=f(tot);
     $('rVatL').textContent='قيمة الضريبة ('+r+'%)';
-    $('res').hidden=false;
-    $('status').textContent='النتيجة تتحدث مباشرة عند تغيير الأرقام.';
+    last='السعر قبل الضريبة: '+f(net)+' | الضريبة ('+r+'%): '+f(vat)+' | الإجمالي: '+f(tot);
+    $('res').hidden=false;$('status').textContent='النتيجة تتحدث مباشرة عند تغيير الأرقام.';
   }
   ['input','change'].forEach(function(e){amt.addEventListener(e,calc);rt.addEventListener(e,calc)});
-  document.querySelectorAll('input[name="mode"]').forEach(function(x){x.addEventListener('change',calc)});
+  $('tAdd').addEventListener('click',function(){setMode('add')});
+  $('tEx').addEventListener('click',function(){setMode('ex')});
+  document.querySelectorAll('.chips2 button').forEach(function(b){b.addEventListener('click',function(){amt.value=b.getAttribute('data-v');calc()})});
+  $('copyB').addEventListener('click',function(){
+    var b=$('copyB');
+    function ok(){b.textContent='تم النسخ ✓';setTimeout(function(){b.textContent='نسخ النتيجة'},1800)}
+    try{navigator.clipboard.writeText(last).then(ok,function(){})}catch(e){}
+  });
 })();
 </script>
 <footer>
   <div class="wrap">
     <div class="note"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr" style="display:block">As an Amazon Associate I earn from qualifying purchases.</span></div>
-    <a href="/">الرئيسية</a><a href="tips.html">نصائح</a><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a>
+    <a href="/">الرئيسية</a><a href="tips.html">نصائح</a><a href="vat-calculator.html">حاسبة الضريبة</a><a href="about.html">من نحن</a><a href="privacy.html">سياسة الخصوصية</a>
     <div style="margin-top:8px">© <span id="y"></span> Wafferna</div>
   </div>
 </footer>

@@ -59,7 +59,7 @@ h2::after{content:"";display:block;width:52px;height:4px;border-radius:4px;backg
 .step .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;margin-bottom:8px}
 .step h3{font-size:18px}
 .step p{color:var(--muted);font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;min-height:520px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
 .card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#e4e0cf}
 .card .body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -228,7 +228,7 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
       <h2>فيديوهات قصيرة</h2>
       <p class="sub">نصائح سريعة بالفيديو من <a href="https://www.youtube.com/@wafferna" target="_blank" rel="noopener">قناتنا على يوتيوب</a>.</p>
       <div class="tips">
-        <a class="tip" href="customs-calculator.html#video"><img src="covers/video-1111-card.jpg" width="1200" height="630" alt="غلاف فيديو: طلبية 11.11 بـ230 ريال ودفعت 282، احسب الجمارك والضريبة" loading="lazy" decoding="async"><span class="tag">فيديو · دقيقة و14 ثانية</span><b>طلبية 11.11 بـ230 ريال… ودفعت 282! احسب الجمارك والضريبة</b><span>شاهد الفيديو مع حاسبة الجمارك.</span></a>
+        <a class="tip" href="customs-calculator.html#video"><img src="covers/video-1111-card-600.webp" srcset="covers/video-1111-card-600.webp 600w, covers/video-1111-card.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="غلاف فيديو: طلبية 11.11 بـ230 ريال ودفعت 282، احسب الجمارك والضريبة" loading="lazy" decoding="async"><span class="tag">فيديو · دقيقة و14 ثانية</span><b>طلبية 11.11 بـ230 ريال… ودفعت 282! احسب الجمارك والضريبة</b><span>شاهد الفيديو مع حاسبة الجمارك.</span></a>
         <a class="tip" href="shopping-mistakes.html#video"><img src="covers/video-cheap-product.jpg" width="1200" height="630" alt="غلاف فيديو: ليش المنتج الرخيص يكلّفك أكثر؟ مثال الطابعة" loading="lazy" decoding="async"><span class="tag">فيديو · 35 ثانية</span><b>ليش المنتج الرخيص يكلّفك أكثر؟ (مثال الطابعة)</b><span>شاهد الفيديو مع المقال المرتبط به.</span></a>
         <a class="tip" href="real-discount.html#video"><img src="covers/video-fake-friday.jpg" width="1200" height="630" alt="غلاف فيديو: خصم وهمي في الجمعة البيضاء؟ 3 خطوات تكشفه" loading="lazy" decoding="async"><span class="tag">فيديو · دقيقة و10 ثوانٍ</span><b>خصم وهمي في الجمعة البيضاء؟ 3 خطوات تكشفه</b><span>شاهد الفيديو مع المقال المرتبط به.</span></a>
       </div>
@@ -309,7 +309,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
   fetch('posts.json?v=' + Date.now())
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
     .then(function(list){
-      if(!Array.isArray(list) || !list.length){ empty.hidden = false; return; }
+      if(!Array.isArray(list) || !list.length){ grid.style.minHeight = '0'; empty.hidden = false; return; }
       list.slice(0, 24).forEach(function(p){
         var link = safeUrl(p.link);
         if(!link || !p.title) return;
@@ -341,7 +341,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
       });
       if(!grid.children.length) empty.hidden = false;
     })
-    .catch(function(){ empty.hidden = false; });
+    .catch(function(){ grid.style.minHeight = '0'; empty.hidden = false; });
 })();
 </script>
 </body>

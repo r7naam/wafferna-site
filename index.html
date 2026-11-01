@@ -90,6 +90,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
 .tip span:last-child{color:var(--muted);font-size:14px;line-height:1.7}
 .tip .tag{align-self:flex-start;font-size:12px;background:var(--gold);padding:1px 10px;border-radius:999px;font-weight:700;line-height:1.8}
 .more{margin-top:16px;text-align:center}
+.trk{margin-top:34px;text-align:center}.trk h3{font-size:21px;font-weight:800}.trk p{color:var(--muted);margin:6px 0 0}.trk .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
 
 .hero{padding:44px 0 30px;text-align:start}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
@@ -98,7 +99,7 @@ footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;a
 .hero p{margin:14px 0 24px;max-width:520px;font-size:18px}
 .btns{justify-content:flex-start}
 .hero-art{position:relative;width:100%;max-width:380px;margin-inline:auto}
-.hero-art svg{display:block;width:100%;height:auto}
+.hero-art svg,.hero-art img{display:block;width:100%;height:auto}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .chips a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
 .chips a:hover{border-color:var(--accent);color:var(--accent)}
@@ -148,18 +149,12 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
           <a href="real-discount.html"><i>%</i>هل الخصم حقيقي؟</a>
           <a href="safe-payment.html"><i>🔒</i>الدفع الآمن</a>
           <a href="customs-calculator.html"><i>🧮</i>حاسبة الجمارك والضريبة</a>
+          <a href="shipment-tracking.html"><i>📦</i>تتبع شحنتك</a>
           <a href="https://t.me/Wafferna" target="_blank" rel="noopener"><i>✈</i>قناة تيليجرام</a>
         </nav>
       </div>
       <div class="hero-art" aria-hidden="false">
-        <svg viewBox="0 0 380 340" role="img" aria-label="رسم يوضح درع حماية وبطاقة خصم وكيس تسوق" width="380" height="340">
-        <circle cx="190" cy="170" r="150" fill="#bd5d3a" opacity=".12"/><circle cx="270" cy="250" r="90" fill="#e8b931" opacity=".28"/>
-        <path d="M190 30 L318 76 V176 C318 248 262 298 190 326 C118 298 62 248 62 176 V76 Z" fill="#3d3929"/>
-        <path d="M190 54 L296 90 V176 C296 236 250 278 190 302 C130 278 84 236 84 176 V90 Z" fill="#bd5d3a"/>
-        <path d="M140 178 L178 216 L248 134" fill="none" stroke="#eeece2" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-        <g transform="translate(248 258) rotate(10)"><rect width="104" height="74" rx="13" fill="#e8b931"/><circle cy="37" r="10" fill="#eeece2"/><circle cx="104" cy="37" r="10" fill="#eeece2"/><text x="52" y="48" text-anchor="middle" font-size="30" font-weight="800" fill="#3d3929" font-family="Tajawal,sans-serif">%</text></g>
-        <g transform="translate(40 232) rotate(-8)"><rect width="96" height="70" rx="12" fill="#f8f6ee" stroke="#3d3929" stroke-width="5"/><text x="48" y="45" text-anchor="middle" font-size="26" font-weight="800" fill="#bd5d3a" font-family="Tajawal,sans-serif">-50%</text></g>
-      </svg>
+        <img src="covers/hero-bag-640.webp" srcset="covers/hero-bag-640.webp 640w, covers/hero-bag-1000.webp 1000w" sizes="(max-width:760px) 250px, 380px" width="640" height="640" alt="كيس تسوق وسهم أصفر ينزل مع سعر 200 مشطوب و149 يرمز إلى انخفاض الأسعار" fetchpriority="high" decoding="async">
       </div>
     </div>
   </div>
@@ -196,8 +191,23 @@ section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
         <a class="tip" href="shopping-mistakes.html"><img src="covers/shopping-mistakes-600.webp" srcset="covers/shopping-mistakes-600.webp 600w, covers/shopping-mistakes.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="عربة تسوق عليها علامة تحذير ترمز لأخطاء التسوق أونلاين" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية، وكيف تتجنبها.</span></a>
         <a class="tip" href="fake-reviews.html"><img src="covers/fake-reviews-600.webp" srcset="covers/fake-reviews-600.webp 600w, covers/fake-reviews.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="نجوم تقييم مع عدسة مكبرة وعلامة خطأ لكشف التقييمات المزيفة" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>كيف تقرأ تقييمات المنتجات وتكشف التقييمات المزيفة</b><span>علامات التقييمات المزيفة وطريقة ذكية لقراءة آراء المشترين قبل الشراء.</span></a>
         <a class="tip" href="safe-payment.html"><img src="covers/safe-payment-600.webp" srcset="covers/safe-payment-600.webp 600w, covers/safe-payment.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="بطاقة دفع عليها قفل ترمز للدفع الآمن عبر الإنترنت" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>الدفع الآمن: كيف تحمي بطاقتك عند الشراء أونلاين</b><span>عادات بسيطة تحمي بطاقتك وحسابك البنكي أثناء التسوق عبر الإنترنت.</span></a>
+        <a class="tip" href="shipment-tracking.html"><img src="covers/shipment-tracking-600.webp" srcset="covers/shipment-tracking-600.webp 600w, covers/shipment-tracking.jpg 1200w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="صندوق شحنة وخط تقدم من تم الشحن إلى الجمارك إلى التسليم" loading="lazy" decoding="async"><span class="tag">شحن</span><b>تتبع شحنة علي اكسبرس وشي إن وتيمو في السعودية</b><span>تتبع طلباتك وشركات التوصيل، وماذا تفعل لو تأخرت.</span></a>
       </div>
       <div class="more"><a class="btn ghost" href="tips.html">كل النصائح</a></div>
+      <div class="trk" id="tracking">
+        <h3>تتبّع شحنتك من علي اكسبرس وشي إن وتيمو</h3>
+        <p>اختر شركة التوصيل التي وصلتك رسالتها، أو اقرأ <a href="shipment-tracking.html">دليل تتبع الشحنات من الصين إلى السعودية</a>.</p>
+        <nav class="chips" aria-label="تتبع الشحنات">
+          <a href="https://www.aramex.com/sa/ar/track/shipment-details" target="_blank" rel="noopener noreferrer">أرامكس</a>
+          <a href="https://www.smsaexpress.com/sa/ar" target="_blank" rel="noopener noreferrer">سمسا</a>
+          <a href="https://www.jtexpress.me/KSA" target="_blank" rel="noopener noreferrer">J&amp;T</a>
+          <a href="https://naqelexpress.com" target="_blank" rel="noopener noreferrer">ناقل</a>
+          <a href="https://aj-ex.com" target="_blank" rel="noopener noreferrer">أجيكس</a>
+          <a href="https://www.imile.com/SA-ar/track" target="_blank" rel="noopener noreferrer">iMile</a>
+          <a href="https://splonline.com.sa/ar/" target="_blank" rel="noopener noreferrer">البريد السعودي</a>
+          <a href="customs-calculator.html"><i>🧮</i>حاسبة الجمارك والضريبة</a>
+        </nav>
+      </div>
     </div>
   </section>
 

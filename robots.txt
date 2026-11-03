@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wafferna.qd.je/sitemap.xml
+Sitemap: https://wafferna.com/sitemap.xml

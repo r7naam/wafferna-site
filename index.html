@@ -207,10 +207,10 @@ html.lock{overflow:hidden}
 .grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 @media(max-width:640px){.grid{grid-template-columns:1fr}}
 .card{background:#e4e1d3;border:1px solid var(--line);border-radius:20px;overflow:visible}
-.card .ch{display:flex;gap:14px;align-items:center;padding:16px 16px 14px}
-.card .ch img{width:92px;height:92px;aspect-ratio:auto;border-radius:14px;flex:none;object-fit:cover;background:#d9d5c4}
-.card .ch h3{font-size:17px;font-weight:800;line-height:1.6}
-.card .ch .tag{margin-bottom:4px;display:inline-block}
+.card .pimg{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:19px 19px 0 0;background:#d9d5c4}
+.card .ch{padding:14px 16px 12px}
+.card .ch h3{font-size:17px;font-weight:800;line-height:1.6;margin-top:6px}
+.card .ch .tag{display:inline-block}
 .card .cbox{background:#f6f4ec;border:1px solid var(--line);border-radius:16px;margin:0 10px 10px;padding:18px 16px 16px;text-align:center;box-shadow:0 8px 20px -12px rgba(61,57,41,.35)}
 .card .cbox .price{justify-content:center;margin:0 0 4px}.card .cbox .price b{font-size:30px;line-height:1.3}.card .cbox .price s{font-size:16px}
 .card .cbox .off{display:inline-block;font-size:13px;font-weight:800;background:rgba(189,93,58,.12);color:var(--accent-d);padding:0 10px;border-radius:999px;margin-bottom:12px}
@@ -418,18 +418,17 @@ document.getElementById('y').textContent = new Date().getFullYear();
         var card = el('article','card');
         var img = safeUrl(p.image) || (typeof p.image === 'string' && p.image.charAt(0) === '/' && p.image.charAt(1) !== '/' ? p.image : '');
         var page = (typeof p.page === 'string' && p.page.charAt(0) === '/' && p.page.charAt(1) !== '/') ? p.page : '';
-        var ch = el('div','ch');
         if(img){
           var im = document.createElement('img');
-          im.src = img; im.alt = p.title; im.loading = 'lazy'; im.width = 92; im.height = 92;
-          if(page){ var ia = document.createElement('a'); ia.href = page; ia.tabIndex = -1; ia.setAttribute('aria-hidden','true'); ia.appendChild(im); ch.appendChild(ia); }
-          else ch.appendChild(im);
+          im.src = img; im.alt = p.title; im.loading = 'lazy'; im.width = 600; im.height = 600; im.className = 'pimg';
+          if(page){ var ia = document.createElement('a'); ia.href = page; ia.tabIndex = -1; ia.setAttribute('aria-hidden','true'); ia.appendChild(im); card.appendChild(ia); }
+          else card.appendChild(im);
         }
-        var tx = el('div');
-        if(p.store) tx.appendChild(el('span','tag', p.store));
+        var ch = el('div','ch');
+        if(p.store) ch.appendChild(el('span','tag', p.store));
         var h3 = el('h3', null, p.title);
         if(page){ h3 = el('h3'); var ta = el('a', null, p.title); ta.href = page; ta.style.color = 'inherit'; ta.style.textDecoration = 'none'; h3.appendChild(ta); }
-        tx.appendChild(h3); ch.appendChild(tx); card.appendChild(ch);
+        ch.appendChild(h3); card.appendChild(ch);
         var box = el('div','cbox');
         if(p.price){
           var pr = el('div','price');

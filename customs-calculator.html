@@ -21,6 +21,7 @@
 .calc .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:560px){.calc .row{grid-template-columns:1fr}}
 .calc label{display:block;font-weight:700;font-size:15px;margin-bottom:4px}
+.calc select{width:100%;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);margin-bottom:12px}
 .calc input{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);direction:ltr;text-align:right}
 .calc input:focus{outline:3px solid var(--gold);border-color:var(--accent)}
 .calc .hint{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.6}
@@ -74,9 +75,21 @@ table.ex th{background:var(--gold)}
       </div>
     </div>
     <div id="dutyWrap">
-      <label for="rate">نسبة الرسم الجمركي لمنتجك (%)</label>
+      <label for="cat">نوع المنتج</label>
+      <select id="cat">
+        <option value="0">جوال</option>
+        <option value="0">كمبيوتر محمول</option>
+        <option value="0">كمبيوتر لوحي (تابلت)</option>
+        <option value="0">ساعة ذكية</option>
+        <option value="5">ساعات أخرى</option>
+        <option value="5">حقائب</option>
+        <option value="5">ملابس</option>
+        <option value="5">أمتعة شخصية وهدايا</option>
+        <option value="custom" selected>صنف آخر (أدخل النسبة)</option>
+      </select>
+      <label for="rate">نسبة الرسم الجمركي (%)</label>
       <input id="rate" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="5">
-      <p class="hint">طلبك تجاوز 1000 ريال، والرسم الجمركي يختلف حسب نوع المنتج. القيمة 5% افتراضية للتجربة فقط، عدّلها بحسب تصنيف منتجك.</p>
+      <p class="hint">طلبك بلغ 1000 ريال أو أكثر، فيُحسب الرسم الجمركي حسب نوع المنتج. نسب الأنواع في القائمة مطابقة لنتائج <a href="https://eservices.zatca.gov.sa/sites/sc/ar/Calculator/Pages/CalculatorPages/calculatorPage.aspx" target="_blank" rel="noopener">حاسبة هيئة الزكاة والضريبة والجمارك</a> بتاريخ 3 نوفمبر 2026. للأحذية والمجوهرات وغيرها اختر "صنف آخر" وراجع الحاسبة الرسمية.</p>
     </div>
     <p class="status" id="status" role="status" aria-live="polite">اكتب السعر لتظهر النتيجة.</p>
     <div class="res" id="res" hidden>
@@ -85,12 +98,16 @@ table.ex th{background:var(--gold)}
         <dt>الرسم الجمركي</dt><dd id="rDuty"></dd>
         <dt>رسوم المعالجة</dt><dd id="rFee"></dd>
         <dt>ضريبة القيمة المضافة 15%</dt><dd id="rVat"></dd>
+        <dt>مجموع الرسوم والضرائب (بدون سعر المنتج)</dt><dd id="rFees"></dd>
         <div class="total"><span>الإجمالي التقريبي</span><span id="rTotal"></span></div>
       </dl>
       <p class="hint" id="rExtra"></p>
     </div>
   </section>
 
+  <div class="box note" id="limit999">
+    <b>مهم عن حد 1000 ريال:</b> إذا كان طلبك مع الشحن أقل من 1000 ريال، فالرسم الجمركي يساوي <b>0</b>، لكن <b>ضريبة القيمة المضافة 15% تبقى تُحسب</b> مع رسوم الخدمات الجمركية. مثال: طلب بـ<b>999 ريال</b> = رسم جمركي 0، ورسوم خدمات 15، وضريبة 152.10، فيصير الإجمالي <b>1,166.10 ريال</b>. وإذا بلغ الطلب 1000 ريال أو أكثر يُضاف الرسم الجمركي حسب نوع المنتج.
+  </div>
   <p class="note">تريد فهم الحساب خطوة بخطوة؟ اقرأ <a href="aliexpress-customs-guide.html">طريقة حساب الجمارك وضريبة الشراء من علي اكسبرس</a>. وللضريبة فقط على سعر محلي؟ جرّب <a href="vat-calculator.html">حاسبة ضريبة القيمة المضافة 15%</a>.</p>
   <div class="box note">الحاسبة تقدير مبني على القواعد المنشورة، وليست إقراراً جمركياً رسمياً. بعض المتاجر وشركات الشحن تحصّل الضريبة وقت الدفع، فتأكد من صفحة الدفع حتى لا تحسبها مرتين.</div>
 
@@ -165,6 +182,8 @@ table.ex th{background:var(--gold)}
     <a class="tip" href="shopping-mistakes.html"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية.</span></a>
     <a class="tip" href="fake-stores.html"><span class="tag">أمان</span><b>كيف تعرف المتجر الحقيقي من المزيّف</b><span>علامات تكشف المتاجر الوهمية قبل ما تدفع.</span></a>
   </div>
+  <p class="note"><b>مصدر رسمي:</b> للتحقق الرسمي من الرسوم، استخدم أيضاً <a href="https://eservices.zatca.gov.sa/sites/sc/ar/Calculator/Pages/CalculatorPages/calculatorPage.aspx" target="_blank" rel="noopener">حاسبة الرسوم الجمركية والضرائب</a> من هيئة الزكاة والضريبة والجمارك.</p>
+
 </main>
 
 <footer>
@@ -178,7 +197,7 @@ table.ex th{background:var(--gold)}
 <script>
 (function(){
   var $=function(i){return document.getElementById(i)};
-  var price=$('price'),ship=$('ship'),rate=$('rate');
+  var price=$('price'),ship=$('ship'),rate=$('rate'),cat=$('cat');
   function f(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+' ر.س'}
   function calc(){
     var p=parseFloat(price.value),s=parseFloat(ship.value);
@@ -194,14 +213,16 @@ table.ex th{background:var(--gold)}
       extra='تجاوز الطلب 1000 ريال، فحُسب الرسم الجمركي بنسبة '+r+'%. تأكد من نسبة منتجك الفعلية.';
     }else{
       fee=15;
-      extra='طلبك أقل من 1000 ريال، فلا رسوم جمركية عليه حسب توضيح الهيئة.';
+      extra='طلبك أقل من 1000 ريال، فالرسم الجمركي = 0، لكن تُضاف رسوم الخدمات الجمركية (15 ريال) وتُحسب ضريبة القيمة المضافة 15%.';
     }
     var vat=0.15*(base+duty+fee),total=base+duty+fee+vat;
-    $('rBase').textContent=f(base);$('rDuty').textContent=f(duty);$('rFee').textContent=f(fee);$('rVat').textContent=f(vat);$('rTotal').textContent=f(total);
+    $('rBase').textContent=f(base);$('rDuty').textContent=f(duty);$('rFee').textContent=f(fee);$('rVat').textContent=f(vat);$('rTotal').textContent=f(total);$('rFees').textContent=f(duty+fee+vat);
     $('rExtra').textContent=extra;
     $('res').hidden=false;
     $('status').textContent='النتيجة تقريبية وتتحدث مباشرة عند تغيير الأرقام.';
   }
+  cat.addEventListener('change',function(){if(cat.value!=='custom')rate.value=cat.value;calc()});
+  rate.addEventListener('input',function(){if(cat.value!=='custom'&&rate.value!==cat.value)cat.value='custom'});
   ['input','change'].forEach(function(e){price.addEventListener(e,calc);ship.addEventListener(e,calc);rate.addEventListener(e,calc)});
 })();
 </script>

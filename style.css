@@ -53,11 +53,11 @@ nav{white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;paddin
 
 
 .site-header{position:sticky;top:0;z-index:30;background:var(--ink);border-bottom:0;backdrop-filter:none;color:var(--bg)}
-.site-header .sh{display:grid;grid-template-columns:56px 1fr 56px;align-items:center;height:64px}
+.site-header .sh{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;height:64px}
 .sh-btn{all:unset;box-sizing:border-box;width:48px;height:48px;display:grid;place-items:center;cursor:pointer;border-radius:12px;color:var(--bg)}
 .sh-btn:hover,.sh-btn:focus-visible{background:rgba(238,236,226,.12)}.sh-btn:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .sh-btn i{display:block;width:26px;height:18px;background:linear-gradient(var(--bg),var(--bg)) 0 0/26px 3px no-repeat,linear-gradient(var(--bg),var(--bg)) 0 50%/18px 3px no-repeat,linear-gradient(var(--bg),var(--bg)) 0 100%/26px 3px no-repeat;background-position:100% 0,100% 50%,100% 100%}
-.sh-logo{justify-self:center;display:flex;align-items:center;gap:10px;line-height:0;min-height:48px;padding:0 6px}
+.sh-logo{justify-self:center;display:flex;align-items:center;gap:8px;line-height:0;min-height:48px;padding:0}@media(max-width:340px){.sh-logo img:last-child{width:140px;height:auto}}
 .mk{height:30px;width:auto}.dr-lg{display:flex;align-items:center;gap:10px;line-height:0}.dr-lg .mk{height:34px}
 .sh-logo img{height:30px;width:auto;display:block}
 .sh-tg{justify-self:end;width:48px;height:48px;display:grid;place-items:center;color:var(--bg);border-radius:12px;text-decoration:none}
@@ -85,7 +85,7 @@ html.lock{overflow:hidden}
 .bdg{font-size:12px;font-weight:800;line-height:1.7;padding:0 10px;border-radius:999px;background:rgba(238,236,226,.1);flex:none;margin-inline-start:auto;margin-inline-end:4px}
 .bdg.n{color:#4be08b}.bdg.b{color:var(--gold)}.bdg.v{color:#ff9d7a}
 .dr-soc{margin-top:26px}
-.dr-soc h2{font-size:15px;font-weight:700;color:#bdb8a4;margin:0 0 12px}.dr-soc h2::after{display:none}
+.dr-soc .dr-t{font-size:15px;font-weight:700;color:#bdb8a4;margin:0 0 12px}
 .dr-soc .row{display:flex;flex-wrap:wrap;gap:10px}
 .dr-soc a{width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(238,236,226,.22);border-radius:50%;color:var(--bg);text-decoration:none;transition:.15s}
 .dr-soc a:hover,.dr-soc a:focus-visible{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}.dr-soc a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}

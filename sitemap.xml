@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wafferna.com/</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://wafferna.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/privacy.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/fake-stores.html</loc>
@@ -24,8 +24,10 @@
   <url><loc>https://wafferna.com/vat-calculator.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://wafferna.com/amazon-picks.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://wafferna.com/shipment-tracking.html</loc><lastmod>2026-11-01</lastmod></url>
- <url><loc>https://wafferna.com/white-friday-11-11-2026.html</loc><lastmod>2026-11-01</lastmod></url>
+ <url><loc>https://wafferna.com/white-friday-11-11-2026.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://wafferna.com/videos.html</loc></url>
+  <url><loc>https://wafferna.com/discount-calculator.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://wafferna.com/white-friday-2026-plan.html</loc><lastmod>2026-11-03</lastmod></url>
 <!-- OFFERS:START -->
   <url><loc>https://wafferna.com/offers/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://wafferna.com/offers/under-100.html</loc><lastmod>2026-11-04</lastmod></url>

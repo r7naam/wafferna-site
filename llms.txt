@@ -5,6 +5,7 @@
 ## الأدوات
 - [حاسبة الجمارك والضريبة للشحنات](https://wafferna.com/customs-calculator.html): تقدير تكلفة الطلبات من المتاجر الخارجية بعد الضريبة والجمارك ورسوم المعالجة.
 - [حاسبة ضريبة القيمة المضافة 15%](https://wafferna.com/vat-calculator.html): إضافة الضريبة على السعر أو استخراجها من سعر شامل.
+- [حاسبة الخصم الحقيقي](https://wafferna.com/discount-calculator.html): تحسب الخصم الفعلي بعد الشحن والضريبة وتقارنه بالخصم المعلن.
 - [تتبع الشحنات](https://wafferna.com/shipment-tracking.html): طريقة تتبع الشحنات من شركات الشحن المختلفة.
 
 ## نصائح التسوق
@@ -19,6 +20,7 @@
 - [أخطاء شائعة في التسوق](https://wafferna.com/shopping-mistakes.html)
 - [مواسم التخفيضات في السعودية](https://wafferna.com/sale-seasons.html)
 - [11.11 والجمعة البيضاء 2026](https://wafferna.com/white-friday-11-11-2026.html)
+- [خطة الجمعة البيضاء 2026 بالأسابيع](https://wafferna.com/white-friday-2026-plan.html)
 
 ## منتجات
 - [أفضل منتجات أمازون السعودية](https://wafferna.com/amazon-picks.html): اختيارات مع إرشادات الشراء، بدون أسعار لأنها تتغير.

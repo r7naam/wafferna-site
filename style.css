@@ -97,3 +97,9 @@ html.lock{overflow:hidden}
 .totop:hover,.totop:focus-visible{background:var(--accent);color:#fff}.totop:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .totop svg{width:24px;height:24px;fill:currentColor}
 @media(prefers-reduced-motion:reduce){.drawer,.dr-ov,.totop{transition:none}}
+.rel-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:12px 0 0}
+.rel-list a{display:flex;align-items:center;gap:14px;min-height:64px;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);font-weight:700;line-height:1.5}
+.rel-list a:hover,.rel-list a:focus-visible{border-color:var(--accent)}
+.rel-list img{width:64px;height:64px;object-fit:cover;border-radius:10px;flex-shrink:0;background:#e2dccb}
+.rel-list span{flex:1}
+.rel-list a::after{content:"\2190";color:var(--accent-d);font-size:20px;padding-inline:6px}

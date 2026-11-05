@@ -37,7 +37,7 @@ p{margin-top:8px}
 .tip span:last-child{color:var(--muted);font-size:14px;line-height:1.7}
 .tip .tag{align-self:flex-start}
 footer{border-top:1px solid var(--line);padding:22px 0 36px;color:var(--muted);font-size:14px;margin-top:30px}
-footer a{margin-inline-end:14px}
+footer a{display:inline-block;padding:12px 0;margin-inline-end:16px}
 nav{white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#8f4326}
 @media(max-width:560px){nav a:not(:first-child):not(.navvid){display:none}}
 

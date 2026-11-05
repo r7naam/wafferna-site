@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wafferna.com/</loc><lastmod>2026-10-31</lastmod></url>
-  <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://wafferna.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/privacy.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/fake-stores.html</loc>
@@ -28,11 +28,13 @@
   <url><loc>https://wafferna.com/videos.html</loc></url>
   <url><loc>https://wafferna.com/discount-calculator.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://wafferna.com/white-friday-2026-plan.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://wafferna.com/noon-amazon-aliexpress-comparison.html</loc><lastmod>2026-11-05</lastmod></url>
 <!-- OFFERS:START -->
   <url><loc>https://wafferna.com/offers/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://wafferna.com/offers/under-100.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://wafferna.com/offers/under-50.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://wafferna.com/offers/big-discounts.html</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://wafferna.com/offers/offer-1005006995392123.html</loc><lastmod>2026-11-05</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005006995392123.jpg</image:loc></image:image></url>
   <url><loc>https://wafferna.com/offers/offer-1005008226452050.html</loc><lastmod>2026-11-05</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005008226452050.jpg</image:loc></image:image></url>
   <url><loc>https://wafferna.com/offers/offer-1005002897759669.html</loc><lastmod>2026-11-05</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005002897759669.jpg</image:loc></image:image></url>
   <url><loc>https://wafferna.com/offers/offer-1005005275921021.html</loc><lastmod>2026-11-04</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005005275921021.jpg</image:loc></image:image></url>

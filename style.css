@@ -52,7 +52,7 @@ nav{white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;paddin
 @media(max-width:560px){.word{font-size:20px}.brand img{height:32px}nav a{margin-inline-start:8px;font-size:14px}nav a.navvid{padding:3px 10px}}
 
 
-.site-header{position:sticky;top:0;z-index:30;background:#D9EEF2;border-bottom:1px solid #c3dde3;backdrop-filter:none;color:var(--ink)}
+.site-header{position:sticky;top:0;z-index:30;background:#e9dcc0;border-bottom:1px solid #e1ddd0;backdrop-filter:none;color:var(--ink)}
 .site-header .sh{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;height:64px}
 .sh-btn{all:unset;box-sizing:border-box;width:48px;height:48px;display:grid;place-items:center;cursor:pointer;border-radius:12px;color:var(--ink)}
 .sh-btn:hover,.sh-btn:focus-visible{background:rgba(61,57,41,.10)}.sh-btn:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}

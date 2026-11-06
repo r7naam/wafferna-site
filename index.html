@@ -62,323 +62,191 @@
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:optional;src:url('fonts/tajawal-500.woff') format('woff')}
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:optional;src:url('fonts/tajawal-700.woff') format('woff')}
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:optional;src:url('fonts/tajawal-800.woff') format('woff')}
-:root{
-  --bg:#eeece2; --ink:#3d3929; --accent:#bd5d3a; --accent-d:#a8502d; --gold:#e8b931;
-  --card:#f8f6ee; --line:#d9d5c4; --muted:#6f6a57;
-}
+:root{--rust:#a8502d;--rust-l:#bd5d3a;--ink:#302f28;--bg:#eeece2;--card:#fff;--gold:#e9b94b;--line:#e1ddd0;--muted:#5a5748;--sky:#e9dcc0;--accent-d:#a8502d}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:17px}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-header{position:sticky;top:0;z-index:10;background:rgba(238,236,226,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand img{height:38px;width:auto;display:block}
-.word{font-family:'Tajawal',sans-serif;font-weight:800;font-size:24px;letter-spacing:.2px;direction:ltr;color:var(--ink)}
-.word b{color:var(--accent)}
-header nav a{margin-inline-start:18px;text-decoration:none;font-weight:500;font-size:15px}
-header nav a:hover{color:var(--accent)}
-header nav{display:flex;align-items:center;white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;padding:4px 14px;border-radius:999px;font-weight:700;white-space:nowrap}nav a.navvid:hover{color:#fff;background:#a14c2e}
-.hero{padding:56px 0 40px;text-align:center}
-.hero h1{font-size:clamp(30px,6vw,52px);font-weight:800;line-height:1.35}
-.hero h1 span{color:var(--accent)}
-.hero p{max-width:560px;margin:14px auto 26px;color:var(--muted)}
-.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:.15s}
-.btn.primary{background:var(--accent-d);border-color:var(--accent-d);color:#fff}
-.btn.primary:hover{filter:brightness(1.08)}
-.btn.ghost:hover{background:var(--ink);color:var(--bg)}
-section{padding:40px 0}
-h2{font-size:26px;font-weight:800;margin-bottom:6px}
-h2::after{content:"";display:block;width:52px;height:4px;border-radius:4px;background:var(--gold);margin-top:8px}
-.sub{color:var(--muted);margin:10px 0 22px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
-.step .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;margin-bottom:8px}
-.step h3{font-size:18px}
-.step p{color:var(--muted);font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;min-height:520px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#e4e0cf}
-.card .body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card h3{font-size:15px;font-weight:700;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.price{display:flex;align-items:baseline;gap:8px;margin-top:auto}
-.price b{font-size:20px;color:var(--accent)}
-.price s{color:var(--muted);font-size:14px}
-.tag{font-size:12px;background:var(--gold);color:var(--ink);padding:2px 10px;border-radius:999px;align-self:flex-start;font-weight:700}
-.card .btn{text-align:center;padding:10px;font-size:15px}
-.empty{background:var(--card);border:2px dashed var(--line);border-radius:18px;padding:34px 20px;text-align:center;color:var(--muted)}
-.cta{background:var(--ink);color:var(--bg);border-radius:24px;padding:34px 22px;text-align:center}
-.cta h2{color:var(--bg)}
-.cta h2::after{margin-inline:auto}
-.cta p{margin:12px auto 20px;max-width:520px;opacity:.85}
-.cta .btn{border-color:var(--bg);color:var(--bg)}
-.cta .btn.primary{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-.social{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.social{gap:12px}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}
+.skip:focus{top:12px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+.top{background:var(--ink);color:#fff;text-align:center;padding:8px 12px;font-size:14px}
+.top b{color:#f5c762}
+.header{background:var(--sky);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.head{display:flex;align-items:center;gap:22px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:26px;direction:ltr;white-space:nowrap}
+.brand img{height:40px;width:auto;display:block}
+.brand b{color:var(--rust)}
+.search{flex:1;display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.search input{border:0;outline:0;background:transparent;padding:13px 16px;flex:1;min-width:0;font:inherit;color:var(--ink)}
+.search input:focus-visible{outline:0}
+.search:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+.nav{background:#fff;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;padding:12px 22px;font-size:15px;font-weight:700;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav a{padding:6px 0;border-bottom:3px solid transparent}
+.nav a:hover,.nav a.on{color:var(--rust);border-color:var(--rust)}
+.hero{display:grid;grid-template-columns:1.7fr 1fr;gap:18px;margin-top:26px}
+.hero-main{border-radius:20px;padding:34px;background:linear-gradient(115deg,#e8dfcd,#f6efe2);min-height:270px}
+.eyebrow{display:inline-block;background:#fff4d7;color:#6c4a0f;padding:6px 14px;border-radius:30px;font-size:14px;font-weight:700}
+.hero h1{font-size:40px;line-height:1.3;margin:16px 0 10px;font-weight:800}
+.hero h1 span{color:var(--rust)}
+.hero-main p{color:var(--muted);font-size:17px;max-width:520px}
+.btn{display:inline-block;background:var(--rust);color:#fff;font-weight:800;border-radius:12px;padding:13px 26px;margin-top:16px;min-height:44px}
+.btn:hover{background:#8f4121}
+.side{display:grid;gap:18px}
+.side-card{border-radius:18px;background:#332f29;color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:center}
+.side-card:nth-child(2){background:var(--gold);color:#2b2215}
+.side-card h2{font-size:20px;margin-bottom:6px}
+.side-card p{font-size:15px;line-height:1.8}
+.side-card:hover{filter:brightness(1.06)}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.tool{background:var(--card);border:1px solid var(--line);padding:16px;border-radius:14px;font-size:15px;display:block}
+.tool b{display:block;font-size:17px}
+.tool span{color:var(--muted);font-size:14px}
+.tool:hover{border-color:var(--rust)}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+.sidebar,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.sidebar h2{font-size:17px;margin-bottom:6px}
+.side-link{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f0ede4;font-size:15px;font-weight:500}
+.side-link:last-of-type{border:0}
+.side-link span{color:var(--rust)}
+.side-link:hover{color:var(--rust)}
+.sidebar hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.sidebar p{font-size:14px;color:var(--muted);line-height:1.9}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px}
+.section-head h2{font-size:26px;font-weight:800}
+.section-head p{color:var(--muted);font-size:15px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:#fff;padding:9px 16px;border-radius:10px;font-size:15px;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab:hover:not(.on){border-color:var(--rust);color:var(--rust)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.deal{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.deal:hover{box-shadow:0 12px 30px #302f2814}
+.deal-img{display:block;aspect-ratio:1/1;background:#f1efe7;position:relative}
+.deal-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pill{position:absolute;inset-inline-start:12px;top:12px;background:var(--rust);color:#fff;padding:3px 12px;border-radius:999px;font-size:15px;font-weight:800}
+.deal-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.merchant{color:var(--muted);font-size:14px;font-weight:700}
+.deal h3{font-size:17px;line-height:1.6;min-height:55px;font-weight:700}
+.price{font-weight:800;color:var(--rust);font-size:24px}
+.pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}.old{color:var(--muted);font-size:15px;white-space:nowrap}
+.obtn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:15px;letter-spacing:.2px;white-space:nowrap;box-shadow:0 3px 8px rgba(61,57,41,.18);color:#fff;background:#DC2A00}
+.obtn svg{flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.obtn.st-aliexpress{background:#DC2A00;color:#fff}.obtn.st-amazon{background:#131921;color:#fff}.obtn.st-noon{background:#FEEE00;color:#20201f}.obtn.st-other{background:var(--rust);color:#fff}
+.obtn:hover{filter:brightness(1.1)}
+.go{display:inline-block;align-self:center;color:var(--rust);font-size:14px;font-weight:700;padding:8px 6px;text-decoration:underline;text-underline-offset:3px;min-height:36px}
+.go:hover{color:#8f4121}
+.empty{padding:40px;text-align:center;background:#fff;border-radius:12px;color:var(--muted);grid-column:1/-1}
+.more{text-align:center;margin-top:18px}
+.more a{color:var(--rust);font-weight:800;font-size:18px;border-bottom:2px solid currentColor}
+.sec{margin-top:48px}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.tip .tag{align-self:flex-start;background:var(--gold);color:#2b2215;font-size:13px;font-weight:800;padding:1px 12px;border-radius:999px}
+.tip h3{font-size:19px;line-height:1.6}
+.tip p{color:var(--muted);font-size:15px}
+.tip .rd{color:var(--rust);font-weight:800;margin-top:auto}
+.tip:hover{border-color:var(--rust)}
+.band{background:var(--ink);color:#fff;border-radius:22px;padding:30px;margin-top:48px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.band h2{font-size:26px}
+.band p{color:#e0dccf;font-size:16px}
+.band .btns{display:flex;gap:10px;flex-wrap:wrap}
+.band .b1{background:var(--gold);color:#2b2215;border-radius:12px;padding:12px 24px;font-weight:800;min-height:44px}
+.band .b2{border:2px solid #fff;color:#fff;border-radius:12px;padding:10px 22px;font-weight:700;min-height:44px}
+footer{background:#24231f;color:#e0dccf;padding:34px 0;margin-top:56px;font-size:14px;line-height:2}
+footer .note{margin-bottom:8px}
+footer b{color:#fff}
+footer a{text-decoration:underline}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:14px}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero h1{font-size:32px}.tools{grid-template-columns:repeat(2,1fr)}.tips-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.wrap{padding:0 14px}.head{flex-wrap:wrap;gap:10px;padding-block:10px}.brand{font-size:23px}.search{order:3;flex-basis:100%}.hero-main{padding:22px;min-height:0}.hero h1{font-size:28px}.side{grid-template-columns:1fr 1fr;gap:10px}.side-card{padding:16px}.side-card h2{font-size:16px}.side-card p{font-size:13px}.cards{gap:10px}.deal-body{padding:12px}.deal h3{font-size:15px;min-height:76px}.price{font-size:20px}.section-head h2{font-size:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
 .social a{position:relative;width:54px;height:54px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);text-decoration:none;transition:.15s}
 .social svg{width:26px;height:26px;fill:currentColor;stroke:none;display:block}.social svg .in{fill:var(--card)}.social a:hover svg .in,.social a:focus-visible svg .in{fill:var(--accent-d)}
 .social a:hover,.social a:focus-visible{background:var(--accent-d);border-color:var(--accent-d);color:#fff;transform:translateY(-2px)}
-.social a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 @media(max-width:430px){.social{gap:9px}.social a{width:48px;height:48px}.social svg{width:24px;height:24px}}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
-footer .note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px}
-footer .row a{display:inline-block;padding:12px 4px}
-footer .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center}
-.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.tip{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);transition:.15s}
-.tip:hover{border-color:var(--accent);transform:translateY(-2px)}
-.tip img{display:block;width:100%;height:auto;border-radius:12px;margin-bottom:4px}
-.tip b{font-size:17px;line-height:1.6}
-.tip span:last-child{color:var(--muted);font-size:14px;line-height:1.7}
-.tip .tag{align-self:flex-start;font-size:12px;background:var(--gold);padding:1px 10px;border-radius:999px;font-weight:700;line-height:1.8}
-.more{margin-top:16px;text-align:center}
-.trk{margin-top:34px;text-align:center}.trk h3{font-size:21px;font-weight:800}.trk p{color:var(--muted);margin:6px 0 0}.trk .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
 
-.hero{padding:44px 0 30px;text-align:start}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
-.hero-txt .kick{display:inline-block;background:var(--card);border:1px solid var(--line);color:var(--accent-d);font-weight:800;font-size:14px;padding:2px 14px;border-radius:999px}
-.hero h1{margin-top:12px;font-size:clamp(34px,6.2vw,58px)}
-.hero p{margin:14px 0 24px;max-width:520px;font-size:18px}
-.btns{justify-content:flex-start}
-.hero-art{position:relative;width:100%;max-width:300px;margin-inline:auto}
-.hero-art svg,.hero-art img{display:block;width:100%;height:auto}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.chips a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
-.chips a:hover{border-color:var(--accent);color:var(--accent)}
-.chips i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--gold);font-size:13px}
-.strip{background:var(--ink);color:var(--bg);padding:18px 0}
-.strip ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 20px;text-align:center;font-weight:700;font-size:15px}
-.strip li::before{content:"✓ ";color:var(--gold)}
-section.alt{background:rgba(255,255,255,.4);border-block:1px solid var(--line)}
-.empty{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;text-align:start}
-.empty[hidden]{display:none}
-@media(max-width:760px){.hero .wrap{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}.btns,.chips{justify-content:center}.hero-art{max-width:165px;order:-1}}
-@media(max-width:900px){header nav a:nth-child(1),header nav a:nth-child(3),header nav a:nth-child(4){display:none}}
-@media(max-width:560px){header nav a:not(.navvid){display:none}.hero{padding-top:24px}}
-.sale-bar{display:block;background:var(--gold);color:var(--ink);text-align:center;text-decoration:none;font-weight:700;font-size:15px;line-height:1.6;padding:9px 14px}.sale-bar:hover,.sale-bar:focus-visible{background:#dcab25}
-.site-header{position:sticky;top:0;z-index:30;background:#D9EEF2;border-bottom:1px solid #c3dde3;backdrop-filter:none;color:var(--ink)}
-.site-header .sh{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;height:64px}
-.sh-btn{all:unset;box-sizing:border-box;width:48px;height:48px;display:grid;place-items:center;cursor:pointer;border-radius:12px;color:var(--ink)}
-.sh-btn:hover,.sh-btn:focus-visible{background:rgba(61,57,41,.10)}.sh-btn:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-.sh-btn i{display:block;width:26px;height:18px;background:linear-gradient(var(--ink),var(--ink)) 0 0/26px 3px no-repeat,linear-gradient(var(--ink),var(--ink)) 0 50%/18px 3px no-repeat,linear-gradient(var(--ink),var(--ink)) 0 100%/26px 3px no-repeat;background-position:100% 0,100% 50%,100% 100%}
-.sh-logo{justify-self:center;display:flex;align-items:center;gap:8px;line-height:0;min-height:48px;padding:0}@media(max-width:340px){.sh-logo img:last-child{width:140px;height:auto}}
-.mk{height:30px;width:auto}.dr-lg{display:flex;align-items:center;gap:10px;line-height:0}.dr-lg .mk{height:34px}
-.sh-logo img{height:30px;width:auto;display:block}
-.sh-tg{justify-self:end;width:48px;height:48px;display:grid;place-items:center;color:var(--ink);border-radius:12px;text-decoration:none}
-.sh-tg:hover,.sh-tg:focus-visible{background:rgba(61,57,41,.10)}.sh-tg:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-.sh-tg svg{width:26px;height:26px;fill:currentColor}
-.drawer{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(88vw,360px);background:#2c2a1f;color:var(--bg);z-index:50;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s;overflow-y:auto;display:flex;flex-direction:column;padding:18px 24px 26px}
-.drawer.on{transform:none;visibility:visible;transition:transform .25s ease}
-.dr-ov{position:fixed;inset:0;background:rgba(20,18,10,.55);z-index:40;opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
-.dr-ov.on{opacity:1;visibility:visible;transition:opacity .25s}
-html.lock{overflow:hidden}
-.dr-top{display:flex;align-items:center;justify-content:space-between}
-.dr-top img{height:34px;width:auto;display:block}
-.dr-x{all:unset;box-sizing:border-box;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;font-size:30px;line-height:1;border-radius:12px;color:var(--bg)}
-.dr-x:hover,.dr-x:focus-visible{background:rgba(238,236,226,.12)}.dr-x:focus-visible{outline:3px solid var(--gold)}
-.dr-list{list-style:none;margin:22px 0 0;padding:0}
-.dr-list>li{margin:0;border-bottom:1px solid rgba(238,236,226,.08)}
-.dr-list a,.dr-list summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;font-weight:800;font-size:19px;color:var(--bg);text-decoration:none;cursor:pointer;list-style:none}
-.dr-list summary::-webkit-details-marker{display:none}
-.dr-list summary::after{content:"";width:9px;height:9px;border:solid var(--bg);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);margin-inline-start:6px;transition:transform .2s;flex:none}
-.dr-list details[open]>summary::after{transform:rotate(-135deg)}
-.dr-list a:hover,.dr-list summary:hover{color:var(--gold)}
-.dr-list a:focus-visible,.dr-list summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
-.dr-sub{list-style:none;margin:0 0 10px;padding:0 14px 0 0;padding-inline:0 14px}
-.dr-sub a{font-weight:500;font-size:17px;min-height:46px;color:#d9d5c4}
-.bdg{font-size:12px;font-weight:800;line-height:1.7;padding:0 10px;border-radius:999px;background:rgba(238,236,226,.1);flex:none;margin-inline-start:auto;margin-inline-end:4px}
-.bdg.n{color:#4be08b}.bdg.b{color:var(--gold)}.bdg.v{color:#ff9d7a}
-.dr-soc{margin-top:26px}
-.amz-g{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}@media(min-width:700px){.amz-g{grid-template-columns:repeat(3,1fr)}}.amz-t{display:flex;align-items:center;gap:10px;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;color:var(--ink);text-decoration:none;font-size:15px}.amz-t span{font-size:22px}.amz-t:hover{border-color:var(--accent)}#amazon-strip .more{margin-top:6px}.dr-soc .dr-t{font-size:15px;font-weight:700;color:#bdb8a4;margin:0 0 12px}
-.dr-soc .row{display:flex;flex-wrap:wrap;gap:8px}
-.dr-soc a{width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(238,236,226,.22);border-radius:50%;color:var(--bg);text-decoration:none;transition:.15s}
-.dr-soc a:hover,.dr-soc a:focus-visible{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}.dr-soc a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.dr-soc svg{width:24px;height:24px;fill:currentColor;stroke:none;display:block}.dr-soc svg .in{fill:#2c2a1f}.dr-soc a:hover svg .in{fill:var(--accent)}
-.dr-soc .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.dr-ft{margin-top:auto;padding-top:26px;color:#a9a48f;font-size:13px;line-height:1.8;border-top:1px solid rgba(238,236,226,.08);margin-top:26px}
-.totop{position:fixed;inset-inline-end:16px;bottom:18px;width:52px;height:52px;border-radius:50%;border:3px solid var(--accent);background:var(--bg);color:var(--accent);display:grid;place-items:center;cursor:pointer;z-index:20;opacity:0;visibility:hidden;transform:translateY(10px);transition:.2s;box-shadow:0 6px 18px rgba(61,57,41,.25);padding:0}
-.totop.show{opacity:1;visibility:visible;transform:none}
-.totop:hover,.totop:focus-visible{background:var(--accent);color:#fff}.totop:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.totop svg{width:24px;height:24px;fill:currentColor}
-@media(prefers-reduced-motion:reduce){.drawer,.dr-ov,.totop{transition:none}}
-
-.grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
-.card{background:#e4e1d3;border:1px solid var(--line);border-radius:20px;overflow:visible}
-.card .pimg{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:19px 19px 0 0;background:#d9d5c4}
-.card .ch{padding:14px 16px 12px}
-.card .ch h3{font-size:17px;font-weight:800;line-height:1.6;margin-top:6px}
-.card .ch .tag{display:inline-block}
-.card .cbox{background:#f6f4ec;border:1px solid var(--line);border-radius:16px;margin:0 10px 10px;padding:18px 16px 16px;text-align:center;box-shadow:0 8px 20px -12px rgba(61,57,41,.35)}
-.card .cbox .price{justify-content:center;margin:0 0 4px}.card .cbox .price b{font-size:30px;line-height:1.3}.card .cbox .price s{font-size:16px}
-.card .cbox .off{display:inline-block;font-size:13px;font-weight:800;background:rgba(189,93,58,.12);color:var(--accent-d);padding:0 10px;border-radius:999px;margin-bottom:12px}
-.card .cbox .btn{display:block;width:100%;border-radius:12px;padding:13px 10px;font-size:19px;font-weight:800;box-shadow:0 8px 18px -8px rgba(168,80,45,.7)}
-.card .cbox .rv{display:block;margin-top:12px;color:var(--muted);font-weight:500;font-size:15px}
-.card .cbox small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
-.card .cbox .btn.primary.sb{display:inline-flex;width:auto;min-width:0;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border:0;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:15px;letter-spacing:.2px;white-space:nowrap;box-shadow:0 3px 8px rgba(61,57,41,.18)}.cbox .btn.sb svg{width:19px;height:19px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.cbox .btn.sb.st-aliexpress{background:#DC2A00;color:#fff}.cbox .btn.sb.st-amazon{background:#131921;color:#fff}.cbox .btn.sb.st-noon{background:#FEEE00;color:#20201f}html{overflow-x:clip}</style>
+</style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="wrap sh">
-    <button type="button" class="sh-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i></button>
-    <a class="sh-logo" href="/" aria-label="وفّرنا - الصفحة الرئيسية"><img class="mk" src="/logo.png" alt="" width="52" height="30"><img src="/wordmark-dark.png" alt="Wafferna" width="176" height="30"></a>
-    <a class="sh-tg" href="mailto:info@wafferna.com" aria-label="راسلنا عبر البريد الإلكتروني"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M2.3 47.5 0.7 51.4 0.0 51.8 0.0 126.7 0.6 126.9 1.7 129.5 3.8 132.3 7.3 135.0 9.9 136.3 11.3 136.5 12.8 137.2 130.6 137.2 135.1 135.6 137.7 134.0 140.7 131.0 142.0 128.8 143.1 126.6 143.2 125.2 143.9 124.6 143.9 54.1 143.2 53.4 143.1 51.8 141.4 48.2 139.5 45.5 131.9 38.6 130.0 37.4 124.1 32.5 123.4 32.3 123.0 32.8 123.0 45.8 124.0 47.1 126.6 48.9 126.7 49.9 121.3 54.5 119.7 55.4 117.8 57.2 112.1 61.5 110.1 63.5 104.7 67.4 98.8 72.5 97.1 73.5 95.2 75.4 93.3 76.6 91.3 78.5 89.6 79.5 87.6 81.5 85.9 82.5 83.9 84.4 82.0 85.6 80.0 87.6 78.2 88.7 76.2 90.6 74.6 91.5 72.4 93.5 70.2 92.3 68.4 90.7 59.5 83.9 57.6 82.0 56.0 81.1 50.5 76.5 45.4 72.8 39.8 68.1 38.1 66.9 36.3 65.2 34.6 64.2 32.7 62.4 31.0 61.4 29.2 59.6 27.5 58.6 25.7 56.9 16.6 49.9 16.6 49.0 18.8 47.3 20.2 45.8 20.2 32.8 19.9 32.3 18.9 32.5 16.1 35.1 11.1 38.8 7.8 42.0 5.4 43.8ZM20.6 125.2 52.5 93.7 53.2 93.5 55.3 94.7 57.2 96.5 58.9 97.5 67.8 104.8 70.5 106.4 73.6 106.4 75.4 105.6 80.5 101.2 82.1 100.3 84.2 98.3 86.0 97.2 88.0 95.2 90.3 93.8 91.1 93.8 122.5 125.1 122.7 125.5 122.2 126.0 21.2 126.0 20.6 125.6ZM131.5 60.8 132.1 60.8 132.7 61.7 132.7 117.8 132.4 118.2 131.6 118.0 99.9 86.4 100.0 85.9 103.0 83.2 104.7 82.2 106.8 80.2 112.4 76.0 114.4 74.2 116.1 73.1 118.0 71.2 127.5 63.9 129.5 62.1ZM12.0 60.6 21.5 68.2 23.2 69.3 24.9 71.0 26.6 72.0 32.2 76.7 33.8 77.6 39.4 82.4 41.0 83.3 43.7 85.8 43.7 86.2 12.3 117.8 11.3 118.2 11.1 117.8 11.1 61.3 11.5 60.6ZM81.8 21.8 80.6 21.8 79.0 21.0 72.3 20.7 71.0 21.0 66.8 21.0 65.3 21.8 63.8 21.8 60.3 23.3 56.3 25.8 52.1 30.0 50.5 32.3 48.8 35.5 48.7 36.7 48.0 38.0 47.9 39.5 47.2 40.8 47.2 50.3 47.9 51.7 48.1 53.5 50.4 58.2 53.2 61.5 56.5 64.2 61.2 66.6 62.2 66.7 63.9 67.4 66.3 67.5 67.7 68.2 75.8 68.2 77.8 67.4 80.2 67.4 81.5 66.8 83.2 66.5 84.1 65.3 84.1 61.3 83.4 60.8 81.7 61.5 80.6 61.6 79.4 62.2 77.5 62.2 75.8 63.0 68.8 63.0 67.5 62.3 65.7 62.2 63.4 61.4 59.3 59.0 57.8 57.5 56.2 55.1 54.8 51.9 54.7 50.6 53.9 48.4 53.9 42.9 54.6 41.2 54.8 39.3 56.3 35.5 58.3 32.7 61.5 29.5 64.0 27.9 68.1 26.2 72.5 25.9 78.1 26.2 79.3 26.8 80.3 26.9 84.5 29.3 86.0 30.8 87.6 33.2 89.2 37.3 89.2 45.8 88.7 46.9 88.4 48.4 87.3 50.3 84.7 52.4 83.7 52.3 82.7 51.5 82.4 50.8 82.4 39.8 83.2 37.6 83.1 32.6 82.6 32.2 77.1 32.2 75.9 33.6 74.5 32.3 72.3 31.5 69.5 31.5 66.9 32.3 65.1 33.5 61.8 36.8 60.1 40.2 59.9 41.9 59.2 43.4 59.3 49.6 59.9 50.7 60.1 52.0 60.9 53.6 62.5 55.4 64.7 56.8 67.5 57.7 69.0 57.7 73.0 56.1 73.9 55.3 74.9 53.6 75.7 53.3 76.9 55.1 78.8 56.7 81.3 57.6 83.4 57.7 85.3 57.0 86.9 56.8 89.1 55.8 91.3 53.9 93.7 51.3 95.8 46.4 96.3 41.5 95.9 35.9 95.1 33.4 93.5 30.2 90.5 26.8 88.0 24.8 85.9 23.4ZM72.8 36.7 74.4 37.7 75.7 39.5 75.8 45.4 75.1 46.8 74.9 48.3 74.1 50.0 72.4 51.7 70.6 52.5 69.7 52.5 67.9 51.5 66.8 49.9 66.0 47.5 66.0 45.1 66.7 43.5 66.8 41.6 68.5 38.4 70.8 36.8ZM26.3 2.6 26.2 49.9 26.5 50.6 35.2 57.3 35.6 57.4 35.9 57.0 35.9 10.3 36.6 9.7 106.6 9.7 107.2 10.3 107.4 57.6 108.0 57.8 113.9 52.9 115.8 51.7 117.4 50.0 117.6 4.9 116.8 2.5 114.5 0.0 28.9 0.0 28.8 0.4Z"/></svg></a>
-  </div>
-</header>
-<div class="dr-ov" id="menuOv"></div>
-<div class="drawer" id="menu" role="dialog" aria-label="القائمة الرئيسية">
-  <div class="dr-top"><a class="dr-lg" href="/" aria-label="وفّرنا"><img class="mk" src="/logo.png" alt="" width="58" height="34"><img src="/wordmark-light.png" alt="Wafferna" width="200" height="34"></a><button type="button" class="dr-x" id="menuX" aria-label="إغلاق القائمة">&times;</button></div>
-  <ul class="dr-list">
-    <li><a href="/">الرئيسية</a></li>
-    <li><a href="/#offers">العروض <span class="bdg b">الأفضل</span></a></li>
-    <li><a href="/amazon-picks.html">منتجات أمازون</a></li>
-    <li><details><summary>الأدوات <span class="bdg n">جديد</span></summary>
-      <ul class="dr-sub"><li><a href="/customs-calculator.html">حاسبة الجمارك والضريبة</a></li><li><a href="/vat-calculator.html">حاسبة الضريبة 15%</a></li><li><a href="/shipment-tracking.html">تتبع الشحنات</a></li></ul></details></li>
-    <li><details><summary>أدلة التسوق الذكي</summary>
-      <ul class="dr-sub"><li><a href="/tips.html">كل النصائح</a></li><li><a href="/fake-stores.html">المتاجر الوهمية</a></li><li><a href="/real-discount.html">الخصم الحقيقي</a></li><li><a href="/safe-payment.html">الدفع الآمن</a></li><li><a href="/fake-reviews.html">التقييمات المزيفة</a></li><li><a href="/white-friday-11-11-2026.html">الجمعة البيضاء و11.11</a></li><li><a href="/aliexpress-customs-guide.html">جمارك علي اكسبرس</a></li></ul></details></li>
-    <li><a href="/videos.html">فيديوهات وفّرنا <span class="bdg v">▶</span></a></li>
-    <li><a href="/about.html">من نحن</a></li>
-  </ul>
-  <div class="dr-soc"><p class="dr-t">تابعنا على</p><div class="row"><a href="https://t.me/Wafferna" target="_blank" rel="noopener" aria-label="تيليجرام" title="تيليجرام"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 91.8 128.4 C 90.4 128.4 89.1 128 88 127.1 L 61.4 106.2 L 47.7 125.5 C 47.3 126.1 46.6 126.2 45.9 126 C 45.3 125.7 44.9 125.1 45 124.4 L 49.2 88.7 C 49.2 88.3 49.4 87.9 49.7 87.7 L 98.3 47.8 L 42.9 77.6 L 42.9 102 C 42.9 102.7 42.3 103.3 41.6 103.5 C 40.9 103.6 40.2 103.2 39.9 102.5 L 28.9 74 L 2.2 60 C -0.1 58.8 -1.4 56.4 -1.1 53.8 C -0.8 51.3 1 49.2 3.5 48.6 L 135.9 15.1 C 138.2 14.5 140.6 15.2 142.1 17 C 143.7 18.9 144 21.3 143 23.5 L 97.4 124.8 C 96.6 126.5 95.1 127.8 93.2 128.2 C 92.8 128.4 92.2 128.4 91.8 128.4 Z M 61 102.5 C 61.4 102.5 61.7 102.6 62 102.8 L 89.9 124.7 C 90.6 125.3 91.6 125.6 92.5 125.3 C 93.4 125.1 94.2 124.5 94.6 123.6 L 140.2 22.3 C 140.7 21.3 140.6 20 139.8 19.1 C 139 18.1 137.8 17.8 136.7 18.1 L 4.2 51.6 C 2.6 52 2 53.2 1.9 54.2 C 1.7 55.3 2.1 56.6 3.5 57.3 L 30.8 71.6 C 31.1 71.8 31.4 72 31.5 72.4 L 39.8 93.8 L 39.8 76.7 C 39.8 76.1 40.1 75.6 40.6 75.3 L 110.5 37.7 C 111.2 37.4 112.1 37.5 112.5 38.2 C 113 38.8 112.8 39.8 112.2 40.2 L 52 89.6 L 48.6 118.9 L 59.8 103.2 C 60 102.9 60.4 102.7 60.8 102.6 C 60.9 102.5 61 102.5 61 102.5 Z M 61 102.5"/></svg><span class="sr">تيليجرام</span></a><a href="https://www.instagram.com/wafferna" target="_blank" rel="noopener" aria-label="إنستقرام" title="إنستقرام"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 97.3 43.5 C 94.9 43.5 93 45.5 93 47.8 C 93 50.2 94.9 52.1 97.3 52.1 C 99.7 52.1 101.6 50.2 101.6 47.8 C 101.6 45.5 99.7 43.5 97.3 43.5"/><path d="M 72 91.2 C 61.4 91.2 52.8 82.6 52.8 72 C 52.8 61.4 61.4 52.8 72 52.8 C 82.6 52.8 91.2 61.4 91.2 72 C 91.2 82.6 82.6 91.2 72 91.2 Z M 72 47.9 C 58.7 47.9 47.9 58.7 47.9 72 C 47.9 85.3 58.7 96.1 72 96.1 C 85.3 96.1 96.1 85.3 96.1 72 C 96.1 58.7 85.3 47.9 72 47.9"/><path d="M 109.7 90.9 C 109.7 101.5 101.2 110 90.6 110 L 52.8 110 C 42.2 110 33.7 101.5 33.7 90.9 L 33.7 53.1 C 33.7 42.5 42.2 34 52.8 34 L 90.6 34 C 101.2 34 109.7 42.5 109.7 53.1 Z M 90.9 28.8 L 53.1 28.8 C 39.8 28.8 29.1 39.5 29.1 52.8 L 29.1 90.6 C 29.1 103.9 39.8 114.6 53.1 114.6 L 90.9 114.6 C 104.2 114.6 114.9 103.9 114.9 90.6 L 114.9 52.8 C 114.9 39.5 104.2 28.8 90.9 28.8"/><path d="M 72 139.1 C 35 139.1 4.9 109 4.9 72 C 4.9 35 35 4.9 72 4.9 C 109 4.9 139.1 35 139.1 72 C 139.1 109 109 139.1 72 139.1 Z M 72 0 C 52.8 0 34.7 7.5 21.1 21.1 C 7.5 34.7 0 52.8 0 72 C 0 91.2 7.5 109.3 21.1 122.9 C 34.7 136.5 52.8 144 72 144 C 91.2 144 109.3 136.5 122.9 122.9 C 136.5 109.3 144 91.2 144 72 C 144 52.8 136.5 34.7 122.9 21.1 C 109.3 7.5 91.2 0 72 0"/></svg><span class="sr">إنستقرام</span></a><a href="https://x.com/Waffernaa" target="_blank" rel="noopener" aria-label="X" title="X"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 0.1 141.5 L 51.1 71.9 L 0.2 2.5 L 42.1 2.5 L 77.3 50.5 L 76.8 51.1 L 75.6 52.8 L 10.6 141.5 Z M 0.1 141.5"/><path d="M 102.1 141.5 L 72 100.5 L 41.9 141.5 L 31.4 141.5 L 133.3 2.5 L 143.8 2.5 L 92.9 71.9 L 143.9 141.5 Z M 102.1 141.5"/></svg><span class="sr">X</span></a><a href="https://www.tiktok.com/@waffernaa" target="_blank" rel="noopener" aria-label="تيك توك" title="تيك توك"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M 79 110.6 C 79 129 64 143.9 45.6 143.9 C 27.2 143.9 12.3 129 12.3 110.6 C 12.3 92.2 27.2 77.3 45.6 77.3 C 50.8 77.3 55.7 78.5 60 80.6 L 60 37.5 C 60 37.3 60 37.1 60 36.9 L 60 9.7 C 60 6.1 62 2.7 65.2 1.1 C 68.5 -0.6 72.4 -0.4 75.3 1.7 L 127.5 38.6 C 130.1 40.4 131.6 43.3 131.6 46.5 L 131.6 54.4 C 131.6 58.1 129.6 61.4 126.4 63.1 C 123.1 64.7 119.2 64.5 116.3 62.4 L 79 36 Z M 60 110.6 C 60 102.7 53.6 96.2 45.6 96.2 C 37.7 96.2 31.2 102.7 31.2 110.6 C 31.2 118.6 37.7 125 45.6 125 C 53.6 125 60 118.6 60 110.6 Z M 60 110.6"/></svg><span class="sr">تيك توك</span></a><a href="https://www.youtube.com/@wafferna" target="_blank" rel="noopener" aria-label="يوتيوب" title="يوتيوب"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 50.2 51.6 C 50.2 50.7 50.3 48.9 52.5 47.6 C 54.5 46.5 58.6 45.6 61 46.9 L 97 66.5 C 98.9 67.6 100.9 69.8 100.8 72.2 C 100.8 73.8 100 75.2 98.6 76 L 98.5 76 L 60.9 94.6 C 60.1 95.1 59.1 95.2 58 95.2 C 55.9 95.2 53.8 94.5 52.5 93.8 C 50.3 92.5 50.2 90.7 50.2 89.8 Z M 29.7 120.2 L 113.5 120.2 C 129.9 120.2 143.8 106.1 143.8 89.8 L 143.8 50.7 C 143.8 34.4 129.9 23.8 113.5 23.8 L 29.7 23.8 C 13.4 23.8 0.2 34.4 0.2 50.7 L 0.2 89.8 C 0.2 106.1 13.4 120.2 29.7 120.2"/></svg><span class="sr">يوتيوب</span></a><a href="https://www.snapchat.com/add/wafferna" target="_blank" rel="noopener" aria-label="سناب شات" title="سناب شات"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path class="in" d="M 133.2 105.7 C 111.1 95 107.6 78.5 107.4 77.3 C 107.2 75.8 107 74.7 108.6 73.2 C 110.2 71.7 117.2 67.4 119.2 66 C 122.4 63.8 123.8 61.5 122.7 58.8 C 122 56.9 120.2 56.2 118.4 56.2 C 117.8 56.2 117.2 56.2 116.6 56.4 C 113.1 57.1 109.7 58.9 107.7 59.4 C 107.5 59.4 107.2 59.5 107 59.5 C 105.9 59.5 105.5 59 105.6 57.7 C 105.9 53.9 106.4 46.4 105.8 39.3 C 104.9 29.7 101.8 24.9 98.1 20.6 C 96.3 18.6 88 9.8 72 9.8 C 56 9.8 47.7 18.6 45.9 20.6 C 42.2 24.8 39.1 29.6 38.3 39.3 C 37.7 46.3 38.2 53.8 38.4 57.7 C 38.5 58.9 38.1 59.4 37.1 59.4 C 36.8 59.4 36.6 59.4 36.3 59.3 C 34.4 58.9 30.9 57.1 27.4 56.3 C 26.8 56.2 26.2 56.1 25.7 56.1 C 23.8 56.1 22 56.9 21.3 58.8 C 20.2 61.5 21.7 63.8 24.9 66 C 26.8 67.4 33.8 71.7 35.4 73.1 C 37 74.6 36.8 75.8 36.6 77.3 C 36.5 78.5 32.9 95 10.9 105.7 C 9.6 106.3 7.4 107.6 11.3 109.8 C 17.4 113.2 21.4 112.8 24.6 114.8 C 27.2 116.6 25.6 120.3 27.6 121.6 C 30 123.3 37 121.5 46.2 124.5 C 53.8 127 58.5 134.1 72 134.1 C 85.6 134.1 90.4 127 97.9 124.5 C 107 121.5 114.1 123.3 116.5 121.6 C 118.4 120.3 116.8 116.6 119.5 114.8 C 122.6 112.8 126.7 113.2 132.8 109.8 C 136.7 107.7 134.5 106.3 133.2 105.7 Z M 133.2 105.7"/><path d="M 142.8 104.5 C 141.8 101.8 139.9 100.3 137.7 99.1 C 137.3 98.9 137 98.7 136.7 98.6 C 136 98.2 135.4 97.9 134.7 97.6 C 128 94 122.8 89.5 119.1 84.2 C 118.1 82.7 117.2 81.2 116.5 79.5 C 116.2 78.6 116.2 78.1 116.4 77.6 C 116.6 77.3 116.9 77 117.3 76.8 C 118.4 76 119.6 75.2 120.4 74.7 C 121.8 73.8 123 73 123.7 72.5 C 126.5 70.6 128.4 68.6 129.6 66.3 C 130.4 64.7 130.9 63 131 61.2 C 131.1 59.4 130.8 57.6 130.2 55.9 C 128.4 51.1 123.8 48.2 118.4 48.2 C 117.2 48.2 116.1 48.3 114.9 48.5 C 114.6 48.6 114.3 48.7 114 48.7 C 114.1 45.5 114 42 113.7 38.6 C 112.7 26.6 108.5 20.3 104.1 15.3 C 101.3 12.2 98 9.6 94.4 7.5 C 87.7 3.7 80.2 1.8 72 1.8 C 63.8 1.8 56.3 3.7 49.7 7.5 C 46 9.6 42.7 12.2 39.9 15.4 C 35.5 20.4 31.3 26.7 30.3 38.6 C 30 42 29.9 45.5 30 48.8 C 29.7 48.7 29.4 48.6 29.1 48.5 C 28 48.3 26.8 48.2 25.7 48.2 C 20.2 48.2 15.6 51.2 13.8 55.9 C 13.2 57.6 12.9 59.4 13 61.2 C 13.1 63 13.6 64.7 14.4 66.3 C 15.6 68.6 17.5 70.6 20.3 72.6 C 21 73.1 22.2 73.8 23.6 74.7 C 24.4 75.2 25.5 76 26.6 76.7 C 27 77 27.3 77.3 27.6 77.7 C 27.8 78.2 27.8 78.7 27.5 79.6 C 26.7 81.2 25.9 82.8 24.9 84.3 C 21.3 89.4 16.2 93.8 9.8 97.4 C 6.3 99.2 2.7 100.4 1.2 104.5 C 0.1 107.6 0.8 111.1 3.7 114.1 C 4.8 115.2 6 116.1 7.4 116.8 C 10.2 118.4 13.2 119.6 16.3 120.4 C 16.9 120.6 17.5 120.8 18.1 121.2 C 19.1 122.1 19 123.5 20.4 125.5 C 21.1 126.6 22 127.5 23 128.2 C 26 130.3 29.3 130.4 32.8 130.5 C 35.9 130.6 39.5 130.8 43.6 132.1 C 45.3 132.7 47.1 133.8 49.1 135 C 54 138.1 60.8 142.2 72 142.2 C 83.2 142.2 90 138 94.9 135 C 97 133.8 98.7 132.7 100.4 132.1 C 104.5 130.8 108.1 130.6 111.2 130.5 C 114.7 130.4 118 130.3 121 128.2 C 122.2 127.4 123.2 126.3 124 125 C 125 123.2 125 122 125.9 121.2 C 126.4 120.9 127 120.6 127.6 120.4 C 130.8 119.6 133.8 118.4 136.6 116.8 C 138.1 116.1 139.3 115.1 140.4 113.8 L 140.5 113.8 C 143.2 110.9 143.9 107.5 142.8 104.5 Z M 132.8 109.8 C 126.7 113.2 122.6 112.8 119.5 114.9 C 116.8 116.6 118.4 120.3 116.4 121.7 C 114.1 123.3 107 121.5 97.9 124.5 C 90.4 127 85.5 134.2 72 134.2 C 58.5 134.2 53.8 127 46.1 124.5 C 37 121.5 30 123.3 27.6 121.6 C 25.6 120.3 27.2 116.6 24.5 114.8 C 21.4 112.8 17.3 113.2 11.2 109.8 C 7.4 107.7 9.6 106.4 10.9 105.7 C 32.9 95.1 36.4 78.6 36.6 77.3 C 36.8 75.9 37 74.7 35.4 73.2 C 33.8 71.7 26.8 67.4 24.9 66 C 21.6 63.8 20.2 61.6 21.3 58.8 C 22 56.9 23.8 56.2 25.6 56.2 C 26.2 56.2 26.8 56.2 27.4 56.4 C 30.9 57.1 34.3 58.9 36.3 59.4 C 36.6 59.4 36.8 59.5 37.1 59.5 C 38.1 59.5 38.5 58.9 38.4 57.7 C 38.2 53.9 37.6 46.4 38.2 39.3 C 39.1 29.7 42.2 24.9 45.9 20.7 C 47.7 18.6 56 9.8 72 9.8 C 88 9.8 96.3 18.6 98.1 20.6 C 101.8 24.8 104.9 29.6 105.8 39.3 C 106.4 46.3 105.8 53.8 105.6 57.7 C 105.5 59 105.9 59.4 106.9 59.4 C 107.2 59.4 107.4 59.4 107.7 59.3 C 109.7 58.9 113.1 57.1 116.6 56.3 C 117.2 56.2 117.8 56.1 118.4 56.1 C 120.2 56.1 122 56.9 122.7 58.8 C 123.8 61.5 122.4 63.8 119.1 66 C 117.2 67.4 110.2 71.7 108.6 73.1 C 107 74.6 107.2 75.8 107.4 77.3 C 107.6 78.5 111.1 95 133.2 105.7 C 134.5 106.3 136.7 107.7 132.8 109.8 Z M 132.8 109.8"/></svg><span class="sr">سناب شات</span></a><a href="mailto:info@wafferna.com" aria-label="البريد الإلكتروني" title="البريد الإلكتروني"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M2.3 47.5 0.7 51.4 0.0 51.8 0.0 126.7 0.6 126.9 1.7 129.5 3.8 132.3 7.3 135.0 9.9 136.3 11.3 136.5 12.8 137.2 130.6 137.2 135.1 135.6 137.7 134.0 140.7 131.0 142.0 128.8 143.1 126.6 143.2 125.2 143.9 124.6 143.9 54.1 143.2 53.4 143.1 51.8 141.4 48.2 139.5 45.5 131.9 38.6 130.0 37.4 124.1 32.5 123.4 32.3 123.0 32.8 123.0 45.8 124.0 47.1 126.6 48.9 126.7 49.9 121.3 54.5 119.7 55.4 117.8 57.2 112.1 61.5 110.1 63.5 104.7 67.4 98.8 72.5 97.1 73.5 95.2 75.4 93.3 76.6 91.3 78.5 89.6 79.5 87.6 81.5 85.9 82.5 83.9 84.4 82.0 85.6 80.0 87.6 78.2 88.7 76.2 90.6 74.6 91.5 72.4 93.5 70.2 92.3 68.4 90.7 59.5 83.9 57.6 82.0 56.0 81.1 50.5 76.5 45.4 72.8 39.8 68.1 38.1 66.9 36.3 65.2 34.6 64.2 32.7 62.4 31.0 61.4 29.2 59.6 27.5 58.6 25.7 56.9 16.6 49.9 16.6 49.0 18.8 47.3 20.2 45.8 20.2 32.8 19.9 32.3 18.9 32.5 16.1 35.1 11.1 38.8 7.8 42.0 5.4 43.8ZM20.6 125.2 52.5 93.7 53.2 93.5 55.3 94.7 57.2 96.5 58.9 97.5 67.8 104.8 70.5 106.4 73.6 106.4 75.4 105.6 80.5 101.2 82.1 100.3 84.2 98.3 86.0 97.2 88.0 95.2 90.3 93.8 91.1 93.8 122.5 125.1 122.7 125.5 122.2 126.0 21.2 126.0 20.6 125.6ZM131.5 60.8 132.1 60.8 132.7 61.7 132.7 117.8 132.4 118.2 131.6 118.0 99.9 86.4 100.0 85.9 103.0 83.2 104.7 82.2 106.8 80.2 112.4 76.0 114.4 74.2 116.1 73.1 118.0 71.2 127.5 63.9 129.5 62.1ZM12.0 60.6 21.5 68.2 23.2 69.3 24.9 71.0 26.6 72.0 32.2 76.7 33.8 77.6 39.4 82.4 41.0 83.3 43.7 85.8 43.7 86.2 12.3 117.8 11.3 118.2 11.1 117.8 11.1 61.3 11.5 60.6ZM81.8 21.8 80.6 21.8 79.0 21.0 72.3 20.7 71.0 21.0 66.8 21.0 65.3 21.8 63.8 21.8 60.3 23.3 56.3 25.8 52.1 30.0 50.5 32.3 48.8 35.5 48.7 36.7 48.0 38.0 47.9 39.5 47.2 40.8 47.2 50.3 47.9 51.7 48.1 53.5 50.4 58.2 53.2 61.5 56.5 64.2 61.2 66.6 62.2 66.7 63.9 67.4 66.3 67.5 67.7 68.2 75.8 68.2 77.8 67.4 80.2 67.4 81.5 66.8 83.2 66.5 84.1 65.3 84.1 61.3 83.4 60.8 81.7 61.5 80.6 61.6 79.4 62.2 77.5 62.2 75.8 63.0 68.8 63.0 67.5 62.3 65.7 62.2 63.4 61.4 59.3 59.0 57.8 57.5 56.2 55.1 54.8 51.9 54.7 50.6 53.9 48.4 53.9 42.9 54.6 41.2 54.8 39.3 56.3 35.5 58.3 32.7 61.5 29.5 64.0 27.9 68.1 26.2 72.5 25.9 78.1 26.2 79.3 26.8 80.3 26.9 84.5 29.3 86.0 30.8 87.6 33.2 89.2 37.3 89.2 45.8 88.7 46.9 88.4 48.4 87.3 50.3 84.7 52.4 83.7 52.3 82.7 51.5 82.4 50.8 82.4 39.8 83.2 37.6 83.1 32.6 82.6 32.2 77.1 32.2 75.9 33.6 74.5 32.3 72.3 31.5 69.5 31.5 66.9 32.3 65.1 33.5 61.8 36.8 60.1 40.2 59.9 41.9 59.2 43.4 59.3 49.6 59.9 50.7 60.1 52.0 60.9 53.6 62.5 55.4 64.7 56.8 67.5 57.7 69.0 57.7 73.0 56.1 73.9 55.3 74.9 53.6 75.7 53.3 76.9 55.1 78.8 56.7 81.3 57.6 83.4 57.7 85.3 57.0 86.9 56.8 89.1 55.8 91.3 53.9 93.7 51.3 95.8 46.4 96.3 41.5 95.9 35.9 95.1 33.4 93.5 30.2 90.5 26.8 88.0 24.8 85.9 23.4ZM72.8 36.7 74.4 37.7 75.7 39.5 75.8 45.4 75.1 46.8 74.9 48.3 74.1 50.0 72.4 51.7 70.6 52.5 69.7 52.5 67.9 51.5 66.8 49.9 66.0 47.5 66.0 45.1 66.7 43.5 66.8 41.6 68.5 38.4 70.8 36.8ZM26.3 2.6 26.2 49.9 26.5 50.6 35.2 57.3 35.6 57.4 35.9 57.0 35.9 10.3 36.6 9.7 106.6 9.7 107.2 10.3 107.4 57.6 108.0 57.8 113.9 52.9 115.8 51.7 117.4 50.0 117.6 4.9 116.8 2.5 114.5 0.0 28.9 0.0 28.8 0.4Z"/></svg><span class="sr">البريد الإلكتروني</span></a></div></div>
-  <div class="dr-ft">© وفّرنا Wafferna · وفّر أكثر، وادفع أقل<br>بعض الروابط تسويقية، وقد نحصل على عمولة دون تكلفة إضافية عليك.</div>
+<a class="skip" href="#deals">تخطَّ إلى العروض</a>
+<div class="top">وفّر أكثر، وادفع أقل — <b>عروض ونصائح تسوق ذكي</b></div>
+<header class="header"><div class="wrap head">
+<a href="/" class="brand" aria-label="وفّرنا - الرئيسية"><img src="/logo.png" width="40" height="40" alt=""><span>Waffer<b>na</b></span></a>
+<div class="search" role="search"><input id="q" type="search" placeholder="ابحث في العروض المعروضة..." aria-label="ابحث في العروض المعروضة" autocomplete="off"></div>
+</div></header>
+<nav class="nav" aria-label="الأقسام"><div class="wrap nav-inner">
+<a class="on" href="/" aria-current="page">الرئيسية</a><a href="/offers/">العروض</a><a href="/offers/big-discounts.html">أكبر الخصومات</a><a href="/offers/under-100.html">أقل من 100</a><a href="/offers/under-50.html">أقل من 50</a><a href="/tips.html">نصائح التسوق</a><a href="/amazon-picks.html">منتجات أمازون</a><a href="/customs-calculator.html">حاسبة الجمارك</a><a href="/videos.html">فيديوهات</a>
+</div></nav>
+<main class="wrap" id="main">
+<section class="hero">
+<div class="hero-main">
+<span class="eyebrow">دليل التسوق الذكي في السعودية</span>
+<h1>وفّرنا: وفّر أكثر، <span>وادفع أقل</span></h1>
+<p>عروض مختارة، ونصائح عملية تكشف الخصم الوهمي والمتجر المزيّف، لتعرف إذا المنتج يستاهل سعره قبل ما تدفع.</p>
+<a class="btn" href="#deals">شوف أحدث العروض</a>
 </div>
-
-<a class="sale-bar" href="white-friday-11-11-2026.html">🛍️ 11.11 والجمعة البيضاء 2026: المواعيد وطريقة الاستعداد ←</a>
-<main id="top">
-  <div class="hero">
-    <div class="wrap">
-      <div class="hero-txt">
-        <span class="kick">عروض ونصائح تسوق ذكي</span>
-        <h1>وفّرنا: وفّر أكثر، <span style="white-space:nowrap">وادفع أقل</span></h1>
-        <p>وفّرنا (Wafferna) يختار لك عروضاً وخصومات من أشهر المتاجر مثل أمازون السعودية وعلي اكسبرس، ويعلّمك كيف تكشف الخصم الوهمي والمتجر المزيّف قبل ما تدفع.</p>
-        <div class="btns">
-          <a class="btn primary" href="#offers">شوف أحدث العروض</a>
-          <a class="btn ghost" href="tips.html">اقرأ نصائح التسوق</a>
-          <a class="btn ghost" href="vat-calculator.html">🧮 حاسبة الضريبة 15%</a>
-        </div>
-        <nav class="chips" aria-label="روابط سريعة">
-          <a href="shipment-tracking.html"><i>📦</i>تتبع شحنتك</a>
-          <a href="amazon-picks.html"><i>🛒</i>أفضل منتجات أمازون</a>
-          <a href="customs-calculator.html"><i>🧮</i>حاسبة الجمارك والضريبة</a>
-        </nav>
-      </div>
-      <div class="hero-art" aria-hidden="false">
-        <img src="covers/hero-bag-640.webp" srcset="covers/hero-bag-640.webp 640w, covers/hero-bag-1000.webp 1000w" sizes="(max-width:760px) 250px, 380px" width="640" height="640" alt="كيس تسوق وسهم أصفر ينزل مع سعر 200 مشطوب و149 يرمز إلى انخفاض الأسعار" fetchpriority="high" decoding="async">
-      </div>
-    </div>
-  </div>
-
-  <div class="strip">
-    <div class="wrap">
-      <ul>
-        <li>بدون تسجيل أو بيانات شخصية</li>
-        <li>روابط تسويقية واضحة ومعلنة</li>
-        <li>نصائح عملية مكتوبة بالعربي</li>
-        <li>فيديوهات قصيرة من قناتنا</li>
-      </ul>
-    </div>
-  </div>
-
-  <section id="offers">
-    <div class="wrap">
-      <h2>أحدث العروض والخصومات</h2>
-      <p class="sub">منتجات مختارة تتحدث تلقائياً. الأسعار قد تتغير، فتأكد منها في صفحة المتجر.</p>
-      <p class="note" style="margin-top:-6px"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr" style="display:block">As an Amazon Associate I earn from qualifying purchases.</span> وبعض روابط المتاجر الأخرى تسويقية أيضاً.</p>
-      <div id="grid" class="grid" aria-live="polite"></div>
-      <div id="empty" class="empty" hidden><span>العروض قادمة قريباً. تابعنا في تيليجرام لحين التحديث.</span><a class="btn primary" href="https://t.me/Wafferna" target="_blank" rel="noopener">انضم لقناة تيليجرام</a></div>
-      <div class="more"><a class="btn ghost" href="/offers/">كل العروض</a> <a class="btn ghost" href="amazon-picks.html">أفضل منتجات أمازون</a></div>
-    </div>
-  </section>
-
-  <section id="amazon-strip">
-    <div class="wrap">
-      <h2>منتجات أمازون السعودية المختارة</h2>
-      <p class="sub">اختيارات من أمازون السعودية مع شرح لكل منتج: لمن يناسب، وما الذي تنتبه له قبل الشراء.</p>
-      <div class="amz-g"><a class="amz-t" href="amazon-picks.html#charging"><span aria-hidden="true">🔌</span><b>الشحن والإكسسوارات</b></a><a class="amz-t" href="amazon-picks.html#audio"><span aria-hidden="true">🎧</span><b>السماعات</b></a><a class="amz-t" href="amazon-picks.html#tablets"><span aria-hidden="true">📱</span><b>الأجهزة اللوحية والملحقات</b></a><a class="amz-t" href="amazon-picks.html#watches"><span aria-hidden="true">⌚</span><b>الساعات والأساور الذكية</b></a><a class="amz-t" href="amazon-picks.html#car"><span aria-hidden="true">🚗</span><b>السيارة</b></a><a class="amz-t" href="amazon-picks.html#smart-home"><span aria-hidden="true">🏠</span><b>البيت الذكي والترفيه</b></a></div>
-      <div class="more"><a class="btn primary" href="amazon-picks.html">شاهد كل منتجات أمازون</a></div>
-      <p class="note" style="margin-top:14px"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة.</p>
-    </div>
-  </section>
-
-    <section id="tips" class="alt">
-    <div class="wrap">
-      <h2>نصائح التسوق الذكي</h2>
-      <p class="sub">معلومات عملية تساعدك تشتري بثقة وتتجنب الأخطاء.</p>
-      <div class="tips">
-        <a class="tip" href="fake-stores.html"><img src="covers/fake-stores-600.webp" srcset="covers/fake-stores-600.webp 600w, covers/fake-stores-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="درع بعلامة صح وتذكرة خصم يرمزان للتأكد من أن المتجر الإلكتروني حقيقي" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>كيف تتأكد أن المتجر الإلكتروني حقيقي وغير وهمي</b><span>علامات تكشف المتجر الوهمي قبل الدفع، وخطوات سريعة تتأكد بها من أي متجر.</span></a>
-        <a class="tip" href="real-discount.html"><img src="covers/real-discount-600.webp" srcset="covers/real-discount-600.webp 600w, covers/real-discount-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="بطاقة سعر عليها 300 مشطوبة و199 مع عدسة مكبرة لكشف الخصم الوهمي" loading="lazy" decoding="async"><span class="tag">توفير</span><b>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً</b><span>طرق عملية تكشف الخصومات الوهمية وتساعدك تحسب السعر الحقيقي قبل الشراء.</span></a>
-        <a class="tip" href="sale-seasons.html"><img src="covers/sale-seasons-600.webp" srcset="covers/sale-seasons-600.webp 600w, covers/sale-seasons-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="تقويم عليه علامة خصم يمثل مواسم التخفيضات في السعودية" loading="lazy" decoding="async"><span class="tag">توفير</span><b>مواسم التخفيضات في السعودية: متى تشتري ومتى تنتظر</b><span>أبرز مواسم العروض في السعودية وكيف تستعد لها بدون ما تصرف أكثر من اللازم.</span></a>
-        <a class="tip" href="shopping-mistakes.html"><img src="covers/shopping-mistakes-600.webp" srcset="covers/shopping-mistakes-600.webp 600w, covers/shopping-mistakes-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="عربة تسوق عليها علامة تحذير ترمز لأخطاء التسوق أونلاين" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>5 أخطاء تخليك تدفع أكثر عند التسوق أونلاين</b><span>أخطاء شائعة في التسوق الإلكتروني تكلّفك مبالغ إضافية، وكيف تتجنبها.</span></a>
-        <a class="tip" href="fake-reviews.html"><img src="covers/fake-reviews-600.webp" srcset="covers/fake-reviews-600.webp 600w, covers/fake-reviews-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="نجوم تقييم مع عدسة مكبرة وعلامة خطأ لكشف التقييمات المزيفة" loading="lazy" decoding="async"><span class="tag">شراء ذكي</span><b>كيف تقرأ تقييمات المنتجات وتكشف التقييمات المزيفة</b><span>علامات التقييمات المزيفة وطريقة ذكية لقراءة آراء المشترين قبل الشراء.</span></a>
-        <a class="tip" href="safe-payment.html"><img src="covers/safe-payment-600.webp" srcset="covers/safe-payment-600.webp 600w, covers/safe-payment-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="بطاقة دفع عليها قفل ترمز للدفع الآمن عبر الإنترنت" loading="lazy" decoding="async"><span class="tag">أمان وثقة</span><b>الدفع الآمن: كيف تحمي بطاقتك عند الشراء أونلاين</b><span>عادات بسيطة تحمي بطاقتك وحسابك البنكي أثناء التسوق عبر الإنترنت.</span></a>
-        <a class="tip" href="white-friday-11-11-2026.html"><img src="covers/sale-seasons-600.webp" srcset="covers/sale-seasons-600.webp 600w, covers/sale-seasons-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="تقويم عليه علامة خصم يمثل مواسم التخفيضات في السعودية" loading="lazy" decoding="async"><span class="tag">مواسم</span><b>موسم 11.11 والجمعة البيضاء 2026: المواعيد وطريقة الاستعداد</b><span>مواعيد العروض وخطوات تستعد بها قبل الموسم وتتجنب الخصومات الوهمية.</span></a>
-        <a class="tip" href="shipment-tracking.html"><img src="covers/shipment-tracking-600.webp" srcset="covers/shipment-tracking-600.webp 600w, covers/shipment-tracking-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="صندوق شحنة وخط تقدم من تم الشحن إلى الجمارك إلى التسليم" loading="lazy" decoding="async"><span class="tag">شحن</span><b>تتبع شحنة علي اكسبرس وشي إن وتيمو في السعودية</b><span>تتبع طلباتك وشركات التوصيل، وماذا تفعل لو تأخرت.</span></a>
-      </div>
-      <div class="more"><a class="btn ghost" href="tips.html">كل النصائح</a></div>
-      <div class="trk" id="tracking">
-        <h3>تتبّع شحنتك من علي اكسبرس وشي إن وتيمو</h3>
-        <p>اختر شركة التوصيل التي وصلتك رسالتها، أو اقرأ <a href="shipment-tracking.html">دليل تتبع الشحنات من الصين إلى السعودية</a>.</p>
-        <nav class="chips" aria-label="تتبع الشحنات">
-          <a href="https://www.aramex.com/sa/ar/track/shipment-details" target="_blank" rel="noopener noreferrer">أرامكس</a>
-          <a href="https://www.smsaexpress.com/sa/ar" target="_blank" rel="noopener noreferrer">سمسا</a>
-          <a href="https://www.jtexpress.me/KSA" target="_blank" rel="noopener noreferrer">J&amp;T</a>
-          <a href="https://naqelexpress.com" target="_blank" rel="noopener noreferrer">ناقل</a>
-          <a href="https://aj-ex.com" target="_blank" rel="noopener noreferrer">أجيكس</a>
-          <a href="https://www.imile.com/SA-ar/track" target="_blank" rel="noopener noreferrer">iMile</a>
-          <a href="https://splonline.com.sa/ar/" target="_blank" rel="noopener noreferrer">البريد السعودي</a>
-          <a href="customs-calculator.html"><i>🧮</i>حاسبة الجمارك والضريبة</a>
-        </nav>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <div class="wrap">
-      <h2>فيديوهات قصيرة</h2>
-      <p class="sub">نصائح سريعة بالفيديو من <a href="https://www.youtube.com/@wafferna" target="_blank" rel="noopener">قناتنا على يوتيوب</a>.</p>
-      <div class="tips">
-        <a class="tip" href="customs-calculator.html#video"><img src="covers/video-1111-card-600.webp" srcset="covers/video-1111-card-600.webp 600w, covers/video-1111-card-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="غلاف فيديو: طلبية 11.11 بـ230 ريال ودفعت 282، احسب الجمارك والضريبة" loading="lazy" decoding="async"><span class="tag">فيديو · دقيقة و14 ثانية</span><b>طلبية 11.11 بـ230 ريال… ودفعت 282! احسب الجمارك والضريبة</b><span>شاهد الفيديو مع حاسبة الجمارك.</span></a>
-        <a class="tip" href="shopping-mistakes.html#video"><img src="covers/video-cheap-product.jpg" srcset="covers/video-cheap-product-600.webp 600w, covers/video-cheap-product-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="غلاف فيديو: ليش المنتج الرخيص يكلّفك أكثر؟ مثال الطابعة" loading="lazy" decoding="async"><span class="tag">فيديو · 35 ثانية</span><b>ليش المنتج الرخيص يكلّفك أكثر؟ (مثال الطابعة)</b><span>شاهد الفيديو مع المقال المرتبط به.</span></a>
-        <a class="tip" href="real-discount.html#video"><img src="covers/video-fake-friday.jpg" srcset="covers/video-fake-friday-600.webp 600w, covers/video-fake-friday-1000.webp 1000w" sizes="(max-width:600px) 90vw, 360px" width="1200" height="630" alt="غلاف فيديو: خصم وهمي في الجمعة البيضاء؟ 3 خطوات تكشفه" loading="lazy" decoding="async"><span class="tag">فيديو · دقيقة و10 ثوانٍ</span><b>خصم وهمي في الجمعة البيضاء؟ 3 خطوات تكشفه</b><span>شاهد الفيديو مع المقال المرتبط به.</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="how" class="alt">
-    <div class="wrap">
-      <h2>كيف نشتغل</h2>
-      <p class="sub">وفّرنا (Wafferna) موقع عربي للعروض والخصومات والتسوق الذكي في السعودية. بدون تعقيد، ثلاث خطوات:</p>
-      <div class="steps">
-        <div class="step"><div class="n">1</div><h3>نختار المنتج</h3><p>نرصد المنتجات الأكثر مبيعاً والعروض الحقيقية.</p></div>
-        <div class="step"><div class="n">2</div><h3>نعرضه لك بوضوح</h3><p>السعر والخصم والرابط المباشر في مكان واحد.</p></div>
-        <div class="step"><div class="n">3</div><h3>تشتري وتوفّر</h3><p>تكمل الشراء من المتجر نفسه بنفس سعره.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="cta">
-        <img src="wordmark-light.png" alt="Wafferna" width="200" height="34" style="height:34px;width:auto;display:block;margin:0 auto 14px" onerror="this.style.display='none'">
-        <h2>جرّب بوت وفّرنا</h2>
-        <p>أرسل رابط المنتج للبوت واحصل على أفضل العروض والروابط بثواني.</p>
-        <div class="btns">
-          <a class="btn primary" href="https://t.me/Wafferna_Bot" target="_blank" rel="noopener">افتح البوت</a>
-          <a class="btn" href="https://t.me/Wafferna" target="_blank" rel="noopener">انضم للقناة</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="join">
-    <div class="wrap">
-      <h2>تابعنا</h2>
-      <p class="sub">تابع وفرنا على كل المنصات، وشاركنا العروض والنصائح:</p>
-      <div class="social">
+<div class="side">
+<a class="side-card" href="/real-discount.html"><h2>قبل لا تدفع</h2><p>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً.</p></a>
+<a class="side-card" href="/noon-amazon-aliexpress-comparison.html"><h2>قارن بذكاء</h2><p>نون ولا أمازون ولا علي اكسبرس؟ قارن السعر النهائي.</p></a>
+</div>
+</section>
+<div class="tools">
+<a class="tool" href="/customs-calculator.html"><b>حاسبة الجمارك</b><span>اعرف الرسوم قبل الشحن</span></a>
+<a class="tool" href="/vat-calculator.html"><b>ضريبة 15%</b><span>احسب السعر شامل الضريبة</span></a>
+<a class="tool" href="/shipment-tracking.html"><b>تتبع شحنتك</b><span>من أي متجر</span></a>
+<a class="tool" href="/amazon-picks.html"><b>أفضل منتجات أمازون</b><span>اختيارات بشرح لكل منتج</span></a>
+</div>
+<section class="layout" id="deals">
+<aside class="sidebar" aria-label="تصفح الأقسام">
+<h2>تصفح الأقسام</h2>
+<a class="side-link" href="/offers/">كل العروض <span>←</span></a>
+<a class="side-link" href="/offers/big-discounts.html">أكبر الخصومات <span>←</span></a>
+<a class="side-link" href="/offers/under-100.html">أقل من 100 <span>←</span></a>
+<a class="side-link" href="/offers/under-50.html">أقل من 50 <span>←</span></a>
+<hr>
+<h2>عن وفّرنا</h2>
+<p>نشارك عروضاً ونصائح ومقارنات لمساعدتك على قرار شراء أفضل. بعض الروابط روابط تسويق بالعمولة دون أي تكلفة إضافية عليك.</p>
+</aside>
+<div>
+<div class="section-head"><div><h2>أحدث العروض والخصومات</h2><p>منتجات مختارة تتحدث تلقائياً. الأسعار قد تتغير، فتأكد منها في صفحة المتجر.</p></div></div>
+<div class="tabs"><a class="tab on" href="/offers/" aria-current="true">كل العروض</a><a class="tab" href="/offers/big-discounts.html">أكبر الخصومات</a><a class="tab" href="/offers/under-100.html">أقل من 100</a><a class="tab" href="/offers/under-50.html">أقل من 50</a></div>
+<div class="cards" id="cards">
+<!--CARDS-->
+<article class="deal"><a class="deal-img" href="/offers/offer-1005007170841697.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005007170841697.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 55%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005007170841697.html">شريط إضاءة LED ملون RGB 5050 بجهد منخفض 5 فولت مع وحدة تحكم بثلاثة أز…</a></h3><div class="pr"><span class="price">18.34 ر.س</span><s class="old">40.76 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c3qtnLJ5" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005007170841697.html">شوف التفاصيل</a></div></article>
+<article class="deal"><a class="deal-img" href="/offers/offer-1005006782986446.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005006782986446.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 53%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005006782986446.html">ماوس لاسلكي Baseus صامت</a></h3><div class="pr"><span class="price">37.27 ر.س</span><s class="old">79.69 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c3ahcZzp" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005006782986446.html">شوف التفاصيل</a></div></article>
+<article class="deal"><a class="deal-img" href="/offers/offer-1005006995392123.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005006995392123.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 50%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005006995392123.html">شريط إضاءة LED ذكي بمستشعر الإيماءات</a></h3><div class="pr"><span class="price">19.31 ر.س</span><s class="old">38.62 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c3jef9gr" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005006995392123.html">شوف التفاصيل</a></div></article>
+<article class="deal"><a class="deal-img" href="/offers/offer-1005008226452050.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005008226452050.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 50%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005008226452050.html">جرس باب فيديو ذكي</a></h3><div class="pr"><span class="price">35.21 ر.س</span><s class="old">70.43 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c4XmebDh" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005008226452050.html">شوف التفاصيل</a></div></article>
+<article class="deal"><a class="deal-img" href="/offers/offer-1005002897759669.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005002897759669.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 19%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005002897759669.html">فرشاة وفلتر لمكنسة الروبوت Xiaomi وRoborock</a></h3><div class="pr"><span class="price">22.35 ر.س</span><s class="old">27.52 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c2xndqhH" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005002897759669.html">شوف التفاصيل</a></div></article>
+<article class="deal"><a class="deal-img" href="/offers/offer-1005005275921021.html" tabindex="-1" aria-hidden="true"><img src="/offers/img/offer-1005005275921021.jpg" width="720" height="720" alt="" loading="lazy" decoding="async"><span class="pill">خصم 52%</span></a><div class="deal-body"><span class="merchant">AliExpress</span><h3><a href="/offers/offer-1005005275921021.html">موزع USB-C بـ4 منافذ</a></h3><div class="pr"><span class="price">11.14 ر.س</span><s class="old">23.32 ر.س</s></div><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c4kXuKkn" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="go" href="/offers/offer-1005005275921021.html">شوف التفاصيل</a></div></article>
+<!--/CARDS-->
+<p class="empty" id="empty" hidden>ما لقينا نتائج مطابقة في العروض المعروضة. جرّب كلمة ثانية أو <a href="/offers/" style="color:var(--rust);font-weight:800;text-decoration:underline">تصفح كل العروض</a>.</p>
+</div>
+<p class="more"><a href="/offers/">عرض كل العروض ←</a></p>
+</div>
+</section>
+<section class="sec" id="tips">
+<div class="section-head"><div><h2>نصائح قبل تشتري</h2><p>معلومات عملية تساعدك تشتري بثقة وتتجنب الأخطاء.</p></div></div>
+<div class="tips-grid">
+<a class="tip" href="/fake-stores.html"><span class="tag">أمان وثقة</span><h3>كيف تتأكد أن المتجر الإلكتروني حقيقي وغير وهمي</h3><p>علامات تكشف المتجر الوهمي قبل الدفع، وخطوات سريعة تتأكد بها من أي متجر.</p><span class="rd">اقرأ النصيحة ←</span></a>
+<a class="tip" href="/real-discount.html"><span class="tag">توفير</span><h3>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً</h3><p>طرق عملية تكشف الخصومات الوهمية وتساعدك تحسب السعر الحقيقي قبل الشراء.</p><span class="rd">اقرأ النصيحة ←</span></a>
+<a class="tip" href="/sale-seasons.html"><span class="tag">توفير</span><h3>مواسم التخفيضات في السعودية: متى تشتري ومتى تنتظر</h3><p>أبرز مواسم العروض في السعودية وكيف تستعد لها بدون ما تصرف أكثر من اللازم.</p><span class="rd">اقرأ النصيحة ←</span></a>
+</div>
+<p class="more"><a href="/tips.html">كل النصائح ←</a></p>
+</section>
+<section class="band" aria-labelledby="bot-t">
+<div><h2 id="bot-t">جرّب بوت وفّرنا</h2><p>أرسل رابط المنتج للبوت واحصل على أفضل العروض والروابط بثواني.</p></div>
+<div class="btns"><a class="b1" href="https://t.me/Wafferna_Bot" rel="noopener">افتح البوت</a><a class="b2" href="https://t.me/Wafferna" rel="noopener">انضم للقناة</a></div>
+</section>
+<section class="sec" aria-labelledby="fol-t">
+<div class="section-head"><div><h2 id="fol-t">تابعنا</h2><p>تابع وفّرنا على كل المنصات، وشاركنا العروض والنصائح:</p></div></div>
+<div class="social">
         <a href="https://t.me/Wafferna" target="_blank" rel="noopener" aria-label="تيليجرام" title="تيليجرام"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 91.8 128.4 C 90.4 128.4 89.1 128 88 127.1 L 61.4 106.2 L 47.7 125.5 C 47.3 126.1 46.6 126.2 45.9 126 C 45.3 125.7 44.9 125.1 45 124.4 L 49.2 88.7 C 49.2 88.3 49.4 87.9 49.7 87.7 L 98.3 47.8 L 42.9 77.6 L 42.9 102 C 42.9 102.7 42.3 103.3 41.6 103.5 C 40.9 103.6 40.2 103.2 39.9 102.5 L 28.9 74 L 2.2 60 C -0.1 58.8 -1.4 56.4 -1.1 53.8 C -0.8 51.3 1 49.2 3.5 48.6 L 135.9 15.1 C 138.2 14.5 140.6 15.2 142.1 17 C 143.7 18.9 144 21.3 143 23.5 L 97.4 124.8 C 96.6 126.5 95.1 127.8 93.2 128.2 C 92.8 128.4 92.2 128.4 91.8 128.4 Z M 61 102.5 C 61.4 102.5 61.7 102.6 62 102.8 L 89.9 124.7 C 90.6 125.3 91.6 125.6 92.5 125.3 C 93.4 125.1 94.2 124.5 94.6 123.6 L 140.2 22.3 C 140.7 21.3 140.6 20 139.8 19.1 C 139 18.1 137.8 17.8 136.7 18.1 L 4.2 51.6 C 2.6 52 2 53.2 1.9 54.2 C 1.7 55.3 2.1 56.6 3.5 57.3 L 30.8 71.6 C 31.1 71.8 31.4 72 31.5 72.4 L 39.8 93.8 L 39.8 76.7 C 39.8 76.1 40.1 75.6 40.6 75.3 L 110.5 37.7 C 111.2 37.4 112.1 37.5 112.5 38.2 C 113 38.8 112.8 39.8 112.2 40.2 L 52 89.6 L 48.6 118.9 L 59.8 103.2 C 60 102.9 60.4 102.7 60.8 102.6 C 60.9 102.5 61 102.5 61 102.5 Z M 61 102.5"/></svg><span class="sr">تيليجرام</span></a>
         <a href="https://www.instagram.com/wafferna" target="_blank" rel="noopener" aria-label="إنستقرام" title="إنستقرام"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 97.3 43.5 C 94.9 43.5 93 45.5 93 47.8 C 93 50.2 94.9 52.1 97.3 52.1 C 99.7 52.1 101.6 50.2 101.6 47.8 C 101.6 45.5 99.7 43.5 97.3 43.5"/><path d="M 72 91.2 C 61.4 91.2 52.8 82.6 52.8 72 C 52.8 61.4 61.4 52.8 72 52.8 C 82.6 52.8 91.2 61.4 91.2 72 C 91.2 82.6 82.6 91.2 72 91.2 Z M 72 47.9 C 58.7 47.9 47.9 58.7 47.9 72 C 47.9 85.3 58.7 96.1 72 96.1 C 85.3 96.1 96.1 85.3 96.1 72 C 96.1 58.7 85.3 47.9 72 47.9"/><path d="M 109.7 90.9 C 109.7 101.5 101.2 110 90.6 110 L 52.8 110 C 42.2 110 33.7 101.5 33.7 90.9 L 33.7 53.1 C 33.7 42.5 42.2 34 52.8 34 L 90.6 34 C 101.2 34 109.7 42.5 109.7 53.1 Z M 90.9 28.8 L 53.1 28.8 C 39.8 28.8 29.1 39.5 29.1 52.8 L 29.1 90.6 C 29.1 103.9 39.8 114.6 53.1 114.6 L 90.9 114.6 C 104.2 114.6 114.9 103.9 114.9 90.6 L 114.9 52.8 C 114.9 39.5 104.2 28.8 90.9 28.8"/><path d="M 72 139.1 C 35 139.1 4.9 109 4.9 72 C 4.9 35 35 4.9 72 4.9 C 109 4.9 139.1 35 139.1 72 C 139.1 109 109 139.1 72 139.1 Z M 72 0 C 52.8 0 34.7 7.5 21.1 21.1 C 7.5 34.7 0 52.8 0 72 C 0 91.2 7.5 109.3 21.1 122.9 C 34.7 136.5 52.8 144 72 144 C 91.2 144 109.3 136.5 122.9 122.9 C 136.5 109.3 144 91.2 144 72 C 144 52.8 136.5 34.7 122.9 21.1 C 109.3 7.5 91.2 0 72 0"/></svg><span class="sr">إنستقرام</span></a>
         <a href="https://x.com/Waffernaa" target="_blank" rel="noopener" aria-label="X" title="X"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 0.1 141.5 L 51.1 71.9 L 0.2 2.5 L 42.1 2.5 L 77.3 50.5 L 76.8 51.1 L 75.6 52.8 L 10.6 141.5 Z M 0.1 141.5"/><path d="M 102.1 141.5 L 72 100.5 L 41.9 141.5 L 31.4 141.5 L 133.3 2.5 L 143.8 2.5 L 92.9 71.9 L 143.9 141.5 Z M 102.1 141.5"/></svg><span class="sr">X</span></a>
@@ -386,83 +254,20 @@ html.lock{overflow:hidden}
         <a href="https://www.youtube.com/@wafferna" target="_blank" rel="noopener" aria-label="يوتيوب" title="يوتيوب"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path d="M 50.2 51.6 C 50.2 50.7 50.3 48.9 52.5 47.6 C 54.5 46.5 58.6 45.6 61 46.9 L 97 66.5 C 98.9 67.6 100.9 69.8 100.8 72.2 C 100.8 73.8 100 75.2 98.6 76 L 98.5 76 L 60.9 94.6 C 60.1 95.1 59.1 95.2 58 95.2 C 55.9 95.2 53.8 94.5 52.5 93.8 C 50.3 92.5 50.2 90.7 50.2 89.8 Z M 29.7 120.2 L 113.5 120.2 C 129.9 120.2 143.8 106.1 143.8 89.8 L 143.8 50.7 C 143.8 34.4 129.9 23.8 113.5 23.8 L 29.7 23.8 C 13.4 23.8 0.2 34.4 0.2 50.7 L 0.2 89.8 C 0.2 106.1 13.4 120.2 29.7 120.2"/></svg><span class="sr">يوتيوب</span></a>
         <a href="https://www.snapchat.com/add/wafferna" target="_blank" rel="noopener" aria-label="سناب شات" title="سناب شات"><svg viewBox="0 0 144 144" aria-hidden="true" focusable="false"><path class="in" d="M 133.2 105.7 C 111.1 95 107.6 78.5 107.4 77.3 C 107.2 75.8 107 74.7 108.6 73.2 C 110.2 71.7 117.2 67.4 119.2 66 C 122.4 63.8 123.8 61.5 122.7 58.8 C 122 56.9 120.2 56.2 118.4 56.2 C 117.8 56.2 117.2 56.2 116.6 56.4 C 113.1 57.1 109.7 58.9 107.7 59.4 C 107.5 59.4 107.2 59.5 107 59.5 C 105.9 59.5 105.5 59 105.6 57.7 C 105.9 53.9 106.4 46.4 105.8 39.3 C 104.9 29.7 101.8 24.9 98.1 20.6 C 96.3 18.6 88 9.8 72 9.8 C 56 9.8 47.7 18.6 45.9 20.6 C 42.2 24.8 39.1 29.6 38.3 39.3 C 37.7 46.3 38.2 53.8 38.4 57.7 C 38.5 58.9 38.1 59.4 37.1 59.4 C 36.8 59.4 36.6 59.4 36.3 59.3 C 34.4 58.9 30.9 57.1 27.4 56.3 C 26.8 56.2 26.2 56.1 25.7 56.1 C 23.8 56.1 22 56.9 21.3 58.8 C 20.2 61.5 21.7 63.8 24.9 66 C 26.8 67.4 33.8 71.7 35.4 73.1 C 37 74.6 36.8 75.8 36.6 77.3 C 36.5 78.5 32.9 95 10.9 105.7 C 9.6 106.3 7.4 107.6 11.3 109.8 C 17.4 113.2 21.4 112.8 24.6 114.8 C 27.2 116.6 25.6 120.3 27.6 121.6 C 30 123.3 37 121.5 46.2 124.5 C 53.8 127 58.5 134.1 72 134.1 C 85.6 134.1 90.4 127 97.9 124.5 C 107 121.5 114.1 123.3 116.5 121.6 C 118.4 120.3 116.8 116.6 119.5 114.8 C 122.6 112.8 126.7 113.2 132.8 109.8 C 136.7 107.7 134.5 106.3 133.2 105.7 Z M 133.2 105.7"/><path d="M 142.8 104.5 C 141.8 101.8 139.9 100.3 137.7 99.1 C 137.3 98.9 137 98.7 136.7 98.6 C 136 98.2 135.4 97.9 134.7 97.6 C 128 94 122.8 89.5 119.1 84.2 C 118.1 82.7 117.2 81.2 116.5 79.5 C 116.2 78.6 116.2 78.1 116.4 77.6 C 116.6 77.3 116.9 77 117.3 76.8 C 118.4 76 119.6 75.2 120.4 74.7 C 121.8 73.8 123 73 123.7 72.5 C 126.5 70.6 128.4 68.6 129.6 66.3 C 130.4 64.7 130.9 63 131 61.2 C 131.1 59.4 130.8 57.6 130.2 55.9 C 128.4 51.1 123.8 48.2 118.4 48.2 C 117.2 48.2 116.1 48.3 114.9 48.5 C 114.6 48.6 114.3 48.7 114 48.7 C 114.1 45.5 114 42 113.7 38.6 C 112.7 26.6 108.5 20.3 104.1 15.3 C 101.3 12.2 98 9.6 94.4 7.5 C 87.7 3.7 80.2 1.8 72 1.8 C 63.8 1.8 56.3 3.7 49.7 7.5 C 46 9.6 42.7 12.2 39.9 15.4 C 35.5 20.4 31.3 26.7 30.3 38.6 C 30 42 29.9 45.5 30 48.8 C 29.7 48.7 29.4 48.6 29.1 48.5 C 28 48.3 26.8 48.2 25.7 48.2 C 20.2 48.2 15.6 51.2 13.8 55.9 C 13.2 57.6 12.9 59.4 13 61.2 C 13.1 63 13.6 64.7 14.4 66.3 C 15.6 68.6 17.5 70.6 20.3 72.6 C 21 73.1 22.2 73.8 23.6 74.7 C 24.4 75.2 25.5 76 26.6 76.7 C 27 77 27.3 77.3 27.6 77.7 C 27.8 78.2 27.8 78.7 27.5 79.6 C 26.7 81.2 25.9 82.8 24.9 84.3 C 21.3 89.4 16.2 93.8 9.8 97.4 C 6.3 99.2 2.7 100.4 1.2 104.5 C 0.1 107.6 0.8 111.1 3.7 114.1 C 4.8 115.2 6 116.1 7.4 116.8 C 10.2 118.4 13.2 119.6 16.3 120.4 C 16.9 120.6 17.5 120.8 18.1 121.2 C 19.1 122.1 19 123.5 20.4 125.5 C 21.1 126.6 22 127.5 23 128.2 C 26 130.3 29.3 130.4 32.8 130.5 C 35.9 130.6 39.5 130.8 43.6 132.1 C 45.3 132.7 47.1 133.8 49.1 135 C 54 138.1 60.8 142.2 72 142.2 C 83.2 142.2 90 138 94.9 135 C 97 133.8 98.7 132.7 100.4 132.1 C 104.5 130.8 108.1 130.6 111.2 130.5 C 114.7 130.4 118 130.3 121 128.2 C 122.2 127.4 123.2 126.3 124 125 C 125 123.2 125 122 125.9 121.2 C 126.4 120.9 127 120.6 127.6 120.4 C 130.8 119.6 133.8 118.4 136.6 116.8 C 138.1 116.1 139.3 115.1 140.4 113.8 L 140.5 113.8 C 143.2 110.9 143.9 107.5 142.8 104.5 Z M 132.8 109.8 C 126.7 113.2 122.6 112.8 119.5 114.9 C 116.8 116.6 118.4 120.3 116.4 121.7 C 114.1 123.3 107 121.5 97.9 124.5 C 90.4 127 85.5 134.2 72 134.2 C 58.5 134.2 53.8 127 46.1 124.5 C 37 121.5 30 123.3 27.6 121.6 C 25.6 120.3 27.2 116.6 24.5 114.8 C 21.4 112.8 17.3 113.2 11.2 109.8 C 7.4 107.7 9.6 106.4 10.9 105.7 C 32.9 95.1 36.4 78.6 36.6 77.3 C 36.8 75.9 37 74.7 35.4 73.2 C 33.8 71.7 26.8 67.4 24.9 66 C 21.6 63.8 20.2 61.6 21.3 58.8 C 22 56.9 23.8 56.2 25.6 56.2 C 26.2 56.2 26.8 56.2 27.4 56.4 C 30.9 57.1 34.3 58.9 36.3 59.4 C 36.6 59.4 36.8 59.5 37.1 59.5 C 38.1 59.5 38.5 58.9 38.4 57.7 C 38.2 53.9 37.6 46.4 38.2 39.3 C 39.1 29.7 42.2 24.9 45.9 20.7 C 47.7 18.6 56 9.8 72 9.8 C 88 9.8 96.3 18.6 98.1 20.6 C 101.8 24.8 104.9 29.6 105.8 39.3 C 106.4 46.3 105.8 53.8 105.6 57.7 C 105.5 59 105.9 59.4 106.9 59.4 C 107.2 59.4 107.4 59.4 107.7 59.3 C 109.7 58.9 113.1 57.1 116.6 56.3 C 117.2 56.2 117.8 56.1 118.4 56.1 C 120.2 56.1 122 56.9 122.7 58.8 C 123.8 61.5 122.4 63.8 119.1 66 C 117.2 67.4 110.2 71.7 108.6 73.1 C 107 74.6 107.2 75.8 107.4 77.3 C 107.6 78.5 111.1 95 133.2 105.7 C 134.5 106.3 136.7 107.7 132.8 109.8 Z M 132.8 109.8"/></svg><span class="sr">سناب شات</span></a>
       </div>
-    </div>
-  </section>
+</div>
+</section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="note"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr" style="display:block">As an Amazon Associate I earn from qualifying purchases.</span></div>
-    <div class="note"><b>إفصاح:</b> بعض الروابط في هذا الموقع روابط تسويقية، وقد نحصل على عمولة عند الشراء عبرها دون أي تكلفة إضافية عليك. الأسعار والتوفر تتغير من المتجر، والتأكد منها قبل الشراء مسؤوليتك.</div>
-    <div class="row">
-      <span>© <span id="y"></span> Wafferna</span>
-      <span><a href="tips.html">نصائح</a> · <a href="about.html">من نحن</a> · <a href="privacy.html">سياسة الخصوصية</a></span>
-    </div>
-  </div>
-</footer>
-
+<footer><div class="wrap">
+<div class="note"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr" style="display:block">As an Amazon Associate I earn from qualifying purchases.</span></div>
+<div class="note"><b>إفصاح:</b> بعض الروابط في هذا الموقع روابط تسويقية، وقد نحصل على عمولة عند الشراء عبرها دون أي تكلفة إضافية عليك. الأسعار والتوفر تتغير من المتجر، والتأكد منها قبل الشراء مسؤوليتك.</div>
+<div class="row"><span>© <span id="y"></span> Wafferna</span><span><a href="/tips.html">نصائح</a> · <a href="/about.html">من نحن</a> · <a href="/privacy.html">سياسة الخصوصية</a></span></div>
+</div></footer>
 <script>
-document.getElementById('y').textContent = new Date().getFullYear();
-
-(function(){
-  var grid = document.getElementById('grid');
-  var empty = document.getElementById('empty');
-
-  function safeUrl(u){
-    try{ var x = new URL(u); return (x.protocol==='https:'||x.protocol==='http:') ? x.href : ''; }
-    catch(e){ return ''; }
-  }
-  function el(tag, cls, text){
-    var n = document.createElement(tag);
-    if(cls) n.className = cls;
-    if(text!=null) n.textContent = text;
-    return n;
-  }
-
-  fetch('posts.json?v=' + Date.now())
-    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .then(function(list){
-      if(!Array.isArray(list) || !list.length){ grid.style.minHeight = '0'; empty.hidden = false; return; }
-      list.slice(0, 24).forEach(function(p){
-        var link = safeUrl(p.link);
-        if(!link || !p.title) return;
-        var card = el('article','card');
-        var img = safeUrl(p.image) || (typeof p.image === 'string' && p.image.charAt(0) === '/' && p.image.charAt(1) !== '/' ? p.image : '');
-        var page = (typeof p.page === 'string' && p.page.charAt(0) === '/' && p.page.charAt(1) !== '/') ? p.page : '';
-        if(img){
-          var im = document.createElement('img');
-          im.src = img; im.alt = p.title; im.loading = 'lazy'; im.width = 600; im.height = 600; im.className = 'pimg';
-          if(page){ var ia = document.createElement('a'); ia.href = page; ia.tabIndex = -1; ia.setAttribute('aria-hidden','true'); ia.appendChild(im); card.appendChild(ia); }
-          else card.appendChild(im);
-        }
-        var ch = el('div','ch');
-        
-        var h3 = el('h3', null, p.title);
-        if(page){ h3 = el('h3'); var ta = el('a', null, p.title); ta.href = page; ta.style.color = 'inherit'; ta.style.textDecoration = 'none'; h3.appendChild(ta); }
-        ch.appendChild(h3); card.appendChild(ch);
-        var box = el('div','cbox');
-        if(p.price){
-          var pr = el('div','price');
-          pr.appendChild(el('b', null, p.price));
-          if(p.old_price) pr.appendChild(el('s', null, p.old_price));
-          box.appendChild(pr);
-        }
-        var SN={aliexpress:'AliExpress',amazon:'Amazon',noon:'Noon'},sk=String(p.store||'').toLowerCase().replace(/[^a-z]/g,''),sn=SN[sk]||p.store||'';
-        var a = el('a','btn primary'+(SN[sk]?' sb st-'+sk:''),sn||'شوف العرض');
-        if(sn) a.setAttribute('aria-label','شوف العرض في '+sn);
-        if(SN[sk]){ var NS='http://www.w3.org/2000/svg',sv=document.createElementNS(NS,'svg'); sv.setAttribute('viewBox','0 0 24 24'); sv.setAttribute('aria-hidden','true'); sv.setAttribute('focusable','false'); sv.innerHTML = sk==='noon' ? '<path d="M5 8h14l1 12H4z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>' : '<path d="M2 3h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.8a1.5 1.5 0 0 0 1.5-1.1L21 7H6"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17.5" cy="20" r="1.3"/>'; a.insertBefore(sv,a.firstChild); }
-        a.href = link; a.target = '_blank'; a.rel = 'sponsored noopener noreferrer';
-        box.appendChild(a);
-        if(page){ var rv = el('a','rv','اقرأ التفاصيل'); rv.href = page; box.appendChild(rv); }
-        box.appendChild(el('small', null, 'الأسعار تتغير حسب المتجر'));
-        card.appendChild(box);
-        grid.appendChild(card);
-      });
-      if(!grid.children.length) empty.hidden = false;
-    })
-    .catch(function(){ grid.style.minHeight = '0'; empty.hidden = false; });
-})();
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){var q=document.getElementById('q'),c=[].slice.call(document.querySelectorAll('#cards .deal')),e=document.getElementById('empty');
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),n=0;c.forEach(function(d){var m=!v||d.textContent.toLowerCase().indexOf(v)>-1;d.hidden=!m;if(m)n++});e.hidden=n>0});})();
 </script>
-<script>(function(){var d=document,b=d.getElementById('menuBtn'),m=d.getElementById('menu'),o=d.getElementById('menuOv'),x=d.getElementById('menuX');if(!b||!m)return;function s(v){m.classList.toggle('on',v);o.classList.toggle('on',v);b.setAttribute('aria-expanded',v);d.documentElement.classList.toggle('lock',v);(v?x:b).focus()}b.addEventListener('click',function(){s(true)});x.addEventListener('click',function(){s(false)});o.addEventListener('click',function(){s(false)});d.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))s(false)});m.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&/#/.test(a.getAttribute('href'))&&a.pathname===location.pathname)s(false)});var t=d.createElement('button');t.type='button';t.className='totop';t.setAttribute('aria-label','العودة للأعلى');t.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';t.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});d.body.appendChild(t);var f=0;addEventListener('scroll',function(){if(f)return;f=requestAnimationFrame(function(){f=0;t.classList.toggle('show',scrollY>700)})},{passive:true})})()</script>
-<script>addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "ee12c145e9a5430da869fe618933f8f9"}');document.body.appendChild(s)},1500)})</script></body>
+
+<script>addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "ee12c145e9a5430da869fe618933f8f9"}');document.body.appendChild(s)},1500)})</script>
+</body>
 </html>

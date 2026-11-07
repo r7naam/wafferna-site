@@ -385,6 +385,12 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;m
 .drawer .dr-ft{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dline);color:var(--muted);font-size:13px;line-height:1.9}
 @media(max-width:360px){.drawer{padding-left:28px}.drawer .dr-top{margin-left:-28px;padding-left:28px}}
 
+
+/* ===== Homepage background: sky + turquoise, coupon frame on offers ===== */
+body{background:radial-gradient(circle at 12% 8%,#b9e6ee 0,transparent 42%),radial-gradient(circle at 92% 28%,#ffd3bd 0,transparent 36%),linear-gradient(180deg,#e4f5f7,#f3f0e4) fixed}
+.deal{position:relative}
+.deal::after{content:"";position:absolute;inset:9px;border:2px dashed var(--accent);border-radius:11px;pointer-events:none;z-index:2}
+.deal .obtn,.deal .go{position:relative;z-index:3}
 </style>
 </head>
 <body>

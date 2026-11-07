@@ -137,7 +137,7 @@ html.lock{overflow:hidden}
 .t-title{font-size:20px;line-height:1.6;font-weight:800}
 .t-stub{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 12px;text-align:center}
 .t-stub::before{content:"";position:absolute;inset-block:22px;inset-inline-start:0;border-inline-start:2px dashed #c9c2a8}
-.t-pct{font-size:46px;line-height:1;font-weight:800;color:var(--ink);background:var(--gold);padding:8px 14px 10px;border-radius:12px;direction:ltr;font-variant-numeric:tabular-nums}
+.t-pct{font-size:28px;line-height:1.3;font-weight:800;color:var(--ink);background:var(--gold);padding:6px 14px 8px;border-radius:12px;white-space:nowrap}
 .t-prices{display:flex;flex-direction:column;align-items:center;line-height:1.5}
 .t-new{font-size:22px;font-weight:800;color:var(--rust);white-space:nowrap}
 .t-old{font-size:15px;color:var(--muted);white-space:nowrap}
@@ -373,7 +373,7 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;m
 <p>عروض مختارة من أمازون ونون وعلي اكسبرس، ونصائح تكشف الخصم الوهمي والمتجر المزيّف، لتعرف إذا المنتج يستاهل سعره قبل ما تدفع.</p>
 <div class="cta"><a class="btn" href="#deals">تصفّح أحدث العروض</a><a class="btn ghost" href="/real-discount.html">تحقق من الخصم قبل الدفع</a></div>
 </div>
-<div class="hero-tk"><a class="ticket" href="/offers/offer-1005010477636259.html"><span class="t-img"><img src="/offers/img/offer-1005010477636259.jpg" width="720" height="720" alt="" decoding="async" fetchpriority="high"></span><span class="t-body"><span class="t-tag">أحدث إضافة · AliExpress</span><b class="t-title">محول CarPlay لاسلكي من USB-C و USB-A</b></span><span class="t-stub"><span class="t-prices"><span class="t-new">114.64 ر.س</span><s class="t-old">126.38 ر.س</s></span><span class="t-pct">-9%</span></span></a></div>
+<div class="hero-tk"><a class="ticket" href="/offers/offer-1005010477636259.html"><span class="t-img"><img src="/offers/img/offer-1005010477636259.jpg" width="720" height="720" alt="" decoding="async" fetchpriority="high"></span><span class="t-body"><span class="t-tag">أحدث إضافة · AliExpress</span><b class="t-title">محول CarPlay لاسلكي من USB-C و USB-A</b></span><span class="t-stub"><span class="t-prices"><span class="t-new">114.64 ر.س</span><s class="t-old">126.38 ر.س</s></span><span class="t-pct">خصم 9%</span></span></a></div>
 </section>
 <div class="tools">
 <a class="tool" href="/customs-calculator.html"><b>حاسبة الجمارك</b><span>اعرف الرسوم قبل الشحن</span></a>
@@ -449,7 +449,7 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;m
 <div class="note"><b>إفصاح:</b> بعض الروابط في هذا الموقع روابط تسويقية، وقد نحصل على عمولة عند الشراء عبرها دون أي تكلفة إضافية عليك. الأسعار والتوفر تتغير من المتجر، والتأكد منها قبل الشراء مسؤوليتك.</div>
 <div class="row"><span>© <span id="y"></span> Wafferna</span><span><a href="/tips.html">نصائح</a> · <a href="/about.html">من نحن</a> · <a href="/privacy.html">سياسة الخصوصية</a></span></div>
 </div></footer>
-<script>(function(){var t=document.querySelector('.ticket');if(!t||!window.fetch)return;fetch('/posts.json').then(function(r){return r.json()}).then(function(a){var p=a&&a[0];if(!p||!p.page)return;var n=parseFloat(String(p.price).replace(/[^\d.]/g,'')),o=parseFloat(String(p.old_price||'').replace(/[^\d.]/g,''));var q=function(c){return t.querySelector(c)};t.setAttribute('href',p.page);var im=q('.t-img img');if(im&&im.getAttribute('src')!==p.image)im.setAttribute('src',p.image);q('.t-tag').textContent='أحدث إضافة · '+p.store;q('.t-title').textContent=p.title;q('.t-new').textContent=p.price;var d=o>n&&n>0,od=q('.t-old'),pc=q('.t-pct');od.hidden=!d;pc.hidden=!d;if(d){od.textContent=p.old_price;pc.textContent='-'+Math.round((1-n/o)*100)+'%'}}).catch(function(){})})();</script>
+<script>(function(){var t=document.querySelector('.ticket');if(!t||!window.fetch)return;fetch('/posts.json').then(function(r){return r.json()}).then(function(a){var p=a&&a[0];if(!p||!p.page)return;var n=parseFloat(String(p.price).replace(/[^\d.]/g,'')),o=parseFloat(String(p.old_price||'').replace(/[^\d.]/g,''));var q=function(c){return t.querySelector(c)};t.setAttribute('href',p.page);var im=q('.t-img img');if(im&&im.getAttribute('src')!==p.image)im.setAttribute('src',p.image);q('.t-tag').textContent='أحدث إضافة · '+p.store;q('.t-title').textContent=p.title;q('.t-new').textContent=p.price;var d=o>n&&n>0,od=q('.t-old'),pc=q('.t-pct');od.hidden=!d;pc.hidden=!d;if(d){od.textContent=p.old_price;pc.textContent='خصم '+Math.round((1-n/o)*100)+'%'}}).catch(function(){})})();</script>
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 (function(){var q=document.getElementById('q'),c=[].slice.call(document.querySelectorAll('#cards .deal')),e=document.getElementById('empty');

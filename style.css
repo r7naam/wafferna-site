@@ -46,6 +46,7 @@ nav{white-space:nowrap}nav a.navvid{background:var(--accent-d);color:#fff;paddin
 .vid{margin:22px 0}.vbox{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:1200/630}
 .vplay{all:unset;display:block;width:100%;height:100%;cursor:pointer;position:relative}.vplay img{display:block;width:100%;height:100%;object-fit:cover}
 .vbtn{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+.vbtn:after{content:"";display:block;width:0;height:0;border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent #fff}
 .vplay:hover .vbtn,.vplay:focus-visible .vbtn{background:#a14c2e}.vplay:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .vbox.on{aspect-ratio:16/9;background:#000}.vbox iframe{width:100%;height:100%;border:0;display:block}
 .vcap{color:var(--muted);font-size:14px;margin-top:8px}

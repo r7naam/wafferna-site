@@ -28,7 +28,8 @@
 .obtn{display:inline-block;background:var(--accent-d);color:#fff;text-decoration:none;font-weight:800;padding:12px 28px;border-radius:999px;margin-top:8px}
 .obtn:hover{background:#8f4326}
 .oimg{display:block;width:100%;max-width:520px;height:auto;border-radius:18px;border:1px solid var(--line);margin:14px auto;background:#fff}
-.ogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:14px}
+.ogrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+@media(max-width:620px){.ogrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 .ocard{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;color:var(--ink)}
 .ocard:hover{border-color:var(--accent)}
 .ocard img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#fff}

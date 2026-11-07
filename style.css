@@ -104,6 +104,7 @@ html.lock{overflow:hidden}
 .rel-list span{flex:1}
 .rel-list a::after{content:"\2190";color:var(--accent-d);font-size:20px;padding-inline:6px}
 
+
 /* ===== Ticket design v2 (shared by all inner pages) ===== */
 :root{--card:#fbfaf4;--line:#d6d0ba;--muted:#5a5748;--gold:#e9b94b;--perf:#c9c2a8}
 h1{font-size:clamp(28px,5vw,40px);line-height:1.45;text-wrap:balance}
@@ -149,3 +150,44 @@ footer .note,footer .note b{color:#e3dfd0}
 footer .note b{color:#fff}
 
 @media(prefers-reduced-motion:reduce){main .ocard{transition:none}main .ocard:hover{transform:none}}
+
+
+/* ===== Side menu (drawer): a torn ticket stub =====
+   Warm cream body (easy on the eyes, same family as the page) with a dark head that carries the logo,
+   so the existing light wordmark file keeps working on every page. The edge facing the page is perforated,
+   rows are separated by dashed perforation lines, the open group sits on a deeper sand stub. */
+.drawer{--dbg:#f4efe1;--dstub:#e8dfc8;--dline:rgba(61,57,41,.24);width:min(88vw,360px);background:var(--dbg);color:var(--ink);padding:20px 22px calc(26px + env(safe-area-inset-bottom,0px)) 32px;
+  -webkit-mask:radial-gradient(circle 7px at 0 13px,#0000 6.5px,#000 7px) 0 0/100% 26px repeat-y;
+  mask:radial-gradient(circle 7px at 0 13px,#0000 6.5px,#000 7px) 0 0/100% 26px repeat-y}
+.drawer .dr-top{margin:-20px -22px 10px -32px;padding:20px 22px 16px 32px;background:#3d3929;border-bottom:3px solid var(--accent);gap:12px}
+.drawer .dr-lg{gap:8px}
+.drawer .dr-lg .mk{height:30px;width:auto}
+.drawer .dr-lg img:not(.mk){height:auto;width:min(150px,38vw)}
+.drawer .dr-x{width:44px;height:44px;border:1.5px solid rgba(243,239,227,.4);border-radius:50%;font-size:24px;flex:none;color:#f3efe3}
+.drawer .dr-x:hover,.drawer .dr-x:focus-visible{background:rgba(243,239,227,.14);border-color:var(--gold)}
+.drawer .dr-list{margin-top:6px}
+.drawer .dr-list>li{border-bottom:1px dashed var(--dline)}
+.drawer .dr-list>li:last-child{border-bottom:0}
+.drawer .dr-list a,.drawer .dr-list summary{justify-content:flex-start;gap:10px;min-height:54px;font-size:18px;font-weight:700;color:var(--ink);padding-inline:10px;margin-inline:-10px;border-radius:12px}
+.drawer .dr-list a:hover,.drawer .dr-list summary:hover{background:rgba(61,57,41,.07);color:var(--accent-d)}
+.drawer .dr-list a:focus-visible,.drawer .dr-list summary:focus-visible{outline:3px solid var(--gold);outline-offset:-2px}
+.drawer .dr-list summary::after{margin-inline-start:auto;border-color:var(--accent-d);width:8px;height:8px}
+.drawer .dr-list details[open]{background:var(--dstub);border-radius:14px;margin-inline:-10px;padding:0 10px 8px}
+.drawer .dr-list details[open]>summary{margin-inline:-10px;padding-inline:10px;color:var(--accent-d)}
+.drawer .dr-sub{padding:0;margin:0}
+.drawer .dr-sub a{justify-content:flex-start;gap:12px;min-height:46px;font-size:16px;font-weight:500;color:var(--ink);padding-inline:8px;margin-inline:0}
+.drawer .dr-sub a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.drawer .dr-sub a:hover{background:rgba(61,57,41,.08);color:var(--accent-d)}
+.drawer .bdg{margin:0;padding:1px 10px;border-radius:8px;font-size:12px;line-height:1.7}
+.drawer .bdg.b{background:#f3dfa8;color:#6b4a0a}
+.drawer .bdg.n{background:#cfe6d4;color:#1d5f35}
+.drawer .bdg.v{background:#f1d2c4;color:#8a3a1a}
+.drawer .dr-soc{margin-top:16px;padding-top:18px;border-top:2px dashed var(--dline)}
+.drawer .dr-soc .dr-t{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
+.drawer .dr-soc .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;justify-items:center}
+.drawer .dr-soc a{width:48px;height:48px;border:1.5px solid rgba(61,57,41,.32);color:var(--ink);background:transparent}
+.drawer .dr-soc a:hover,.drawer .dr-soc a:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff}
+.drawer .dr-soc svg .in{fill:var(--dbg)}
+.drawer .dr-soc a:hover svg .in,.drawer .dr-soc a:focus-visible svg .in{fill:var(--accent)}
+.drawer .dr-ft{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dline);color:var(--muted);font-size:13px;line-height:1.9}
+@media(max-width:360px){.drawer{padding-left:28px}.drawer .dr-top{margin-left:-28px;padding-left:28px}}

@@ -64,111 +64,218 @@
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:optional;src:url('fonts/tajawal-500.woff') format('woff')}
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:optional;src:url('fonts/tajawal-700.woff') format('woff')}
 @font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:optional;src:url('fonts/tajawal-800.woff') format('woff')}
-:root{--rust:#a8502d;--rust-l:#bd5d3a;--ink:#302f28;--bg:#eeece2;--card:#fff;--gold:#e9b94b;--line:#e1ddd0;--muted:#5a5748;--sky:#e9dcc0;--accent-d:#a8502d;--accent:#bd5d3a}
+/* Wafferna home, "تذكرة" direction.
+   One idea: the logo's W is a discount ticket (notched edge, perforation).
+   Offer cards and the featured deal are tickets; everything else stays flat and quiet.
+   Layout: sand header, hero (text | featured ticket), tools strip, 11.11 band, sidebar + ticket grid. */
+:root{
+  --bg:#eeece2;        /* paper */
+  --ink:#3d3929;       /* brand dark */
+  --rust:#a8502d;      /* terracotta, text-safe */
+  --accent:#bd5d3a;    /* brand terracotta, fills */
+  --accent-d:#a8502d;
+  --gold:#e9b94b;
+  --sand:#e9dcc0;      /* header bar */
+  --card:#fbfaf4;
+  --line:#d6d0ba;
+  --muted:#5a5748;
+  --perf:#c9c2a8;     /* perforation line */
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:17px}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:17px;-webkit-text-size-adjust:100%}
 a{color:inherit;text-decoration:none}
+img{max-width:100%}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.skip{position:absolute;inset-inline-start:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:60}
 .skip:focus{top:12px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
-.top{background:var(--ink);color:#fff;text-align:center;padding:8px 12px;font-size:14px}
-.top b{color:#f5c762}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:35;background:var(--sand)}
+
+/* top strip + header */
+.top{background:var(--ink);color:#f3efe3;text-align:center;padding:8px 12px;font-size:14px}
+.top b{color:var(--gold)}
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--sand);border-bottom:1px solid var(--line);color:var(--ink)}
+.searchbar{background:var(--sand);padding:0 0 14px;border-bottom:1px solid var(--line)}
+.search{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .search input{border:0;outline:0;background:transparent;padding:13px 16px;flex:1;min-width:0;font:inherit;color:var(--ink)}
 .search input:focus-visible{outline:0}
 .search:focus-within{outline:3px solid var(--gold);outline-offset:2px}
-.nav{background:#fff;border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;padding:12px 22px;font-size:15px;font-weight:700;scrollbar-width:none}
+html.lock{overflow:hidden}
+.nav{background:var(--card);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;padding-top:10px;padding-bottom:10px;font-size:15px;font-weight:700;scrollbar-width:none}
 .nav-inner::-webkit-scrollbar{display:none}
-.nav a{padding:6px 0;border-bottom:3px solid transparent}
+.nav a{padding:8px 0;border-bottom:3px solid transparent}
 .nav a:hover,.nav a.on{color:var(--rust);border-color:var(--rust)}
-.hero{display:grid;grid-template-columns:1.7fr 1fr;gap:18px;margin-top:26px}
-.hero-main{border-radius:20px;padding:34px;background:linear-gradient(115deg,#e8dfcd,#f6efe2);min-height:270px}
-.eyebrow{display:inline-block;background:#fff4d7;color:#6c4a0f;padding:6px 14px;border-radius:30px;font-size:14px;font-weight:700}
-.hero h1{font-size:40px;line-height:1.3;margin:16px 0 10px;font-weight:800}
-.hero h1 span{color:var(--rust)}
-.hero-main p{color:var(--muted);font-size:17px;max-width:520px}
-.btn{display:inline-block;background:var(--rust);color:#fff;font-weight:800;border-radius:12px;padding:13px 26px;margin-top:16px;min-height:44px}
-.btn:hover{background:#8f4121}
-.side{display:grid;gap:18px}
-.side-card{border-radius:18px;background:#332f29;color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:center}
-.side-card:nth-child(2){background:var(--gold);color:#2b2215}
-.side-card h2{font-size:20px;margin-bottom:6px}
-.side-card p{font-size:15px;line-height:1.8}
-.side-card:hover{filter:brightness(1.06)}
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
-.tool{background:var(--card);border:1px solid var(--line);padding:16px;border-radius:14px;font-size:15px;display:block}
-.tool b{display:block;font-size:17px}
+.sale-bar{background:var(--gold);color:var(--ink);text-align:center;font-weight:700;font-size:15px;line-height:1.6;padding:9px 14px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.sale-bar:hover,.sale-bar:focus-visible{filter:brightness(.96)}
+.anch{display:block;height:0}
+#deals,#offers{scroll-margin-top:96px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;align-items:center;padding:52px 0 36px}
+.hero h1{font-size:clamp(34px,5.2vw,58px);line-height:1.28;font-weight:800;letter-spacing:0;text-wrap:balance}
+.hero-txt p{color:var(--muted);font-size:18px;margin-top:16px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--rust);color:#fff;font-weight:800;border-radius:12px;padding:12px 26px;min-height:48px;border:2px solid var(--rust)}
+.btn:hover{background:#8f4121;border-color:#8f4121}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* featured ticket (hero) */
+.hero-tk{filter:drop-shadow(1px 0 0 var(--line)) drop-shadow(-1px 0 0 var(--line)) drop-shadow(0 1px 0 var(--line)) drop-shadow(0 -1px 0 var(--line)) drop-shadow(0 14px 22px rgba(61,57,41,.10))}
+.ticket{--stubw:190px;display:grid;grid-template-columns:200px minmax(0,1fr) var(--stubw);background:var(--card);min-height:236px;border-radius:16px;
+  -webkit-mask:radial-gradient(circle 13px at var(--stubw) 0,#0000 12.5px,#000 13px),radial-gradient(circle 13px at var(--stubw) 100%,#0000 12.5px,#000 13px);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 13px at var(--stubw) 0,#0000 12.5px,#000 13px),radial-gradient(circle 13px at var(--stubw) 100%,#0000 12.5px,#000 13px);mask-composite:intersect;
+  position:relative;transition:transform .18s}
+.ticket:hover{transform:translateY(-3px)}
+.t-img{display:block;background:#f1efe7;overflow:hidden}
+.t-img img{width:100%;height:100%;object-fit:cover;display:block}
+.t-body{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:22px 22px}
+.t-tag{color:var(--muted);font-size:14px;font-weight:700}
+.t-title{font-size:20px;line-height:1.6;font-weight:800}
+.t-stub{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 12px;text-align:center}
+.t-stub::before{content:"";position:absolute;inset-block:22px;inset-inline-start:0;border-inline-start:2px dashed #c9c2a8}
+.t-pct{font-size:46px;line-height:1;font-weight:800;color:var(--ink);background:var(--gold);padding:8px 14px 10px;border-radius:12px;direction:ltr;font-variant-numeric:tabular-nums}
+.t-prices{display:flex;flex-direction:column;align-items:center;line-height:1.5}
+.t-new{font-size:22px;font-weight:800;color:var(--rust);white-space:nowrap}
+.t-old{font-size:15px;color:var(--muted);white-space:nowrap}
+
+/* tools strip */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:16px;margin:8px 0 34px}
+.tool{display:block;padding:18px 22px;font-size:15px;position:relative}
+.tool+.tool{border-inline-start:2px dashed var(--line)}
+.tool b{display:block;font-size:18px;font-weight:800}
 .tool span{color:var(--muted);font-size:14px}
-.tool:hover{border-color:var(--rust)}
-.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
-.sidebar,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.tool:hover b{color:var(--rust)}
+
+/* 11.11 band */
+.e11{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center;background:var(--ink);color:#f3efe3;border-radius:20px;padding:28px 30px;margin:0 0 34px}
+.e11 .eyebrow{color:var(--gold);font-weight:800;font-size:15px}
+.e11 h2{font-size:32px;line-height:1.3;margin:4px 0 8px;font-weight:800}
+.e11 p{color:#e3dfd0;font-size:16px}
+.e11 p a{color:var(--gold);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.e11-btns{display:grid;gap:10px}
+.e11 .obtn{margin-top:0;height:50px;font-size:16px}
+.e11 .obtn.st-amazon{box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+
+/* buttons: store colors, cart pill (unchanged rule from the live site) */
+.obtn{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 18px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:15px;letter-spacing:.2px;white-space:nowrap;box-shadow:0 3px 8px rgba(61,57,41,.18);color:#fff;background:#DC2A00}
+.obtn svg{flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.obtn.st-aliexpress{background:#DC2A00;color:#fff}
+.obtn.st-amazon{background:#131921;color:#fff}
+.obtn.st-noon{background:#FEEE00;color:#20201f}
+.obtn.st-other{background:var(--rust);color:#fff}
+.obtn:hover{filter:brightness(1.1)}
+
+/* deals layout */
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:26px;align-items:start}
+.sidebar{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px)}
 .sidebar h2{font-size:17px;margin-bottom:6px}
-.side-link{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f0ede4;font-size:15px;font-weight:500}
+.side-link{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #ebe7d8;font-size:15px;font-weight:500}
 .side-link:last-of-type{border:0}
 .side-link span{color:var(--rust)}
 .side-link:hover{color:var(--rust)}
 .sidebar hr{border:0;border-top:1px solid var(--line);margin:18px 0}
 .sidebar p{font-size:14px;color:var(--muted);line-height:1.9}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px}
-.section-head h2{font-size:26px;font-weight:800}
+.section-head h2{font-size:28px;font-weight:800;line-height:1.4}
 .section-head p{color:var(--muted);font-size:15px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.tab{border:1px solid var(--line);background:#fff;padding:9px 16px;border-radius:10px;font-size:15px;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
-.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.tab:hover:not(.on){border-color:var(--rust);color:var(--rust)}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.deal{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.deal:hover{box-shadow:0 12px 30px #302f2814}
-.deal-img{display:block;aspect-ratio:1/1;background:#f1efe7;position:relative}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;margin-bottom:20px;background:#e3dfcf;border-radius:14px;padding:4px}
+.tab{padding:8px 16px;border-radius:10px;font-size:15px;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.tab.on{background:var(--ink);color:#fff}
+.tab:hover:not(.on){background:var(--card);color:var(--rust)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px;align-items:stretch}
+
+/* offer ticket. Styled on the card markup the offers bot generates (article.deal > a.deal-img + div.deal-body),
+   so automatic updates between the CARDS markers keep the same look. Notches are cut by a mask at the dashed line. */
+[hidden]{display:none!important}
+.deal{--stubh:170px;min-width:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;transition:transform .18s;
+  box-shadow:0 8px 14px -8px rgba(61,57,41,.18);
+  -webkit-mask:radial-gradient(circle 11px at 0 calc(100% - var(--stubh)),#0000 10.5px,#000 11px),radial-gradient(circle 11px at 100% calc(100% - var(--stubh)),#0000 10.5px,#000 11px);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 11px at 0 calc(100% - var(--stubh)),#0000 10.5px,#000 11px),radial-gradient(circle 11px at 100% calc(100% - var(--stubh)),#0000 10.5px,#000 11px);mask-composite:intersect}
+.deal:hover{transform:translateY(-3px)}
+.deal-img{display:block;aspect-ratio:4/3;background:#f1efe7;position:relative;overflow:hidden}
 .deal-img img{width:100%;height:100%;object-fit:cover;display:block}
-.pill{position:absolute;inset-inline-start:12px;top:12px;background:var(--rust);color:#fff;padding:3px 12px;border-radius:999px;font-size:15px;font-weight:800}
-.deal-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.pill{position:absolute;inset-inline-start:12px;top:12px;background:var(--gold);color:var(--ink);padding:2px 12px;border-radius:8px;font-size:15px;font-weight:800}
+.deal-body{flex:1;display:flex;flex-direction:column;padding:14px 16px 10px}
 .merchant{color:var(--muted);font-size:14px;font-weight:700}
-.deal h3{font-size:17px;line-height:1.6;min-height:55px;font-weight:700}
-.price{font-weight:800;color:var(--rust);font-size:24px}
-.pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}.old{color:var(--muted);font-size:15px;white-space:nowrap}
-.obtn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:15px;letter-spacing:.2px;white-space:nowrap;box-shadow:0 3px 8px rgba(61,57,41,.18);color:#fff;background:#DC2A00}
-.obtn svg{flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.obtn.st-aliexpress{background:#DC2A00;color:#fff}.obtn.st-amazon{background:#131921;color:#fff}.obtn.st-noon{background:#FEEE00;color:#20201f}.obtn.st-other{background:var(--rust);color:#fff}
-.obtn:hover{filter:brightness(1.1)}
-.go{display:inline-block;align-self:center;color:var(--rust);font-size:14px;font-weight:700;padding:8px 6px;text-decoration:underline;text-underline-offset:3px;min-height:36px}
+.deal h3{font-size:17px;line-height:1.6;font-weight:700;margin-bottom:12px}
+.deal h3 a:hover{color:var(--rust)}
+.pr{margin-top:auto;display:flex;flex-direction:column;justify-content:center;height:66px;margin-bottom:8px;padding-top:12px;border-top:2px dashed var(--perf);line-height:1.35;box-sizing:border-box}
+.price{font-weight:800;color:var(--rust);font-size:24px;font-variant-numeric:tabular-nums}
+.old{color:var(--muted);font-size:15px;white-space:nowrap;min-height:20px}
+.deal .obtn{margin:0;flex:0 0 auto}
+.go{display:flex;align-items:center;justify-content:center;height:34px;margin-top:6px;color:var(--rust);font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .go:hover{color:#8f4121}
-.empty{padding:40px;text-align:center;background:#fff;border-radius:12px;color:var(--muted);grid-column:1/-1}
-.more{text-align:center;margin-top:18px}
+.empty{padding:40px;text-align:center;background:var(--card);border-radius:12px;color:var(--muted);grid-column:1/-1}
+.more{text-align:center;margin-top:22px}
 .more a{color:var(--rust);font-weight:800;font-size:18px;border-bottom:2px solid currentColor}
-.sec{margin-top:48px}
-.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+/* tips */
+.sec{margin-top:56px}
+.tips-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .tip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.tip .tag{align-self:flex-start;background:var(--gold);color:#2b2215;font-size:13px;font-weight:800;padding:1px 12px;border-radius:999px}
+.tip .tag{align-self:flex-start;background:var(--gold);color:var(--ink);font-size:13px;font-weight:800;padding:1px 12px;border-radius:8px}
 .tip h3{font-size:19px;line-height:1.6}
 .tip p{color:var(--muted);font-size:15px}
 .tip .rd{color:var(--rust);font-weight:800;margin-top:auto}
 .tip:hover{border-color:var(--rust)}
-.band{background:var(--ink);color:#fff;border-radius:22px;padding:30px;margin-top:48px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+/* bot band + footer */
+.band{background:var(--ink);color:#f3efe3;border-radius:22px;padding:30px;margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .band h2{font-size:26px}
-.band p{color:#e0dccf;font-size:16px}
+.band p{color:#e3dfd0;font-size:16px}
 .band .btns{display:flex;gap:10px;flex-wrap:wrap}
-.band .b1{background:var(--gold);color:#2b2215;border-radius:12px;padding:12px 24px;font-weight:800;min-height:44px}
-.band .b2{border:2px solid #fff;color:#fff;border-radius:12px;padding:10px 22px;font-weight:700;min-height:44px}
-footer{background:#24231f;color:#e0dccf;padding:34px 0;margin-top:56px;font-size:14px;line-height:2}
+.band .b1{display:inline-flex;align-items:center;background:var(--gold);color:var(--ink);border-radius:12px;padding:12px 24px;font-weight:800;min-height:48px}
+.band .b2{display:inline-flex;align-items:center;border:2px solid #f3efe3;color:#f3efe3;border-radius:12px;padding:10px 22px;font-weight:700;min-height:48px}
+footer{background:#2c2a1f;color:#e3dfd0;padding:34px 0;margin-top:60px;font-size:14px;line-height:2}
 footer .note{margin-bottom:8px}
 footer b{color:#fff}
 footer a{text-decoration:underline}
 footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:14px}
-@media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero h1{font-size:32px}.tools{grid-template-columns:repeat(2,1fr)}.tips-grid{grid-template-columns:1fr}}
-@media(max-width:650px){.wrap{padding:0 14px}.head{flex-wrap:wrap;gap:10px;padding-block:10px}.brand{font-size:23px}.search{order:3;flex-basis:100%}.hero-main{padding:22px;min-height:0}.hero h1{font-size:28px}.side{grid-template-columns:1fr 1fr;gap:10px}.side-card{padding:16px}.side-card h2{font-size:16px}.side-card p{font-size:13px}.cards{gap:10px}.deal-body{padding:12px}.deal h3{font-size:15px;min-height:76px}.price{font-size:20px}.section-head h2{font-size:22px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* responsive */
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:30px;padding-top:34px}
+  .layout{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .tool:nth-child(3){border-inline-start:0}
+  .tool:nth-child(n+3){border-top:2px dashed var(--line)}
+  .tips-grid{grid-template-columns:1fr 1fr}
+  .e11{grid-template-columns:1fr;padding:24px}
+  .e11 h2{font-size:28px}
+}
+@media(max-width:620px){
+  .ticket{--stubw:0px;--stubh:112px;grid-template-columns:1fr;grid-template-rows:auto auto var(--stubh);
+    -webkit-mask:radial-gradient(circle 12px at 0 calc(100% - var(--stubh)),#0000 11.5px,#000 12px),radial-gradient(circle 12px at 100% calc(100% - var(--stubh)),#0000 11.5px,#000 12px);-webkit-mask-composite:source-in;
+    mask:radial-gradient(circle 12px at 0 calc(100% - var(--stubh)),#0000 11.5px,#000 12px),radial-gradient(circle 12px at 100% calc(100% - var(--stubh)),#0000 11.5px,#000 12px);mask-composite:intersect}
+  .t-img{aspect-ratio:16/10}
+  .t-body{padding:16px 18px 10px}
+  .t-stub{flex-direction:row;justify-content:space-between;padding:14px 18px}
+  .t-stub::before{inset-block:auto;inset-inline:18px;top:0;border-inline-start:0;border-top:2px dashed #c9c2a8}
+  .t-prices{align-items:flex-start}
+  .cards{grid-template-columns:1fr}
+  .deal-img{aspect-ratio:16/10}
+  .tips-grid{grid-template-columns:1fr}
+  .hero p{font-size:17px}
+  .cta .btn{flex:1 1 100%}
+  .section-head h2{font-size:24px}
+  .tabs{display:flex}
+  .tab{flex:1 1 auto;justify-content:center}
+  .band{padding:24px}
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.deal,.ticket{transition:none}.deal:hover,.ticket:hover{transform:none}}
 .social{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
 .social a{position:relative;width:54px;height:54px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);text-decoration:none;transition:.15s}
 .social svg{width:26px;height:26px;fill:currentColor;stroke:none;display:block}.social svg .in{fill:var(--card)}.social a:hover svg .in,.social a:focus-visible svg .in{fill:var(--accent-d)}
 .social a:hover,.social a:focus-visible{background:var(--accent-d);border-color:var(--accent-d);color:#fff;transform:translateY(-2px)}
 @media(max-width:430px){.social{gap:9px}.social a{width:48px;height:48px}.social svg{width:24px;height:24px}}
 
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .site-header{position:sticky;top:0;z-index:30;background:#e9dcc0;border-bottom:1px solid #e1ddd0;backdrop-filter:none;color:var(--ink)}
 .site-header .sh{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;height:64px}
 .sh-btn{all:unset;box-sizing:border-box;width:48px;height:48px;display:grid;place-items:center;cursor:pointer;border-radius:12px;color:var(--ink)}
@@ -217,29 +324,13 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;m
 .dr-soc svg{width:24px;height:24px;fill:currentColor;stroke:none;display:block}
 .dr-soc svg .in{fill:#2c2a1f}
 .dr-soc a:hover svg .in{fill:var(--accent)}
-.dr-soc .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.dr-ft{margin-top:auto;padding-top:26px;color:#a9a48f;font-size:13px;line-height:1.8;border-top:1px solid rgba(238,236,226,.08);margin-top:26px}
+.dr-soc .dr-ft{margin-top:auto;padding-top:26px;color:#a9a48f;font-size:13px;line-height:1.8;border-top:1px solid rgba(238,236,226,.08);margin-top:26px}
 .totop{position:fixed;inset-inline-end:16px;bottom:18px;width:52px;height:52px;border-radius:50%;border:3px solid var(--accent);background:var(--bg);color:var(--accent);display:grid;place-items:center;cursor:pointer;z-index:20;opacity:0;visibility:hidden;transform:translateY(10px);transition:.2s;box-shadow:0 6px 18px rgba(61,57,41,.25);padding:0}
 .totop.show{opacity:1;visibility:visible;transform:none}
 .totop:hover,.totop:focus-visible{background:var(--accent);color:#fff}
 .totop:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .totop svg{width:24px;height:24px;fill:currentColor}
 @media(prefers-reduced-motion:reduce){.drawer,.dr-ov,.totop{transition:none}}
-.site-header{background:var(--sky);border-bottom:1px solid var(--line)}
-.searchbar{background:var(--sky);padding:0 0 14px;border-bottom:1px solid var(--line)}
-.search{display:flex;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-html.lock{overflow:hidden}
-@media(max-width:650px){.head{display:block}}
-.sale-bar{display:block;background:var(--gold);color:var(--ink);text-align:center;text-decoration:none;font-weight:700;font-size:15px;line-height:1.6;padding:9px 14px;min-height:44px;display:flex;align-items:center;justify-content:center}.sale-bar:hover,.sale-bar:focus-visible{background:#dcab25}
-.anch{display:block;height:0}#deals,#offers{scroll-margin-top:90px}
-
-.e11{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:24px;margin:0 0 24px}
-.e11 h2{font-size:30px;line-height:1.3;margin:8px 0 6px;font-weight:800}
-.e11 p{color:var(--muted);font-size:16px}
-.e11 p a{color:var(--rust);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-.e11-btns{display:grid;gap:10px}
-.e11 .obtn{margin-top:0;height:50px;font-size:16px}
-@media(max-width:950px){.e11{grid-template-columns:1fr;padding:20px}.e11 h2{font-size:26px}}
 
 </style>
 </head>
@@ -277,16 +368,12 @@ html.lock{overflow:hidden}
 <a class="sale-bar" href="/white-friday-11-11-2026.html">🛍️ 11.11 والجمعة البيضاء 2026: المواعيد وطريقة الاستعداد ←</a>
 <main class="wrap" id="main">
 <section class="hero">
-<div class="hero-main">
-<span class="eyebrow">دليل التسوق الذكي في السعودية</span>
-<h1>وفّرنا: وفّر أكثر، <span>وادفع أقل</span></h1>
-<p>عروض مختارة، ونصائح عملية تكشف الخصم الوهمي والمتجر المزيّف، لتعرف إذا المنتج يستاهل سعره قبل ما تدفع.</p>
-<a class="btn" href="#deals">شوف أحدث العروض</a>
+<div class="hero-txt">
+<h1>وفّرنا: وفّر أكثر، وادفع أقل</h1>
+<p>عروض مختارة من أمازون ونون وعلي اكسبرس، ونصائح تكشف الخصم الوهمي والمتجر المزيّف، لتعرف إذا المنتج يستاهل سعره قبل ما تدفع.</p>
+<div class="cta"><a class="btn" href="#deals">تصفّح أحدث العروض</a><a class="btn ghost" href="/real-discount.html">تحقق من الخصم قبل الدفع</a></div>
 </div>
-<div class="side">
-<a class="side-card" href="/real-discount.html"><h2>قبل لا تدفع</h2><p>كيف تعرف أن الخصم حقيقي وليس سعراً مضخّماً.</p></a>
-<a class="side-card" href="/noon-amazon-aliexpress-comparison.html"><h2>قارن بذكاء</h2><p>نون ولا أمازون ولا علي اكسبرس؟ قارن السعر النهائي.</p></a>
-</div>
+<div class="hero-tk"><a class="ticket" href="/offers/offer-1005010477636259.html"><span class="t-img"><img src="/offers/img/offer-1005010477636259.jpg" width="720" height="720" alt="" decoding="async" fetchpriority="high"></span><span class="t-body"><span class="t-tag">أحدث إضافة · AliExpress</span><b class="t-title">محول CarPlay لاسلكي من USB-C و USB-A</b></span><span class="t-stub"><span class="t-prices"><span class="t-new">114.64 ر.س</span><s class="t-old">126.38 ر.س</s></span><span class="t-pct">-9%</span></span></a></div>
 </section>
 <div class="tools">
 <a class="tool" href="/customs-calculator.html"><b>حاسبة الجمارك</b><span>اعرف الرسوم قبل الشحن</span></a>
@@ -298,6 +385,7 @@ html.lock{overflow:hidden}
 <div class="e11-txt"><span class="eyebrow">موسم التخفيضات</span><h2 id="e11-t">عروض 11.11</h2><p>اختر المتجر وتصفّح عروض 11.11 مباشرة. الأسعار والتوفر تتغير من المتجر، فتأكد منها قبل الدفع. وتعرّف على <a href="/white-friday-11-11-2026.html">مواعيد 11.11 والجمعة البيضاء وكيف تستعد</a>.</p></div>
 <div class="e11-btns"><a class="obtn st-amazon" href="https://link.amazon/B02J14NhF" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>عروض Amazon</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="obtn st-noon" href="https://s.noon.com/jASthYMrk2c" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>عروض Noon</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a><a class="obtn st-aliexpress" href="https://s.click.aliexpress.com/e/_c3ajOrOP" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>عروض AliExpress</span><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></a></div>
 </section>
+
 <span id="offers" class="anch"></span>
 <section class="layout" id="deals">
 <aside class="sidebar" aria-label="تصفح الأقسام">
@@ -336,10 +424,12 @@ html.lock{overflow:hidden}
 </div>
 <p class="more"><a href="/tips.html">كل النصائح ←</a></p>
 </section>
+
 <section class="band" aria-labelledby="bot-t">
 <div><h2 id="bot-t">جرّب بوت وفّرنا</h2><p>أرسل رابط المنتج للبوت واحصل على أفضل العروض والروابط بثواني.</p></div>
 <div class="btns"><a class="b1" href="https://t.me/Wafferna_Bot" rel="noopener">افتح البوت</a><a class="b2" href="https://t.me/Wafferna" rel="noopener">انضم للقناة</a></div>
 </section>
+
 <section class="sec" aria-labelledby="fol-t">
 <div class="section-head"><div><h2 id="fol-t">تابعنا</h2><p>تابع وفّرنا على كل المنصات، وشاركنا العروض والنصائح:</p></div></div>
 <div class="social">
@@ -352,12 +442,14 @@ html.lock{overflow:hidden}
       </div>
 </div>
 </section>
+
 </main>
 <footer><div class="wrap">
 <div class="note"><b>إفصاح:</b> بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr" style="display:block">As an Amazon Associate I earn from qualifying purchases.</span></div>
 <div class="note"><b>إفصاح:</b> بعض الروابط في هذا الموقع روابط تسويقية، وقد نحصل على عمولة عند الشراء عبرها دون أي تكلفة إضافية عليك. الأسعار والتوفر تتغير من المتجر، والتأكد منها قبل الشراء مسؤوليتك.</div>
 <div class="row"><span>© <span id="y"></span> Wafferna</span><span><a href="/tips.html">نصائح</a> · <a href="/about.html">من نحن</a> · <a href="/privacy.html">سياسة الخصوصية</a></span></div>
 </div></footer>
+<script>(function(){var t=document.querySelector('.ticket');if(!t||!window.fetch)return;fetch('/posts.json').then(function(r){return r.json()}).then(function(a){var p=a&&a[0];if(!p||!p.page)return;var n=parseFloat(String(p.price).replace(/[^\d.]/g,'')),o=parseFloat(String(p.old_price||'').replace(/[^\d.]/g,''));var q=function(c){return t.querySelector(c)};t.setAttribute('href',p.page);var im=q('.t-img img');if(im&&im.getAttribute('src')!==p.image)im.setAttribute('src',p.image);q('.t-tag').textContent='أحدث إضافة · '+p.store;q('.t-title').textContent=p.title;q('.t-new').textContent=p.price;var d=o>n&&n>0,od=q('.t-old'),pc=q('.t-pct');od.hidden=!d;pc.hidden=!d;if(d){od.textContent=p.old_price;pc.textContent='-'+Math.round((1-n/o)*100)+'%'}}).catch(function(){})})();</script>
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 (function(){var q=document.getElementById('q'),c=[].slice.call(document.querySelectorAll('#cards .deal')),e=document.getElementById('empty');

@@ -30,6 +30,16 @@
   "page": "/offers/offer-amazon-dyson-v8-total-clean.html"
  },
  {
+  "title": "شاحن يو جرين المغناطيسي Qi2 بسعة 10000mAh",
+  "image": "/offers/img/offer-noon-ugreen-qi2.jpg",
+  "price": "139 ر.س",
+  "old_price": "239 ر.س",
+  "link": "https://s.noon.com/hdNkcHKWfx4",
+  "store": "Noon",
+  "date": "2026-11-07",
+  "page": "/offers/offer-noon-ugreen-qi2.html"
+ },
+ {
   "title": "محول CarPlay لاسلكي من USB-C و USB-A",
   "image": "/offers/img/offer-1005010477636259.jpg",
   "price": "114.64 ر.س",
@@ -228,15 +238,5 @@
   "store": "AliExpress",
   "date": "2026-11-03",
   "page": "/offers/offer-1005009384887279.html"
- },
- {
-  "title": "5 قطع أسلاك تمديد لسيرفو RC",
-  "image": "/offers/img/offer-1005008095227208.jpg",
-  "price": "14.32 ر.س",
-  "old_price": "29.4 ر.س",
-  "link": "https://s.click.aliexpress.com/e/_c2wwx7R1",
-  "store": "AliExpress",
-  "date": "2026-11-02",
-  "page": "/offers/offer-1005008095227208.html"
  }
 ]

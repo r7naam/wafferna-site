@@ -10,6 +10,16 @@
   "page": "/offers/offer-airpods-pro-3.html"
  },
  {
+  "title": "مكنسة دايسون V8 Total Clean اللاسلكية",
+  "image": "/offers/img/offer-amazon-dyson-v8-total-clean.jpg",
+  "price": "899 ر.س",
+  "old_price": "1499 ر.س",
+  "link": "https://link.amazon/B07MbW5cE",
+  "store": "Amazon",
+  "date": "2026-11-07",
+  "page": "/offers/offer-amazon-dyson-v8-total-clean.html"
+ },
+ {
   "title": "محول CarPlay لاسلكي من USB-C و USB-A",
   "image": "/offers/img/offer-1005010477636259.jpg",
   "price": "114.64 ر.س",
@@ -228,15 +238,5 @@
   "store": "AliExpress",
   "date": "2026-11-02",
   "page": "/offers/offer-1005012594430190.html"
- },
- {
-  "title": "حقيبة تخزين DJI Mini 5 Pro",
-  "image": "/offers/img/offer-1005010438496609.jpg",
-  "price": "87.6 ر.س",
-  "old_price": "217.84 ر.س",
-  "link": "https://s.click.aliexpress.com/e/_c3gyIQtv",
-  "store": "AliExpress",
-  "date": "2026-11-02",
-  "page": "/offers/offer-1005010438496609.html"
  }
 ]

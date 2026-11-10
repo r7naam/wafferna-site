@@ -1,0 +1,36 @@
+name: Rebuild after offers bot
+# The offers bot (Wafferna Bot) rewrites the homepage cards block with 6 offers
+# and updates data/offers.json. This job restores 21 homepage cards and
+# regenerates the Amazon / Noon / AliExpress store pages after each bot push.
+on:
+  push:
+    branches: [main]
+    paths: ["data/offers.json", "index.html"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rebuild-after-bot
+  cancel-in-progress: false
+jobs:
+  rebuild:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.author.email == 'bot@wafferna.qd.je'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild homepage cards and store pages
+        run: |
+          python3 tools/build_home_cards.py 21
+          python3 tools/build_store_pages.py
+      - name: Commit if changed
+        run: |
+          git config user.name "Wafferna Rebuild"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html offers/amazon.html offers/noon.html offers/aliexpress.html
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "إعادة بناء بطاقات الرئيسية وصفحات المتاجر بعد تحديث العروض"
+          git pull --rebase origin main
+          git push origin HEAD:main

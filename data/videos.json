@@ -188,7 +188,7 @@
   "id": "rn0Vz6VsyVo",
   "slug": "video-before-you-pay",
   "title": "ثانية! قبل ما تدفع: 3 أشياء تفرق",
-  "duration": "",
+  "duration": "55 ثانية",
   "img": "covers/video-before-pay-600.webp",
   "srcset": "covers/video-before-pay-600.webp 600w, covers/video-before-pay-800.webp 800w, covers/video-before-pay-1000.webp 960w",
   "w": 960,
@@ -211,14 +211,15 @@
    "publisher": {
     "@type": "Organization",
     "name": "Wafferna"
-   }
+   },
+   "duration": "PT55S"
   }
  },
  {
   "id": "_6PkgAyaqW0",
   "slug": "video-store-tricks",
   "title": "حيل المتاجر اللي تخليك تشتري أكثر: دخلت أشتري شاحن وطلعت بثلاثة",
-  "duration": "",
+  "duration": "دقيقة و21 ثانية",
   "img": "covers/video-store-tricks-600.webp",
   "srcset": "covers/video-store-tricks-600.webp 600w, covers/video-store-tricks-800.webp 800w, covers/video-store-tricks-1000.webp 960w",
   "w": 960,
@@ -241,14 +242,15 @@
    "publisher": {
     "@type": "Organization",
     "name": "Wafferna"
-   }
+   },
+   "duration": "PT1M21S"
   }
  },
  {
   "id": "7Ay-PpfjO40",
   "slug": "video-trusted-store",
   "title": "كيف اعرف المتجر موثوق ولا وهمي؟ 3 علامات قبل الجمعة البيضاء",
-  "duration": "",
+  "duration": "دقيقة و15 ثانية",
   "img": "covers/video-trusted-store-600.webp",
   "srcset": "covers/video-trusted-store-600.webp 600w, covers/video-trusted-store-800.webp 800w, covers/video-trusted-store-1000.webp 960w",
   "w": 960,
@@ -271,7 +273,8 @@
    "publisher": {
     "@type": "Organization",
     "name": "Wafferna"
-   }
+   },
+   "duration": "PT1M15S"
   }
  }
 ]

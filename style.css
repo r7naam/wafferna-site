@@ -150,7 +150,7 @@ footer a{color:#f3efe3;text-decoration:underline;text-underline-offset:3px}
 footer .note,footer .note b{color:#e3dfd0}
 footer .note b{color:#fff}
 
-@media(prefers-reduced-motion:reduce){main .ocard{transition:none}main .ocard:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){main .ocard{transition:none}main .ocard:hover{transform:none}main.tips-page .tip{transition:none}main.tips-page .tip:hover{transform:none}}
 
 
 /* ===== Side menu (drawer): a torn ticket stub =====
@@ -192,3 +192,19 @@ footer .note b{color:#fff}
 .drawer .dr-soc a:hover svg .in,.drawer .dr-soc a:focus-visible svg .in{fill:var(--accent)}
 .drawer .dr-ft{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dline);color:var(--muted);font-size:13px;line-height:1.9}
 @media(max-width:360px){.drawer{padding-left:28px}.drawer .dr-top{margin-left:-28px;padding-left:28px}}
+
+/* listing pages: 3 offers per row (all screen sizes) */
+main .ogrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+main .ocard b{font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+main .ocard .p{font-size:18px}
+@media(max-width:560px){main .ogrid{gap:8px}main .ocard{--po:46px;padding:8px;gap:4px}main .ocard b{font-size:12.5px}main .ocard .p{font-size:14px;padding-top:8px;line-height:1.5}main .ocard .tag{font-size:11px;padding:0 6px}main .ocard .old{font-size:12px;margin:0}}
+
+/* tips page: each tip = coupon (same look as offer tickets) */
+main.tips-page .tips{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+main.tips-page .tip{--po:66px;gap:6px;padding:10px 10px 0;border-radius:16px;overflow:hidden;
+  -webkit-mask:radial-gradient(circle 10px at 0 calc(100% - var(--po)),#0000 9.5px,#000 10px),radial-gradient(circle 10px at 100% calc(100% - var(--po)),#0000 9.5px,#000 10px);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 10px at 0 calc(100% - var(--po)),#0000 9.5px,#000 10px),radial-gradient(circle 10px at 100% calc(100% - var(--po)),#0000 9.5px,#000 10px);mask-composite:intersect}
+main.tips-page .tip b{font-size:15px;line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+main.tips-page .tip span:last-child{margin-top:auto;box-sizing:border-box;height:var(--po);padding-top:10px;border-top:2px dashed var(--perf);font-size:13px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+main.tips-page .tip .tag{margin-top:2px}
+@media(max-width:560px){main.tips-page .tips{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}main.tips-page .tip b{font-size:14px}}

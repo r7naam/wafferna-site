@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wafferna.com/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://wafferna.com/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://wafferna.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/privacy.html</loc><lastmod>2026-11-07</lastmod></url>
@@ -43,6 +43,9 @@
   <url><loc>https://wafferna.com/offers/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/offers/under-100.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/offers/under-50.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://wafferna.com/offers/aliexpress.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://wafferna.com/offers/amazon.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://wafferna.com/offers/noon.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/offers/big-discounts.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/offers/offer-1005007401129121.html</loc><lastmod>2026-11-10</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005007401129121.jpg</image:loc></image:image></url>
   <url><loc>https://wafferna.com/offers/offer-1005007865149187.html</loc><lastmod>2026-11-10</lastmod><image:image><image:loc>https://wafferna.com/offers/img/offer-1005007865149187.jpg</image:loc></image:image></url>

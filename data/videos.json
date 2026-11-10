@@ -276,5 +276,35 @@
    },
    "duration": "PT1M15S"
   }
+ },
+ {
+  "id": "3ieUwtlzDNE",
+  "slug": "video-fake-link-check",
+  "title": "كيف اعرف الرابط مزيف؟ 3 فحوصات قبل ما تدفع",
+  "duration": "دقيقة و3 ثواني",
+  "img": "covers/video-fake-link-check-600.webp",
+  "srcset": "covers/video-fake-link-check-600.webp 600w, covers/video-fake-link-check-800.webp 800w, covers/video-fake-link-check-1000.webp 1000w",
+  "w": 1280,
+  "h": 720,
+  "alt": "غلاف فيديو: رابط حقيقي my-shop.com ورابط مزيف my-shpo.com، لا تضغط قبل ما تفحص",
+  "body": "<p>وصلتك رسالة فيها عرض ينتهي اليوم، فضغطت الرابط؟ الفيديو يعطيك 3 فحوصات قبل ما تدفع: افحص الرابط المختصر قبل ما تفتحه، وتأكد أن اسم المتجر بدون حروف زائدة أو ناقصة، وتذكّر أن قفل HTTPS يعني أن الاتصال مشفّر، لا أن المتجر موثوق.</p>\n  <p class=\"note\"><b>اقرأ أكثر:</b> <a href=\"fake-stores.html\">كيف تعرف المتاجر الوهمية</a> · <a href=\"safe-payment.html\">الدفع الآمن</a> · <a href=\"video-trusted-store.html\">فيديو: المتجر موثوق ولا وهمي</a></p>",
+  "ld": {
+   "@context": "https://schema.org",
+   "@type": "VideoObject",
+   "name": "كيف اعرف الرابط مزيف؟ 3 فحوصات قبل ما تدفع",
+   "description": "رسالة فيها عرض ينتهي اليوم وتضغط الرابط؟ 3 فحوصات تكشف الرابط المزيف قبل ما تدخل بيانات الكرت: فحص الرابط المختصر، واسم المتجر الأصلي، وفهم علامة HTTPS.",
+   "thumbnailUrl": [
+    "https://wafferna.com/covers/video-fake-link-check.jpg"
+   ],
+   "uploadDate": "2026-11-10T20:00:00+03:00",
+   "duration": "PT1M3S",
+   "inLanguage": "ar",
+   "embedUrl": "https://www.youtube-nocookie.com/embed/3ieUwtlzDNE",
+   "contentUrl": "https://www.youtube.com/watch?v=3ieUwtlzDNE",
+   "publisher": {
+    "@type": "Organization",
+    "name": "Wafferna"
+   }
+  }
  }
 ]

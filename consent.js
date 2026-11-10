@@ -38,3 +38,14 @@
   }
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', init); else init();
 })();
+/* store badge colors: mark .tag/.merchant with the store key so CSS can color them */
+(function () {
+  var d = document, K = { amazon: 1, noon: 1, aliexpress: 1 };
+  function run() {
+    d.querySelectorAll('.ocard .tag,.deal .merchant').forEach(function (e) {
+      var s = (e.textContent || '').trim().toLowerCase();
+      if (K[s]) e.setAttribute('data-s', s);
+    });
+  }
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', run); else run();
+})();

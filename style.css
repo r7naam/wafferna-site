@@ -199,12 +199,26 @@ main .ocard b{font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-cl
 main .ocard .p{font-size:18px}
 @media(max-width:560px){main .ogrid{gap:8px}main .ocard{--po:46px;padding:8px;gap:4px}main .ocard b{font-size:12.5px}main .ocard .p{font-size:14px;padding-top:8px;line-height:1.5}main .ocard .tag{font-size:11px;padding:0 6px}main .ocard .old{font-size:12px;margin:0}}
 
-/* tips page: each tip = coupon (same look as offer tickets) */
-main.tips-page .tips{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-main.tips-page .tip{--po:66px;gap:6px;padding:10px 10px 0;border-radius:16px;overflow:hidden;
-  -webkit-mask:radial-gradient(circle 10px at 0 calc(100% - var(--po)),#0000 9.5px,#000 10px),radial-gradient(circle 10px at 100% calc(100% - var(--po)),#0000 9.5px,#000 10px);-webkit-mask-composite:source-in;
-  mask:radial-gradient(circle 10px at 0 calc(100% - var(--po)),#0000 9.5px,#000 10px),radial-gradient(circle 10px at 100% calc(100% - var(--po)),#0000 9.5px,#000 10px);mask-composite:intersect}
-main.tips-page .tip b{font-size:15px;line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-main.tips-page .tip span:last-child{margin-top:auto;box-sizing:border-box;height:var(--po);padding-top:10px;border-top:2px dashed var(--perf);font-size:13px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-main.tips-page .tip .tag{margin-top:2px}
-@media(max-width:560px){main.tips-page .tips{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}main.tips-page .tip b{font-size:14px}}
+/* tips page: editorial cards (image, chip on image, headline, soft arrow) */
+main.tips-page .tips{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+main.tips-page .tip{position:relative;gap:0;padding:0 0 14px;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden;box-shadow:0 1px 2px rgba(61,57,41,.06),0 10px 24px -14px rgba(61,57,41,.28);transition:transform .2s,box-shadow .2s}
+main.tips-page .tip:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(61,57,41,.06),0 18px 30px -14px rgba(61,57,41,.38);border-color:var(--line)}
+main.tips-page .tip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main.tips-page .tip img{border-radius:0;margin:0;aspect-ratio:1200/630;object-fit:cover}
+main.tips-page .tip .tag{position:absolute;top:12px;inset-inline-start:12px;z-index:1;margin:0;background:rgba(61,57,41,.88);color:#fff;font-size:12px;font-weight:700;padding:2px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+main.tips-page .tip b{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:14px 16px 6px;font-size:17px;line-height:1.55}
+main.tips-page .tip span:last-child{margin:0 16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.7;color:var(--muted)}
+main.tips-page .tip:after{content:"";align-self:flex-start;width:36px;height:36px;margin:14px 16px 0;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center/18px no-repeat;transition:transform .2s,background-color .2s;margin-top:auto}
+main.tips-page .tip span:last-child{margin-bottom:12px}
+main.tips-page .tip:hover:after{transform:translateX(-4px);background-color:var(--accent-d)}
+main.tips-page .tip-feature{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto auto 1fr auto;padding:0;align-items:start}
+main.tips-page .tip-feature img{grid-column:1;grid-row:1/5;height:100%;min-height:260px}
+main.tips-page .tip-feature .tag{position:static;grid-column:2;grid-row:1;justify-self:start;margin:22px 22px 0;background:var(--accent);backdrop-filter:none}
+main.tips-page .tip-feature b{grid-column:2;grid-row:2;margin:10px 22px 6px;font-size:24px;-webkit-line-clamp:4}
+main.tips-page .tip-feature span:last-child{grid-column:2;grid-row:3;margin:0 22px 8px;font-size:15px;-webkit-line-clamp:4}
+main.tips-page .tip-feature:after{grid-column:2;grid-row:4;margin:8px 22px 20px;width:44px;height:44px}
+@media(max-width:700px){main.tips-page .tips{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ main.tips-page .tip b{font-size:15px;margin:10px 12px 4px}main.tips-page .tip span:last-child{margin:0 12px 10px;font-size:13px;-webkit-line-clamp:2}
+ main.tips-page .tip:after{margin-inline:12px;width:34px;height:34px}main.tips-page .tip .tag{top:8px;inset-inline-start:8px;font-size:11px;padding:1px 9px}
+ main.tips-page .tip-feature{display:flex}main.tips-page .tip-feature img{height:auto;min-height:0}main.tips-page .tip-feature .tag{position:absolute;margin:0;background:rgba(61,57,41,.88)}
+ main.tips-page .tip-feature b{font-size:18px;margin:12px 14px 4px}main.tips-page .tip-feature span:last-child{margin:0 14px 10px}main.tips-page .tip-feature:after{margin:0 14px}}

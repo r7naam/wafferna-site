@@ -28,8 +28,8 @@ def cut(s, n):
 
 CSS = ('<style>.vid{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#E9DFC9;margin-top:14px;border:1px solid var(--line)}'
  '.vid-btn,.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:none;cursor:pointer}.vid-btn img{width:100%;height:100%;object-fit:cover;display:block}'
- '.vid-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#BD5D3A;box-shadow:0 8px 24px rgba(61,57,41,.35)}'
- '.vid-play:after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #EEECE2}.vid-btn:focus-visible{outline:3px solid #BD5D3A;outline-offset:-3px}'
+ '.vid-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#C15F3C;box-shadow:0 8px 24px rgba(61,57,41,.35)}'
+ '.vid-play:after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #EEECE2}.vid-btn:focus-visible{outline:3px solid #C15F3C;outline-offset:-3px}'
  '.vp-sum{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 20px 16px;margin-top:22px}.vp-sum h2{margin-top:14px}'
  '.vp-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}'
  '.vp-card{display:flex;flex-direction:column;background:#E9DFC9;color:#3D3929;border:1px solid rgba(61,57,41,.14);border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 10px 20px -14px rgba(61,57,41,.5)}'

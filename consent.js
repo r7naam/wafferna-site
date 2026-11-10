@@ -6,12 +6,12 @@
     var s = d.createElement('style');
     s.textContent =
       '#wfc{position:fixed;z-index:60;inset-inline:0;bottom:0;padding:12px max(16px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:center;pointer-events:none}' +
-      '#wfc .b{pointer-events:auto;width:100%;max-width:560px;box-sizing:border-box;background:#fff;color:#3d3929;border:1px solid #d9d5c4;border-radius:18px;padding:16px;box-shadow:0 10px 30px rgba(61,57,41,.22);font:16px/1.7 Tajawal,system-ui,sans-serif;direction:rtl;text-align:right}' +
+      '#wfc .b{pointer-events:auto;width:100%;max-width:560px;box-sizing:border-box;background:#fff;color:#3d3929;border:1px solid #D3D0C7;border-radius:18px;padding:16px;box-shadow:0 10px 30px rgba(61,57,41,.22);font:16px/1.7 Tajawal,system-ui,sans-serif;direction:rtl;text-align:right}' +
       '#wfc p{margin:0 0 12px}#wfc a{color:#8f3f1f;font-weight:700}' +
       '#wfc .r{display:flex;flex-wrap:wrap;gap:10px}' +
       '#wfc button{flex:1 1 120px;min-height:48px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;border:2px solid #3d3929;background:transparent;color:#3d3929}' +
-      '#wfc button.y{background:#a8482a;border-color:#a8482a;color:#fff}' +
-      '#wfc button:focus-visible{outline:3px solid #e9b94b;outline-offset:2px}';
+      '#wfc button.y{background:#A44E30;border-color:#A44E30;color:#fff}' +
+      '#wfc button:focus-visible{outline:3px solid #D6A62D;outline-offset:2px}';
     d.head.appendChild(s);
   }
   function show() {

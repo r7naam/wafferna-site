@@ -31,6 +31,7 @@ CSS = ('<style>.vid{position:relative;aspect-ratio:16/9;border-radius:18px;overf
  '.vid-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#C15F3C;box-shadow:0 8px 24px rgba(61,57,41,.35)}'
  '.vid-play:after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #EEECE2}.vid-btn:focus-visible{outline:3px solid #C15F3C;outline-offset:-3px}'
  '.vp-sum{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 20px 16px;margin-top:22px}.vp-sum h2{margin-top:14px}'
+ '.srcs a{display:inline-block;padding:10px 0;min-height:44px;line-height:24px}.srcs ul{margin:0;padding-inline-start:20px}'
  '.vp-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}'
  '.vp-card{display:flex;flex-direction:column;background:#E9DFC9;color:#3D3929;border:1px solid rgba(61,57,41,.14);border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 10px 20px -14px rgba(61,57,41,.5)}'
  '.vp-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}.vp-card b{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;padding:10px 12px 12px;font-size:14px;line-height:1.6}'
@@ -39,10 +40,25 @@ CSS = ('<style>.vid{position:relative;aspect-ratio:16/9;border-radius:18px;overf
 JS = ("<script>document.querySelectorAll('.vid .vid-btn').forEach(function(b){b.addEventListener('click',function(){var w=b.parentNode,f=document.createElement('iframe');"
       "f.src='https://www.youtube-nocookie.com/embed/'+w.dataset.id+'?autoplay=1&rel=0';f.title=w.dataset.t;f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;w.replaceChild(f,b)})})</script>\n")
 
+UPDATED = "12 نوفمبر 2026"
+
+def summary(v):
+    """Lead + key points + official sources when the structured fields exist; else the old body."""
+    if not v.get("points"):
+        return f'<section class="vp-sum">\n  <h2>ملخص الفيديو والروابط</h2>\n  {v["body"]}\n  </section>'
+    pts = "".join(f'<li><b>{E(a)}:</b> {E(b)}</li>' for a, b in v["points"])
+    out = (f'<section class="vp-sum">\n  <h2>ملخص الفيديو</h2>\n  <p>{E(v["lead"])}</p>\n'
+           f'  <h2>النقاط الأساسية</h2>\n  <ol>{pts}</ol>\n  <p class="note">الأرقام في الفيديو مثال توضيحي، والقواعد قد تتغير؛ راجع المصدر الرسمي قبل القرار.</p>\n')
+    if v.get("sources"):
+        src = "".join(f'<li><a href="{E(s["url"])}" target="_blank" rel="noopener">{E(s["name"])}</a></li>' for s in v["sources"])
+        out += f'  <h2 id="sources">المصادر الرسمية</h2>\n  <div class="srcs"><ul>{src}</ul></div>\n'
+    return out + f'  {v.get("more", "")}\n  </section>'
+
 for i, v in enumerate(videos):
     url = f'{SITE}/{v["slug"]}.html'
     short = cut(v["title"], 52)
-    title = f'{v["title"]} | Wafferna' if len(v["title"]) <= 50 else f'{short} | Wafferna'
+    st = v.get("seo_title") or v["title"]
+    title = f'{st} | Wafferna' if len(st) <= 50 else f'{cut(st, 52)} | Wafferna'
     ldd = v["ld"]["description"]
     desc = cut(ldd, 157)
     if len(desc) < 110: desc += " شاهد الفيديو مع الملخص والروابط على وفّرنا."
@@ -65,15 +81,12 @@ for i, v in enumerate(videos):
     main = f'''<main class="wrap article">
   <p class="crumbs"><a href="/">الرئيسية</a> › <a href="/videos.html">فيديوهات وفّرنا</a> › {E(short)}</p>
   <h1>{E(v["title"])}</h1>
-  <p class="meta">فريق وفّرنا · فيديو قصير</p>
+  <p class="meta">فريق وفّرنا · فيديو قصير · آخر تحديث: {UPDATED}</p>
   <div class="vid" data-id="{E(v["id"])}" data-t="{E(v["title"])}">
     <button type="button" class="vid-btn" aria-label="تشغيل الفيديو: {E(v["title"])}"><img src="{E(absu(v["img"]))}" srcset="{E(abs_srcset(v["srcset"]))}" sizes="(max-width:760px) 92vw, 728px" width="{v["w"]}" height="{v["h"]}" alt="{E(v["alt"])}" fetchpriority="high" decoding="async"><span class="vid-play" aria-hidden="true"></span></button>
   </div>
   {note}
-  <section class="vp-sum">
-  <h2>ملخص الفيديو والروابط</h2>
-  {v["body"]}
-  </section>
+  {summary(v)}
   <h2>فيديوهات أخرى</h2>
   <div class="vp-more">{more}</div>
   <a class="vp-back" href="/videos.html">← كل الفيديوهات</a>

@@ -18,8 +18,11 @@ def card(o):
     pill = f'<span class="pill">خصم {round((1 - o["price"] / old) * 100)}%</span>' if sale else ""
     oldh = f'<s class="old">{E(old)} ر.س</s>' if sale else ""
     u = f'/offers/{o["slug"]}.html'
-    return (f'<article class="deal"><a class="deal-img" href="{u}" tabindex="-1" aria-hidden="true"><img src="/offers/img/{E(o["slug"])}.jpg" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="" loading="lazy" decoding="async">{pill}</a>'
-            f'<div class="deal-body"><span class="merchant" data-s="{E(k)}">{E(s)}</span><h3><a href="{u}">{E(o["title"])}</a></h3>'
+    seo = o.get("seo") or {}
+    alt = seo.get("alt") or o["title"]
+    name = seo.get("title") or o["title"]
+    return (f'<article class="deal"><a class="deal-img" href="{u}" tabindex="-1" aria-hidden="true"><img src="/offers/img/{E(o["slug"])}.jpg" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">{pill}</a>'
+            f'<div class="deal-body"><span class="merchant" data-s="{E(k)}">{E(s)}</span><h3><a href="{u}">{E(name)}</a></h3>'
             f'<div class="pr"><span class="price">{E(o["price"])} ر.س</span>{oldh}</div>'
             f'<a class="obtn st-{E(k)}" href="{E(o["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{E(s)}</span>{CART}</a>'
             f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')

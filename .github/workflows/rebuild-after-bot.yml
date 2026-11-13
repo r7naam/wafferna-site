@@ -25,11 +25,15 @@ jobs:
         run: |
           python3 tools/build_home_cards.py 21
           python3 tools/build_store_pages.py
+      - name: SEO post-processing (WebP thumbs and alt text on Action-built pages)
+        run: |
+          pip install --quiet pillow
+          python3 tools/seo_postprocess.py
       - name: Commit if changed
         run: |
           git config user.name "Wafferna Rebuild"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html offers/amazon.html offers/noon.html offers/aliexpress.html
+          git add index.html offers/amazon.html offers/noon.html offers/aliexpress.html offers/img
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "إعادة بناء بطاقات الرئيسية وصفحات المتاجر بعد تحديث العروض"
           git pull --rebase origin main

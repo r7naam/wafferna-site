@@ -60,15 +60,18 @@ STORES = {
         ("هل تحصلون على عمولة؟","بعض الروابط تسويقية، وقد نحصل على عمولة صغيرة دون أي تكلفة إضافية عليك. راجع صفحة من نحن.")]),
 }
 
+EMOJI = __import__("re").compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u200D]+")
+clean = lambda s: " ".join(EMOJI.sub("", str(s)).split()).rstrip("!").strip()
+
 def card(o):
     seo = o.get("seo") or {}
-    alt = seo.get("alt") or o["title"]
+    alt = seo.get("alt") or clean(o["title"])
     old = o.get("old_price")
     pct = f'<span class="pill">خصم {round((1-o["price"]/old)*100)}%</span>' if old and old > o["price"] else ""
     oldh = f' <s class="old">{E(old)} ر.س</s>' if old and old > o["price"] else ""
     return (f'<a class="ocard" href="/offers/{E(o["slug"])}.html">'
             f'<img src="/offers/img/{E(o["slug"])}.jpg" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">'
-            f'<span class="tag" data-s="{E(o["store"].lower())}">{E(o["store"])}</span><b>{E(o["title"])}</b><span class="p">{E(o["price"])} ر.س{oldh}</span>{pct}</a>')
+            f'<span class="tag" data-s="{E(o["store"].lower())}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b><span class="p">{E(o["price"])} ر.س{oldh}</span>{pct}</a>')
 
 def build(key, s):
     items = sorted([o for o in offers if o["store"] == s["db"]], key=lambda o: o.get("created", ""), reverse=True)

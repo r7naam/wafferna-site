@@ -87,11 +87,12 @@ def sitemap():
 
 make_webp()
 changed = 0
-for p in [ROOT / "index.html"] + sorted((ROOT / "offers").glob("*.html")):
+# Only files this repo's Action builds. Files the server bot rewrites (offers/offer-*.html, offers/index.html,
+# under-*.html, big-discounts.html, sitemap.xml) must NOT be edited here: the bot merges without rebase and
+# aborts its push on any conflict.
+OWNED = ["index.html", "offers/amazon.html", "offers/noon.html", "offers/aliexpress.html"]
+for p in [ROOT / f for f in OWNED]:
     t = p.read_text("utf-8"); n = IMG_RE.sub(fix_img, t)
-    if p == ROOT / "offers/index.html":
-        n = offers_index_ld(n)
     if n != t:
         p.write_text(n, "utf-8"); changed += 1
-sitemap()
 print(f"html: {changed} files updated")

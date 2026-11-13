@@ -5,7 +5,7 @@ name: Rebuild after offers bot
 on:
   push:
     branches: [main]
-    paths: ["data/offers.json", "index.html", "offers/index.html"]
+    paths: ["data/offers.json", "index.html"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
         run: |
           python3 tools/build_home_cards.py 21
           python3 tools/build_store_pages.py
-      - name: SEO post-processing (WebP thumbs, alt text, schema, sitemap dates)
+      - name: SEO post-processing (WebP thumbs and alt text on Action-built pages)
         run: |
           pip install --quiet pillow
           python3 tools/seo_postprocess.py
@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "Wafferna Rebuild"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html sitemap.xml offers
+          git add index.html offers/amazon.html offers/noon.html offers/aliexpress.html offers/img
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "إعادة بناء بطاقات الرئيسية وصفحات المتاجر بعد تحديث العروض"
           git pull --rebase origin main

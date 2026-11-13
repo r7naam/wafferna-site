@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wafferna.com/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://wafferna.com/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://wafferna.com/tips.html</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://wafferna.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://wafferna.com/privacy.html</loc><lastmod>2026-11-07</lastmod></url>
@@ -113,7 +113,7 @@
   <!-- OFFERS:END -->
   <url><loc>https://wafferna.com/video-fake-link-check.html</loc><lastmod>2026-11-12</lastmod><video:video><video:thumbnail_loc>https://wafferna.com/covers/video-fake-link-check.jpg</video:thumbnail_loc><video:title>كيف اعرف الرابط مزيف؟ 3 فحوصات قبل ما تدفع</video:title><video:description>رسالة فيها عرض ينتهي اليوم وتضغط الرابط؟ 3 فحوصات تكشف الرابط المزيف قبل ما تدخل بيانات الكرت: فحص الرابط المختصر، واسم المتجر الأصلي، وفهم علامة HTTPS.</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/3ieUwtlzDNE</video:player_loc><video:duration>63</video:duration><video:publication_date>2026-11-10</video:publication_date></video:video></url>
   <url><loc>https://wafferna.com/video-open-parcel-before-code.html</loc><lastmod>2026-11-12</lastmod><video:video><video:thumbnail_loc>https://wafferna.com/covers/video-open-parcel.jpg</video:thumbnail_loc><video:title>افتح الطرد قبل ما تعطي المندوب رمز الاستلام</video:title><video:description>افتح الطرد أمام المندوب قبل ما تعطيه رمز الاستلام، وتأكد أن الشحنة سليمة ومطابقة لطلبك. إذا فيه عيب أو عدم مطابقة يحق لك رفض الاستلام، حسب توجيه وزارة التجارة. القصة في الفيديو توضيحية.</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/NFncZLuHPRs</video:player_loc><video:duration>60</video:duration><video:publication_date>2026-11-12</video:publication_date></video:video></url>
-  <url><loc>https://wafferna.com/offers/amazon.html</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://wafferna.com/offers/noon.html</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://wafferna.com/offers/aliexpress.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://wafferna.com/offers/amazon.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://wafferna.com/offers/noon.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://wafferna.com/offers/aliexpress.html</loc><lastmod>2026-11-12</lastmod></url>
 </urlset>

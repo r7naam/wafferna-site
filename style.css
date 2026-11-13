@@ -18,7 +18,7 @@ nav a{margin-inline-start:16px;text-decoration:none;font-weight:500;font-size:15
 nav a:hover{color:var(--accent)}
 .article{padding:30px 16px 20px}
 .crumbs{font-size:14px;color:var(--muted);margin-bottom:10px}
-.crumbs a{text-decoration:none}
+.crumbs a{text-decoration:underline;text-underline-offset:3px}
 .tag{display:inline-block;font-size:12px;background:var(--gold);color:var(--ink);padding:1px 10px;border-radius:999px;font-weight:700;line-height:1.8}
 h1{font-size:clamp(26px,5vw,34px);font-weight:800;line-height:1.5;margin:8px 0 4px}
 h1::after{content:"";display:block;width:52px;height:4px;border-radius:4px;background:var(--gold);margin-top:8px}

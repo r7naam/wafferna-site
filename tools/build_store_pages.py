@@ -106,7 +106,7 @@ def build(key, s):
   <p style="margin-top:20px">{others}<a href="/offers/">كل العروض</a> · <a href="/tips.html">نصائح التسوق الذكي</a></p>
 </main>'''
     mid = middle.replace('<main', '<main')  # keep header/drawer from shell
-    style = ('<style>.storenav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}.stab{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-decoration:none;opacity:.78;border:2px solid transparent}'
+    style = ('<style>.storenav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}.stab{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-decoration:none;border:2px solid transparent}'
              '.stab.on{opacity:1;border-color:var(--ink)}.stab.st-aliexpress{background:#DC2A00;color:#fff}.stab.st-amazon{background:#131921;color:#fff}.stab.st-noon{background:#FEEE00;color:#20201f}'
              '.ocard{position:relative}.ocard .pill{position:absolute;inset-inline-start:20px;top:20px;background:var(--gold);color:var(--ink);padding:0 10px;border-radius:8px;font-weight:800;font-size:14px}.ocard .old{color:var(--muted);font-weight:400;margin-inline-start:6px}</style>\n')
     out = h + style + mid + body + tail

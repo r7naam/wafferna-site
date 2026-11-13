@@ -1,7 +1,7 @@
-@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:optional;src:url('fonts/tajawal-400.woff') format('woff')}
-@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:optional;src:url('fonts/tajawal-500.woff') format('woff')}
-@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:optional;src:url('fonts/tajawal-700.woff') format('woff')}
-@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:optional;src:url('fonts/tajawal-800.woff') format('woff')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:optional;src:url('fonts/tajawal-400.woff2') format('woff2')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:optional;src:url('fonts/tajawal-500.woff2') format('woff2')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:optional;src:url('fonts/tajawal-700.woff2') format('woff2')}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:optional;src:url('fonts/tajawal-800.woff2') format('woff2')}
 :root{--bg:#eeece2;--ink:#3d3929;--accent:#C15F3C;--accent-d:#A44E30;--gold:#D6A62D;--card:#f8f6ee;--line:#D3D0C7;--muted:#6f6a57}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}

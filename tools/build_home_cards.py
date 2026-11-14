@@ -32,13 +32,6 @@ def card(o):
             f'{prh}'
             f'<a class="obtn st-{E(k)}" href="{E(o["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{E(s)}</span>{CART}</a>'
             f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
-    return (f'<article class="deal"><a class="deal-img" href="{u}" tabindex="-1" aria-hidden="true"><img src="{E(src)}" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">{pill}</a>'
-            f'<div class="deal-body"><span class="merchant" data-s="{E(k)}">{E(s)}</span><h3><a href="{u}">{E(name)}</a></h3>'
-            f'{prh}'
-            f'<a class="obtn st-{E(k)}" href="{E(o["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{E(s)}</span>{CART}</a>'
-            f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
-            f'<a class="obtn st-{E(k)}" href="{E(o["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{E(s)}</span>{CART}</a>'
-            f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
 
 p = ROOT / "index.html"
 t = p.read_text("utf-8")

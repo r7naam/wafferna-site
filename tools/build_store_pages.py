@@ -67,11 +67,16 @@ def card(o):
     seo = o.get("seo") or {}
     alt = seo.get("alt") or clean(o["title"])
     old = o.get("old_price")
-    pct = f'<span class="pill">خصم {round((1-o["price"]/old)*100)}%</span>' if old and old > o["price"] else ""
-    oldh = f' <s class="old">{E(old)} ر.س</s>' if old and old > o["price"] else ""
+    price = o.get("price")
+    sale = bool(old and price and old > price)
+    pct = f'<span class="pill">خصم {round((1-price/old)*100)}%</span>' if sale else ""
+    oldh = f' <s class="old">{E(old)} ر.س</s>' if sale else ""
+    prh = f'<span class="p">{E(price)} ر.س{oldh}</span>' if price is not None else ""
+    local = ROOT / "offers/img" / f'{o["slug"]}.jpg'
+    src = f'/offers/img/{o["slug"]}.jpg' if local.exists() else (o.get("image") or f'/offers/img/{o["slug"]}.jpg')
     return (f'<a class="ocard" href="/offers/{E(o["slug"])}.html">'
-            f'<img src="/offers/img/{E(o["slug"])}.jpg" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">'
-            f'<span class="tag" data-s="{E(o["store"].lower())}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b><span class="p">{E(o["price"])} ر.س{oldh}</span>{pct}</a>')
+            f'<img src="{E(src)}" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">'
+            f'<span class="tag" data-s="{E(o["store"].lower())}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b>{prh}{pct}</a>')
 
 def build(key, s):
     items = sorted([o for o in offers if o["store"] == s["db"]], key=lambda o: o.get("created", ""), reverse=True)

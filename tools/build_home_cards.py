@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Fill the homepage <!--CARDS-->...<!--/CARDS--> block with the newest N offers (default 21 = 7 rows of 3).
+"""Fill the homepage <!--CARDS-->...<!--/CARDS--> block with the newest N offers (default 21 = 7 rows of 3)
+and the <!--PICKS-->...<!--/PICKS--> block with the explained Amazon product pages (amazon-*.html).
+Store names are normalised (أمازون -> Amazon) so every card gets its store's badge and button colour.
 Run from the repo root:  python3 tools/build_home_cards.py [N]"""
 import json, html, sys
 from pathlib import Path
+from wf_lib import norm_store, store_key, load_picks
 
 ROOT = Path(__file__).resolve().parent.parent
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 21
@@ -14,7 +17,7 @@ offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) 
 offers.sort(key=lambda o: o.get("created", ""), reverse=True)
 
 def card(o):
-    s = o["store"]; k = s.lower()
+    s = norm_store(o["store"]); k = store_key(s)
     old = o.get("old_price")
     price = o.get("price")
     sale = bool(old and price and old > price)
@@ -33,9 +36,20 @@ def card(o):
             f'<a class="obtn st-{E(k)}" href="{E(o["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>{E(s)}</span>{CART}</a>'
             f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
 
+def pick_card(k):
+    u = k["page"]
+    return (f'<article class="deal"><a class="deal-img" href="{u}" tabindex="-1" aria-hidden="true"><img src="{E(k["img"])}" width="{k["w"]}" height="{k["h"]}" alt="{E(k["alt"])}" loading="lazy" decoding="async"></a>'
+            f'<div class="deal-body"><span class="merchant" data-s="amazon">Amazon</span><h3><a href="{u}">{E(k["title"])}</a></h3>'
+            f'<a class="obtn st-amazon" href="{E(k["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>Amazon</span>{CART}</a>'
+            f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
+
 p = ROOT / "index.html"
 t = p.read_text("utf-8")
 a, b = t.index("<!--CARDS-->") + len("<!--CARDS-->"), t.index("<!--/CARDS-->")
 t = t[:a] + "\n" + "\n".join(card(o) for o in offers[:N]) + "\n" + t[b:]
+picks = load_picks()
+if "<!--PICKS-->" in t and "<!--/PICKS-->" in t:
+    a, b = t.index("<!--PICKS-->") + len("<!--PICKS-->"), t.index("<!--/PICKS-->")
+    t = t[:a] + "\n" + "\n".join(pick_card(k) for k in picks) + "\n" + t[b:]
 p.write_text(t, "utf-8")
-print(f"{min(N, len(offers))} cards")
+print(f"{min(N, len(offers))} cards, {len(picks)} amazon picks")

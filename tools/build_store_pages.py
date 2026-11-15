@@ -4,10 +4,14 @@ from data/offers.json. Run from the repo root:  python3 tools/build_store_pages.
 Uses offers/under-100.html as the shell (head, header, drawer, footer)."""
 import json, html, re, sys
 from pathlib import Path
+from wf_lib import norm_store, store_key, load_picks, fix_drawer
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://wafferna.com"
 offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) if not o.get("archived")]
+for o in offers:
+    o["store"] = norm_store(o["store"])  # أمازون -> Amazon, so the offer lands on its store page
+PICKS = load_picks()
 shell = (ROOT / "offers/under-100.html").read_text("utf-8")
 
 head_end = shell.index("</head>")
@@ -63,6 +67,12 @@ STORES = {
 EMOJI = __import__("re").compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u200D]+")
 clean = lambda s: " ".join(EMOJI.sub("", str(s)).split()).rstrip("!").strip()
 
+# side-menu store shortcuts: kept inline so the page does not depend on which style.css version is cached
+DR_CSS = ('.drawer .dr-list>li.dr-stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px 0}'
+          '.drawer .dr-list a.dst{flex-direction:column;justify-content:center;gap:6px;min-height:76px;margin:0;padding:8px 2px;border:1.5px solid var(--dline);border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:800}'
+          '.sdot{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;flex:none}.sdot svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}'
+          '.sdot.st-amazon{background:#131921;color:#fff}.sdot.st-noon{background:#FEEE00;color:#20201f}.sdot.st-aliexpress{background:#DC2A00;color:#fff}')
+
 def card(o):
     seo = o.get("seo") or {}
     alt = seo.get("alt") or clean(o["title"])
@@ -76,15 +86,25 @@ def card(o):
     src = f'/offers/img/{o["slug"]}.jpg' if local.exists() else (o.get("image") or f'/offers/img/{o["slug"]}.jpg')
     return (f'<a class="ocard" href="/offers/{E(o["slug"])}.html">'
             f'<img src="{E(src)}" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(alt)}" loading="lazy" decoding="async">'
-            f'<span class="tag" data-s="{E(o["store"].lower())}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b>{prh}{pct}</a>')
+            f'<span class="tag" data-s="{E(store_key(o["store"]))}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b>{prh}{pct}</a>')
+
+def pick_card(k):
+    return (f'<a class="ocard" href="{E(k["page"])}">'
+            f'<img src="{E(k["img"])}" width="{k["w"]}" height="{k["h"]}" alt="{E(k["alt"])}" loading="lazy" decoding="async">'
+            f'<span class="tag" data-s="amazon">Amazon</span><b>{E(k["title"])}</b></a>')
 
 def build(key, s):
     items = sorted([o for o in offers if o["store"] == s["db"]], key=lambda o: o.get("created", ""), reverse=True)
     url = f'{SITE}/offers/{s["page"]}'
+    picks = PICKS if key == "amazon" else []
+    listed = ([{"url": f'{SITE}/offers/{o["slug"]}.html', "name": (o.get("seo") or {}).get("title") or clean(o["title"])} for o in items]
+              + [{"url": SITE + k["page"], "name": k["title"]} for k in picks])
+    picks_html = (f'\n  <h2 id="picks">اختيارات أمازون المشروحة</h2>\n  <p>منتجات من أمازون السعودية، لكل منتج صفحة تشرح لمن يناسب وما تنتبه له قبل الشراء. لا نكتب السعر هنا لأنه يتغير، فتأكد منه في صفحة المنتج.</p>\n'
+                  f'  <div class="ogrid">\n    {chr(10).join("    "+pick_card(k) for k in picks).strip()}\n  </div>') if picks else ""
     others = "".join(f'<a href="/offers/{v["page"]}">{v["ar"]}</a> · ' for k, v in STORES.items() if k != key)
     ld = [
       {"@context":"https://schema.org","@type":"CollectionPage","name":s["h1"],"url":url,"inLanguage":"ar","description":s["desc"],
-       "mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f'{SITE}/offers/{o["slug"]}.html',"name":o["title"]} for i,o in enumerate(items)]}},
+       "mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":x["url"],"name":x["name"]} for i,x in enumerate(listed)]}},
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
         {"@type":"ListItem","position":1,"name":"الرئيسية","item":SITE+"/"},
         {"@type":"ListItem","position":2,"name":"العروض","item":SITE+"/offers/"},
@@ -103,15 +123,15 @@ def build(key, s):
   <div class="storenav" role="group" aria-label="تصفح العروض حسب المتجر">{"".join(f'<a class="stab {v["cls"]}{" on" if k==key else ""}" href="/offers/{v["page"]}"{" aria-current=\"page\"" if k==key else ""}>{v["db"]}</a>' for k,v in STORES.items())}</div>
   <div class="ogrid">
     {chr(10).join("    "+card(o) for o in items).strip()}
-  </div>
+  </div>{picks_html}
   <h2>قبل ما تشتري من {E(s["ar"])}</h2>
   <ul>{"".join(f"<li>{t}</li>" for t in s["tips"])}</ul>
   <h2>أسئلة شائعة</h2>
   {"".join(f"<h3>{E(q)}</h3><p>{E(a)}</p>" for q,a in s["faq"])}
   <p style="margin-top:20px">{others}<a href="/offers/">كل العروض</a> · <a href="/tips.html">نصائح التسوق الذكي</a></p>
 </main>'''
-    mid = middle.replace('<main', '<main')  # keep header/drawer from shell
-    style = ('<style>.storenav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}.stab{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-decoration:none;border:2px solid transparent}'
+    mid = fix_drawer(middle)  # header/drawer from the shell, with the store shortcuts in the side menu
+    style = ('<style>' + DR_CSS + '.storenav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}.stab{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-decoration:none;border:2px solid transparent}'
              '.stab.on{opacity:1;border-color:var(--ink)}.stab.st-aliexpress{background:#DC2A00;color:#fff}.stab.st-amazon{background:#131921;color:#fff}.stab.st-noon{background:#FEEE00;color:#20201f}'
              '.ocard{position:relative}.ocard .pill{position:absolute;inset-inline-start:20px;top:20px;background:var(--gold);color:var(--ink);padding:0 10px;border-radius:8px;font-weight:800;font-size:14px}.ocard .old{color:var(--muted);font-weight:400;margin-inline-start:6px}</style>\n')
     out = h + style + mid + body + tail

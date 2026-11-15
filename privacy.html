@@ -185,6 +185,7 @@ footer .note b{color:#fff}
 .drawer .dr-soc a:hover svg .in,.drawer .dr-soc a:focus-visible svg .in{fill:var(--accent)}
 .drawer .dr-ft{margin-top:22px;padding-top:16px;border-top:2px dashed var(--dline);color:var(--muted);font-size:13px;line-height:1.9}
 @media(max-width:360px){.drawer{padding-left:28px}.drawer .dr-top{margin-left:-28px;padding-left:28px}}
+.sdot{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;flex:none}.sdot svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.sdot.st-amazon{background:#131921;color:#fff}.sdot.st-noon{background:#FEEE00;color:#20201f}.sdot.st-aliexpress{background:#DC2A00;color:#fff}.drawer .dr-list>li.dr-stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px 0}.drawer .dr-list a.dst{flex-direction:column;justify-content:center;gap:6px;min-height:76px;margin:0;padding:8px 2px;border:1.5px solid var(--dline);border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:800}.dst .sdot{width:34px;height:34px}
 </style>
 <meta property="og:image" content="https://wafferna.com/covers/og-privacy.jpg">
 <meta property="og:image:width" content="1200">
@@ -207,7 +208,7 @@ footer .note b{color:#fff}
   <ul class="dr-list">
     <li><a href="/">الرئيسية</a></li>
     <li><a href="/#offers">العروض <span class="bdg b">الأفضل</span></a></li>
-    <li><a href="/amazon-picks.html">منتجات أمازون</a></li>
+    <li class="dr-stores"><a class="dst" href="/offers/amazon.html" aria-label="عروض أمازون"><span class="sdot st-amazon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></span>Amazon</a><a class="dst" href="/offers/noon.html" aria-label="عروض نون"><span class="sdot st-noon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></span>Noon</a><a class="dst" href="/offers/aliexpress.html" aria-label="عروض علي اكسبرس"><span class="sdot st-aliexpress" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg></span>AliExpress</a></li>
     <li><details><summary>الأدوات <span class="bdg n">جديد</span></summary>
       <ul class="dr-sub"><li><a href="/customs-calculator.html">حاسبة الجمارك والضريبة</a></li><li><a href="/vat-calculator.html">حاسبة الضريبة 15%</a></li><li><a href="/shipment-tracking.html">تتبع الشحنات</a></li></ul></details></li>
     <li><details><summary>أدلة التسوق الذكي</summary>

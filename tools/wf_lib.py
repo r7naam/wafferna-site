@@ -6,7 +6,7 @@
    wrong badge/button colour on the homepage.
 2. load_picks(): every explained Amazon product page (amazon-*.html in the repo root,
    except amazon-picks*.html) as a small dict, newest first. Upload a new amazon-*.html
-   page and it shows on the homepage and on /offers/amazon.html after the next rebuild.
+   page and it joins the latest offers on the homepage and on /offers/amazon.html after the next rebuild.
 3. fix_drawer(): side menu without the "منتجات أمازون" link and with the three store shortcuts.
 """
 import html, re
@@ -45,7 +45,9 @@ def load_picks():
             continue
         m = t[a:b]
         h1 = re.search(r"<h1[^>]*>(.*?)</h1>", m, re.S)
-        img = re.search(r'<img src="([^"]+)" width="(\d+)" height="(\d+)" alt="([^"]*)"', m)
+        tag = re.search(r"<img\b[^>]*>", m)
+        at = dict(re.findall(r'([a-z-]+)="([^"]*)"', tag.group(0))) if tag else {}
+        img = at if all(k in at for k in ("src", "width", "height", "alt")) else None
         link = re.search(r'<a href="(https://(?:www\.)?amazon\.sa/[^"]+|https://amzn\.[^"]+|https://link\.amazon/[^"]+)"[^>]*>(.*?)</a>', m, re.S)
         date = re.search(r'<time datetime="([^"]+)"', m)
         if not (h1 and img and link):
@@ -53,8 +55,11 @@ def load_picks():
             continue
         name = re.sub(r"^شاهد\s+", "", _unesc(link.group(2)))
         name = re.sub(r"\s+على أمازون السعودية$", "", name) or _unesc(h1.group(1))
-        out.append(dict(page="/" + p.name, title=name, h1=_unesc(h1.group(1)), img=img.group(1),
-                        w=int(img.group(2)), h=int(img.group(3)), alt=html.unescape(img.group(4)),
+        small = img["src"][:-5] + "-480.webp" if img["src"].endswith(".webp") else ""
+        w = int(img["width"])
+        srcset = f'{small} 480w, {img["src"]} {w}w' if small and w > 480 and (ROOT / small.lstrip("/")).exists() else ""
+        out.append(dict(page="/" + p.name, title=name, h1=_unesc(h1.group(1)), img=img["src"], srcset=srcset,
+                        w=w, h=int(img["height"]), alt=html.unescape(img["alt"]),
                         link=html.unescape(link.group(1)), date=date.group(1) if date else ""))
     out.sort(key=lambda x: x["page"])
     out.sort(key=lambda x: x["date"], reverse=True)

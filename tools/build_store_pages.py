@@ -89,18 +89,21 @@ def card(o):
             f'<span class="tag" data-s="{E(store_key(o["store"]))}">{E(o["store"])}</span><b>{E(seo.get("title") or clean(o["title"]))}</b>{prh}{pct}</a>')
 
 def pick_card(k):
+    srcset = f' srcset="{E(k["srcset"])}" sizes="(max-width:700px) 31vw, 300px"' if k["srcset"] else ""
     return (f'<a class="ocard" href="{E(k["page"])}">'
-            f'<img src="{E(k["img"])}" width="{k["w"]}" height="{k["h"]}" alt="{E(k["alt"])}" loading="lazy" decoding="async">'
+            f'<img src="{E(k["img"])}"{srcset} width="{k["w"]}" height="{k["h"]}" alt="{E(k["alt"])}" loading="lazy" decoding="async">'
             f'<span class="tag" data-s="amazon">Amazon</span><b>{E(k["title"])}</b></a>')
 
 def build(key, s):
     items = sorted([o for o in offers if o["store"] == s["db"]], key=lambda o: o.get("created", ""), reverse=True)
     url = f'{SITE}/offers/{s["page"]}'
     picks = PICKS if key == "amazon" else []
-    listed = ([{"url": f'{SITE}/offers/{o["slug"]}.html', "name": (o.get("seo") or {}).get("title") or clean(o["title"])} for o in items]
-              + [{"url": SITE + k["page"], "name": k["title"]} for k in picks])
-    picks_html = (f'\n  <h2 id="picks">اختيارات أمازون المشروحة</h2>\n  <p>منتجات من أمازون السعودية، لكل منتج صفحة تشرح لمن يناسب وما تنتبه له قبل الشراء. لا نكتب السعر هنا لأنه يتغير، فتأكد منه في صفحة المنتج.</p>\n'
-                  f'  <div class="ogrid">\n    {chr(10).join("    "+pick_card(k) for k in picks).strip()}\n  </div>') if picks else ""
+    # one grid, newest first: the store's offers and (Amazon only) the explained product pages
+    rows = ([(o.get("created", ""), card(o), {"url": f'{SITE}/offers/{o["slug"]}.html', "name": (o.get("seo") or {}).get("title") or clean(o["title"])}) for o in items]
+            + [(k["date"], pick_card(k), {"url": SITE + k["page"], "name": k["title"]}) for k in picks])
+    rows.sort(key=lambda r: r[0], reverse=True)
+    listed = [r[2] for r in rows]
+    grid = chr(10).join("    " + r[1] for r in rows).strip()
     others = "".join(f'<a href="/offers/{v["page"]}">{v["ar"]}</a> · ' for k, v in STORES.items() if k != key)
     ld = [
       {"@context":"https://schema.org","@type":"CollectionPage","name":s["h1"],"url":url,"inLanguage":"ar","description":s["desc"],
@@ -122,8 +125,8 @@ def build(key, s):
   <p class="lead">{E(s["lead"])}</p>
   <div class="storenav" role="group" aria-label="تصفح العروض حسب المتجر">{"".join(f'<a class="stab {v["cls"]}{" on" if k==key else ""}" href="/offers/{v["page"]}"{" aria-current=\"page\"" if k==key else ""}>{v["db"]}</a>' for k,v in STORES.items())}</div>
   <div class="ogrid">
-    {chr(10).join("    "+card(o) for o in items).strip()}
-  </div>{picks_html}
+    {grid}
+  </div>
   <h2>قبل ما تشتري من {E(s["ar"])}</h2>
   <ul>{"".join(f"<li>{t}</li>" for t in s["tips"])}</ul>
   <h2>أسئلة شائعة</h2>
@@ -136,7 +139,7 @@ def build(key, s):
              '.ocard{position:relative}.ocard .pill{position:absolute;inset-inline-start:20px;top:20px;background:var(--gold);color:var(--ink);padding:0 10px;border-radius:8px;font-weight:800;font-size:14px}.ocard .old{color:var(--muted);font-weight:400;margin-inline-start:6px}</style>\n')
     out = h + style + mid + body + tail
     (ROOT / "offers" / s["page"]).write_text(out, "utf-8")
-    print(f'{s["page"]}: {len(items)} offers')
+    print(f'{s["page"]}: {len(rows)} cards')
 
 for k, s in STORES.items():
     build(k, s)

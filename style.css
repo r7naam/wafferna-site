@@ -232,3 +232,6 @@ main .ocard .tag[data-s]{font-family:Arial,Helvetica,sans-serif;font-weight:800}
 /* side menu: store shortcuts (Amazon / Noon / AliExpress) in each store's colour */
 .sdot{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;flex:none}.sdot svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.sdot.st-amazon{background:#131921;color:#fff}.sdot.st-noon{background:#FEEE00;color:#20201f}.sdot.st-aliexpress{background:#DC2A00;color:#fff}
 .drawer .dr-list>li.dr-stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px 0}.drawer .dr-list a.dst{flex-direction:column;justify-content:center;gap:6px;min-height:76px;margin:0;padding:8px 2px;border:1.5px solid var(--dline);border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:800}.dst .sdot{width:34px;height:34px}
+
+/* product photo on the Amazon product pages: never wider than the phone screen */
+main .pimg{display:block;width:100%;max-width:440px;height:auto;margin:18px auto 6px;border-radius:16px;background:#fff;border:1px solid var(--line)}

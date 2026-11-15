@@ -100,26 +100,6 @@
   "page": "/offers/offer-1794592157183.html"
  },
  {
-  "title": "قهوتك تبدأ من الحبة مع DOSCHER V60 ☕",
-  "image": "/offers/img/offer-1794590530908.jpg",
-  "price": "195 ر.س",
-  "old_price": "599 ر.س",
-  "link": "https://s.noon.com/QKWg1xLavkU",
-  "store": "Noon",
-  "date": "2026-11-13",
-  "page": "/offers/offer-1794590530908.html"
- },
- {
-  "title": "لابتوب Matebook D16 الحين على نون 💻🔥",
-  "image": "/offers/img/offer-1794588904735.jpg",
-  "price": "2389 ر.س",
-  "old_price": "4249 ر.س",
-  "link": "https://s.noon.com/-xNAwPbvRnY",
-  "store": "Noon",
-  "date": "2026-11-13",
-  "page": "/offers/offer-1794588904735.html"
- },
- {
   "title": "بطارية TELESIN لكاميرا GoPro",
   "image": "/offers/img/offer-1005001688817063.jpg",
   "price": "50.1 ر.س",
@@ -132,7 +112,7 @@
  {
   "title": "كاميرا ويب EMEET S600 بدقة 4K",
   "image": "/offers/img/offer-1005010777283303.jpg",
-  "price": "215.47 ر.س",
+  "price": "215.44 ر.س",
   "old_price": "565.5 ر.س",
   "link": "https://s.click.aliexpress.com/e/_c3lJVqrp",
   "store": "AliExpress",
@@ -152,7 +132,7 @@
  {
   "title": "لوحة BMS للبطاريات",
   "image": "/offers/img/offer-1005006850583134.jpg",
-  "price": "37.73 ر.س",
+  "price": "34.88 ر.س",
   "old_price": "53.21 ر.س",
   "link": "https://s.click.aliexpress.com/e/_c3KVQPQT",
   "store": "AliExpress",
@@ -238,5 +218,25 @@
   "store": "AliExpress",
   "date": "2026-11-10",
   "page": "/offers/offer-1005008277814438.html"
+ },
+ {
+  "title": "كابل منفذ صغير لدرون DJI",
+  "image": "/offers/img/offer-1005007401129121.jpg",
+  "price": "19.61 ر.س",
+  "old_price": "",
+  "link": "https://s.click.aliexpress.com/e/_c3aeOpXv",
+  "store": "AliExpress",
+  "date": "2026-11-10",
+  "page": "/offers/offer-1005007401129121.html"
+ },
+ {
+  "title": "لوحة ماوس ألعاب ساموراي",
+  "image": "/offers/img/offer-1005007865149187.jpg",
+  "price": "32.44 ر.س",
+  "old_price": "34.24 ر.س",
+  "link": "https://s.click.aliexpress.com/e/_c3m40AET",
+  "store": "AliExpress",
+  "date": "2026-11-10",
+  "page": "/offers/offer-1005007865149187.html"
  }
 ]

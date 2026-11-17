@@ -45,8 +45,24 @@ def pick_card(k):
             f'<a class="obtn st-amazon" href="{E(k["link"])}" target="_blank" rel="sponsored nofollow noopener noreferrer"><span>Amazon</span>{CART}</a>'
             f'<a class="go" href="{u}">شوف التفاصيل</a></div></article>')
 
+def hero(o):
+    """Featured ticket = the newest priced offer, so it always matches the first card of the feed."""
+    s = norm_store(o["store"]); price = o.get("price"); old = o.get("old_price")
+    sale = bool(old and price and old > price)
+    seo = o.get("seo") or {}
+    local = ROOT / "offers/img" / f'{o["slug"]}.jpg'
+    src = f'/offers/img/{o["slug"]}.jpg' if local.exists() else (o.get("image") or f'/offers/img/{o["slug"]}.jpg')
+    stub = f'<span class="t-prices"><span class="t-new">{fmt_price(price)} ر.س</span>' + (f'<s class="t-old">{fmt_price(old)} ر.س</s>' if sale else "") + "</span>"
+    if sale: stub += f'<span class="t-pct">خصم {round((1 - price / old) * 100)}%</span>'
+    return (f'<div class="hero-tk"><a class="ticket" href="/offers/{o["slug"]}.html"><span class="t-img"><img src="{E(src)}" width="{o.get("img_w",720)}" height="{o.get("img_h",720)}" alt="{E(seo.get("alt") or clean(o["title"]))}" decoding="async" fetchpriority="high"></span>'
+            f'<span class="t-body"><span class="t-tag">أحدث إضافة · {E(s)}</span><b class="t-title">{E(seo.get("title") or clean(o["title"]))}</b></span><span class="t-stub">{stub}</span></a></div>')
+
 p = ROOT / "index.html"
 t = p.read_text("utf-8")
+priced = [o for o in offers if o.get("price") is not None]
+if priced and "<!--HERO-->" in t:
+    a, b = t.index("<!--HERO-->") + len("<!--HERO-->"), t.index("<!--/HERO-->")
+    t = t[:a] + hero(priced[0]) + t[b:]
 picks = load_picks()
 # one feed, newest first: offers by their created time, product pages by their page date
 feed = [(o.get("created", ""), card(o)) for o in offers] + [(k["date"], pick_card(k)) for k in picks]

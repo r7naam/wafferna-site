@@ -5,7 +5,7 @@ Store names are normalised (أمازون -> Amazon) so every card gets its store
 Run from the repo root:  python3 tools/build_home_cards.py [N]"""
 import json, html, sys
 from pathlib import Path
-from wf_lib import norm_store, store_key, load_picks
+from wf_lib import norm_store, store_key, load_picks, fmt_price, is_deal
 
 ROOT = Path(__file__).resolve().parent.parent
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 21
@@ -13,7 +13,7 @@ E = lambda s: html.escape(str(s), quote=True)
 EMOJI = __import__("re").compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u200D]+")
 clean = lambda s: " ".join(EMOJI.sub("", str(s)).split()).rstrip("!").strip()
 CART = '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L20.5 8H6"/></svg>'
-offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) if not o.get("archived")]
+offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) if not o.get("archived") and is_deal(o)]
 offers.sort(key=lambda o: o.get("created", ""), reverse=True)
 
 def card(o):
@@ -22,8 +22,8 @@ def card(o):
     price = o.get("price")
     sale = bool(old and price and old > price)
     pill = f'<span class="pill">خصم {round((1 - price / old) * 100)}%</span>' if sale else ""
-    oldh = f'<s class="old">{E(old)} ر.س</s>' if sale else ""
-    prh = f'<div class="pr"><span class="price">{E(price)} ر.س</span>{oldh}</div>' if price is not None else ""
+    oldh = f'<s class="old">{fmt_price(old)} ر.س</s>' if sale else ""
+    prh = f'<div class="pr"><span class="price">{fmt_price(price)} ر.س</span>{oldh}</div>' if price is not None else ""
     u = f'/offers/{o["slug"]}.html'
     local = ROOT / "offers/img" / f'{o["slug"]}.jpg'
     src = f'/offers/img/{o["slug"]}.jpg' if local.exists() else (o.get("image") or f'/offers/img/{o["slug"]}.jpg')

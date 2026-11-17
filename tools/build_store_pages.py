@@ -4,11 +4,11 @@ from data/offers.json. Run from the repo root:  python3 tools/build_store_pages.
 Uses offers/under-100.html as the shell (head, header, drawer, footer)."""
 import json, html, re, sys
 from pathlib import Path
-from wf_lib import norm_store, store_key, load_picks, fix_drawer
+from wf_lib import norm_store, store_key, load_picks, fix_drawer, fmt_price, is_deal
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://wafferna.com"
-offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) if not o.get("archived")]
+offers = [o for o in json.loads((ROOT / "data/offers.json").read_text("utf-8")) if not o.get("archived") and is_deal(o)]
 for o in offers:
     o["store"] = norm_store(o["store"])  # أمازون -> Amazon, so the offer lands on its store page
 PICKS = load_picks()
@@ -80,8 +80,8 @@ def card(o):
     price = o.get("price")
     sale = bool(old and price and old > price)
     pct = f'<span class="pill">خصم {round((1-price/old)*100)}%</span>' if sale else ""
-    oldh = f' <s class="old">{E(old)} ر.س</s>' if sale else ""
-    prh = f'<span class="p">{E(price)} ر.س{oldh}</span>' if price is not None else ""
+    oldh = f' <s class="old">{fmt_price(old)} ر.س</s>' if sale else ""
+    prh = f'<span class="p">{fmt_price(price)} ر.س{oldh}</span>' if price is not None else ""
     local = ROOT / "offers/img" / f'{o["slug"]}.jpg'
     src = f'/offers/img/{o["slug"]}.jpg' if local.exists() else (o.get("image") or f'/offers/img/{o["slug"]}.jpg')
     return (f'<a class="ocard" href="/offers/{E(o["slug"])}.html">'

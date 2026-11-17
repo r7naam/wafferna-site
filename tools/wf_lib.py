@@ -73,4 +73,17 @@ DRAWER_NEW = '<li class="dr-stores">' + "".join(
     for k, en, ar in (("amazon", "Amazon", "أمازون"), ("noon", "Noon", "نون"), ("aliexpress", "AliExpress", "علي اكسبرس"))) + '</li>'
 
 def fix_drawer(t):
+    t = t.replace('<img src="/wordmark-light.png" alt="Wafferna"', '<img src="/wordmark-light.png" alt=""')  # brand name is already in the link\'s aria-label
     return t.replace(DRAWER_OLD, DRAWER_NEW)
+
+def fmt_price(v):
+    """1899.0 -> '1899', 87.3 -> '87.30', 375.34 -> '375.34' (whole numbers without decimals, fractions with 2)."""
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return str(v)
+    return str(int(f)) if f == int(f) else f"{f:.2f}"
+
+def is_deal(o):
+    """Announcements (no price, non-Amazon) are not deals: keep them off the deal grids. Amazon offers may omit prices on purpose."""
+    return not (o.get("price") is None and store_key(norm_store(o.get("store"))) != "amazon")

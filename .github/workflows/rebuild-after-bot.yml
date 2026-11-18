@@ -26,4 +26,4 @@ jobs:
       - name: Rebuild homepage hero + cards and store pages
         run: bash tools/rebuild_all.sh
       - name: Commit and push (regenerates on top of main if the bot pushed meanwhile)
-        run: bash tools/push_generated.sh "إعادة بناء بطاقات الرئيسية وصفحات المتاجر بعد تحديث العروض" index.html offers/amazon.html offers/noon.html offers/aliexpress.html offers/img
+        run: bash tools/push_generated.sh "إعادة بناء بطاقات الرئيسية وصفحات المتاجر بعد تحديث العروض" index.html offers/amazon.html offers/noon.html offers/aliexpress.html offers/img "offers/offer-*.html"

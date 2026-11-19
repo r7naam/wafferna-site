@@ -1,5 +1,86 @@
 [
  {
+  "id": "TZV4uGRoeZg",
+  "slug": "video-fake-reviews-amazon",
+  "title": "التقييمات الوهمية في أمازون: كيف تكشفها قبل ما تشتري؟",
+  "seo_title": "كشف التقييمات الوهمية في أمازون: 4 علامات",
+  "duration": "دقيقة و21 ثانية",
+  "updated_ar": "19 نوفمبر 2026",
+  "img": "covers/video-fake-reviews-600.webp",
+  "srcset": "covers/video-fake-reviews-600.webp 600w, covers/video-fake-reviews-800.webp 800w, covers/video-fake-reviews-1000.webp 1000w",
+  "w": 1280,
+  "h": 720,
+  "alt": "غلاف فيديو: 5 نجوم… مين كتبها؟ 4 علامات تكشف التقييمات الوهمية",
+  "body": "<p>كيف تكشف التقييمات الوهمية في أمازون بعد توقف Fakespot؟ 4 علامات: رتّب على الأحدث، اقرأ نص التقييم، افتح حساب كاتبه، وافحص الرابط بأداة Null Fake المجانية.</p>\n  <p class=\"note\"><b>اقرأ أكثر:</b> <a href=\"fake-reviews.html\">الدليل الكامل: كيف تقرأ التقييمات وتكشف المزيف منها</a> · <a href=\"video-new-store-5-checks.html\">فيديو: 5 فحوصات قبل الشراء من متجر جديد</a> · <a href=\"video-price-history.html\">فيديو: كيف تعرف السعر الحقيقي قبل الخصم</a></p>",
+  "ld": {
+   "@context": "https://schema.org",
+   "@type": "VideoObject",
+   "name": "التقييمات الوهمية في أمازون: كيف تكشفها قبل ما تشتري؟",
+   "description": "كيف تكشف التقييمات الوهمية في أمازون بعد توقف Fakespot؟ 4 علامات: رتّب على الأحدث، اقرأ نص التقييم، افتح حساب كاتبه، وافحص الرابط بأداة Null Fake المجانية.",
+   "thumbnailUrl": [
+    "https://wafferna.com/covers/video-fake-reviews.jpg"
+   ],
+   "uploadDate": "2026-11-19T17:09:29+03:00",
+   "duration": "PT1M21S",
+   "inLanguage": "ar",
+   "embedUrl": "https://www.youtube-nocookie.com/embed/TZV4uGRoeZg",
+   "contentUrl": "https://www.youtube.com/watch?v=TZV4uGRoeZg",
+   "publisher": {
+    "@type": "Organization",
+    "name": "Wafferna",
+    "logo": {
+     "@type": "ImageObject",
+     "url": "https://wafferna.com/logo.png"
+    }
+   },
+   "keywords": "التقييمات الوهمية في أمازون, كشف التقييمات المزيفة, بديل Fakespot, Null Fake, تقييمات الذكاء الاصطناعي, أمازون السعودية"
+  },
+  "more": "<p class=\"note\"><b>اقرأ أكثر:</b> <a href=\"fake-reviews.html\">الدليل الكامل: كيف تقرأ التقييمات وتكشف المزيف منها</a> · <a href=\"video-new-store-5-checks.html\">فيديو: 5 فحوصات قبل الشراء من متجر جديد</a> · <a href=\"video-price-history.html\">فيديو: كيف تعرف السعر الحقيقي قبل الخصم</a></p>",
+  "lead": "التقييمات الوهمية في أمازون صارت تنكتب بالذكاء الاصطناعي، وأداة Fakespot توقفت في يوليو 2025. هذه 4 علامات تكشف التقييم المزيّف قبل ما تدفع.",
+  "points": [
+   [
+    "رتّب التقييمات على «الأحدث»",
+    "واقرأ تقييمات النجمتين والثلاث؛ غالباً أصدق وأكثر تفصيلاً."
+   ],
+   [
+    "اقرأ الكلام نفسه",
+    "المديح العام اللي ينفع لأي منتج علامة خطر. دوّر صور المشترين وشارة «الشراء المؤكد»."
+   ],
+   [
+    "افتح حساب صاحب التقييم",
+    "خمس نجوم لأغراض ما لها علاقة ببعض في نفس اليوم؟ غالباً مو مشتري حقيقي."
+   ],
+   [
+    "افحص الرابط بأداة Null Fake",
+    "أداة مجانية: تلصق رابط المنتج وتعطيك درجة من A إلى F."
+   ],
+   [
+    "اقرأ الوسط",
+    "كل الأدوات تعطي مؤشراً تقديرياً، مو حكماً نهائياً. القرار من قراءتك أنت."
+   ]
+  ],
+  "sources": [
+   {
+    "url": "https://www.macrumors.com/2025/05/22/mozilla-pocket-discontinued/",
+    "name": "MacRumors: موزيلا توقف Fakespot في 1 يوليو 2025"
+   },
+   {
+    "url": "https://nullfake.com/",
+    "name": "Null Fake: أداة فحص تقييمات أمازون"
+   }
+  ],
+  "keywords": {
+   "primary": "التقييمات الوهمية في أمازون",
+   "secondary": [
+    "كشف التقييمات المزيفة",
+    "بديل Fakespot",
+    "Null Fake",
+    "تقييمات الذكاء الاصطناعي",
+    "التقييمات الوهمية أمازون السعودية"
+   ]
+  }
+ },
+ {
   "id": "w-SjrvhQXDI",
   "slug": "video-damaged-product-return",
   "title": "وصلك منتج خربان؟ 3 خطوات تضمن لك استرجاع أموالك من أمازون وعلي إكسبرس",

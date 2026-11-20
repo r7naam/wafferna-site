@@ -48,12 +48,14 @@ JS = ("<script>document.querySelectorAll('.vid .vid-btn').forEach(function(b){b.
 
 UPDATED = "12 نوفمبر 2026"
 
-STEP = re.compile(r"^(واحد|اثنين|ثلاثة|أربعة|خمسة):\s*")
+STEP = re.compile(r"^(واحد|اثنين|ثلاثة|أربعة|خمسة|أول شيء|ثاني شيء|ثالث شيء):\s*")
+LINK = re.compile(r"\[([^\]]+)\]\((/[^)\s]+)\)")
 
 def transcript(v):
     """Collapsible spoken text of the video (cleaned from YouTube captions)."""
     if not v.get("transcript"): return ""
-    ps = "".join(f"<p><b>{m.group(1)}:</b> {E(t[m.end():])}</p>" if (m := STEP.match(t)) else f"<p>{E(t)}</p>" for t in v["transcript"])
+    lk = lambda t: LINK.sub(r'<a href="\2">\1</a>', E(t))  # [نص](/مسار) → رابط داخلي
+    ps = "".join(f"<p><b>{m.group(1)}:</b> {lk(t[m.end():])}</p>" if (m := STEP.match(t)) else f"<p>{lk(t)}</p>" for t in v["transcript"])
     return f'  <details class="vp-tr" id="transcript">\n  <summary>نص الفيديو</summary>\n  <div>{ps}</div>\n  </details>\n'
 
 def summary(v):

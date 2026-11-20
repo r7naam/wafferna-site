@@ -37,10 +37,24 @@ CSS = ('<style>.vid{position:relative;aspect-ratio:16/9;border-radius:18px;overf
  '.vp-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}.vp-card b{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;padding:10px 12px 12px;font-size:14px;line-height:1.6}'
  '.vp-card:hover{border-color:var(--accent)}.vp-back{display:inline-flex;align-items:center;min-height:48px;margin-top:18px;font-weight:800}'
  '@media(max-width:700px){.vp-more{grid-template-columns:1fr}.vp-card{flex-direction:row}.vp-card img{width:40%;aspect-ratio:16/9}.vp-card b{padding:8px 12px;font-size:13.5px}}</style>\n')
+TR_CSS = ('<style>'
+ '.vp-tr{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0 20px;margin-top:22px}'
+ '.vp-tr summary{display:flex;align-items:center;justify-content:space-between;min-height:56px;font-weight:800;font-size:19px;cursor:pointer;list-style:none}'
+ '.vp-tr summary::-webkit-details-marker{display:none}.vp-tr summary::after{content:"+";font-size:26px;color:var(--accent-d)}.vp-tr[open] summary::after{content:"−"}'
+ '.vp-tr summary:focus-visible{outline:3px solid #C15F3C;outline-offset:2px;border-radius:8px}.vp-tr div{padding-bottom:12px}'
+ '</style>\n')
 JS = ("<script>document.querySelectorAll('.vid .vid-btn').forEach(function(b){b.addEventListener('click',function(){var w=b.parentNode,f=document.createElement('iframe');"
       "f.src='https://www.youtube-nocookie.com/embed/'+w.dataset.id+'?autoplay=1&rel=0';f.title=w.dataset.t;f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;w.replaceChild(f,b)})})</script>\n")
 
 UPDATED = "12 نوفمبر 2026"
+
+STEP = re.compile(r"^(واحد|اثنين|ثلاثة|أربعة|خمسة):\s*")
+
+def transcript(v):
+    """Collapsible spoken text of the video (cleaned from YouTube captions)."""
+    if not v.get("transcript"): return ""
+    ps = "".join(f"<p><b>{m.group(1)}:</b> {E(t[m.end():])}</p>" if (m := STEP.match(t)) else f"<p>{E(t)}</p>" for t in v["transcript"])
+    return f'  <details class="vp-tr" id="transcript">\n  <summary>نص الفيديو</summary>\n  <div>{ps}</div>\n  </details>\n'
 
 def summary(v):
     """Lead + key points + official sources when the structured fields exist; else the old body."""
@@ -87,9 +101,9 @@ for i, v in enumerate(videos):
   </div>
   {note}
   {summary(v)}
-  <h2>فيديوهات أخرى</h2>
+{transcript(v)}  <h2>فيديوهات أخرى</h2>
   <div class="vp-more">{more}</div>
   <a class="vp-back" href="/videos.html">← كل الفيديوهات</a>
 </main>'''
-    (ROOT / f'{v["slug"]}.html').write_text(h + CSS + middle + main + tail.replace("</body>", JS + "</body>", 1), "utf-8")
+    (ROOT / f'{v["slug"]}.html').write_text(h + CSS + (TR_CSS if v.get("transcript") else "") + middle + main + tail.replace("</body>", JS + "</body>", 1), "utf-8")
     print(v["slug"], len(desc), len(title))

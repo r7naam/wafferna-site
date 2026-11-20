@@ -48,8 +48,8 @@ JS = ("<script>document.querySelectorAll('.vid .vid-btn').forEach(function(b){b.
 
 UPDATED = "12 نوفمبر 2026"
 
-STEP = re.compile(r"^(واحد|اثنين|ثلاثة|أربعة|خمسة|أول شيء|ثاني شيء|ثالث شيء):\s*")
-LINK = re.compile(r"\[([^\]]+)\]\((/[^)\s]+)\)")
+STEP = re.compile(r"^(واحد|وحدة|اثنين|ثنتين|ثلاثة|ثلاث|أربعة|خمسة|(?:أول|ثاني|ثالث|رابع|خامس) (?:شيء|حيلة)|الأول|الثاني|الثالث|الرابع|الخامس|أمازون|نون|علي إكسبرس):\s*")
+LINK = re.compile(r"\[([^\]]+)\]\((/[^)\s]*)\)")
 
 def transcript(v):
     """Collapsible spoken text of the video (cleaned from YouTube captions)."""

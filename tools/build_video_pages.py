@@ -97,7 +97,7 @@ for i, v in enumerate(videos):
     main = f'''<main class="wrap article">
   <p class="crumbs"><a href="/">الرئيسية</a> › <a href="/videos.html">فيديوهات وفّرنا</a> › {E(short)}</p>
   <h1>{E(v["title"])}</h1>
-  <p class="meta">فريق وفّرنا · فيديو قصير · آخر تحديث: {v.get("updated_ar", UPDATED)}</p>
+  <p class="meta"><a href="/about.html#editorial">فريق وفّرنا</a> · فيديو قصير · آخر تحديث: {v.get("updated_ar", UPDATED)}</p>
   <div class="vid" data-id="{E(v["id"])}" data-t="{E(v["title"])}">
     <button type="button" class="vid-btn" aria-label="تشغيل الفيديو: {E(v["title"])}"><img src="{E(absu(v["img"]))}" srcset="{E(abs_srcset(v["srcset"]))}" sizes="(max-width:760px) 92vw, 728px" width="{v["w"]}" height="{v["h"]}" alt="{E(v["alt"])}" fetchpriority="high" decoding="async"><span class="vid-play" aria-hidden="true"></span></button>
   </div>

@@ -7,7 +7,8 @@
 2. load_picks(): every explained Amazon product page (amazon-*.html in the repo root,
    except amazon-picks*.html) as a small dict, newest first. Upload a new amazon-*.html
    page and it joins the latest offers on the homepage and on /offers/amazon.html after the next rebuild.
-3. fix_drawer(): side menu without the "منتجات أمازون" link and with the three store shortcuts.
+3. fix_drawer(): side menu without the "منتجات أمازون" link and with the three store shortcuts,
+   plus the topic hub links (add_hub_links()).
 """
 import html, re
 from pathlib import Path
@@ -74,7 +75,23 @@ DRAWER_NEW = '<li class="dr-stores">' + "".join(
 
 def fix_drawer(t):
     t = t.replace('<img src="/wordmark-light.png" alt="Wafferna"', '<img src="/wordmark-light.png" alt=""')  # brand name is already in the link\'s aria-label
-    return t.replace(DRAWER_OLD, DRAWER_NEW)
+    return add_hub_links(t.replace(DRAWER_OLD, DRAWER_NEW))
+
+# Topic hubs (tools/build_topic_hubs.py) in the side menu: "كل الأدوات" heads the tools list,
+# the three guide hubs follow "كل النصائح". Idempotent; pages without these menu items are left as they are.
+_TOOLS_AT = '<ul class="dr-sub"><li><a href="/customs-calculator.html">'
+_TOOLS_ADD = '<ul class="dr-sub"><li><a href="/tools.html">كل الأدوات</a></li><li><a href="/customs-calculator.html">'
+_TIPS_AT = '<li><a href="/tips.html">كل النصائح</a></li>'
+_TIPS_ADD = _TIPS_AT + ('<li><a href="/customs-shipping.html">الجمارك والشحن والاسترجاع</a></li>'
+                        '<li><a href="/scam-protection.html">الحماية من الاحتيال</a></li>'
+                        '<li><a href="/payment-installments.html">الدفع والتقسيط</a></li>')
+
+def add_hub_links(t):
+    if 'href="/tools.html">كل الأدوات' not in t:
+        t = t.replace(_TOOLS_AT, _TOOLS_ADD, 1)
+    if 'href="/customs-shipping.html">الجمارك والشحن والاسترجاع' not in t:
+        t = t.replace(_TIPS_AT, _TIPS_ADD, 1)
+    return t
 
 def fmt_price(v):
     """1899.0 -> '1899', 87.3 -> '87.30', 375.34 -> '375.34' (whole numbers without decimals, fractions with 2)."""

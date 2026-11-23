@@ -1,7 +1,8 @@
 name: IndexNow ping
-# After every push to main (offers bot, manual uploads, tools), tell Bing and the other IndexNow engines which
-# pages were added or changed, so new pages are crawled in minutes instead of days. Pushes made by the
-# rebuild workflow (GITHUB_TOKEN) do not start this one; those only refresh the homepage and store pages.
+# After every push to main, tell Bing and the other IndexNow engines which pages outside offers/ were added or
+# changed (articles, hubs, tools, videos), so they are crawled in minutes instead of days. Offer pages are sent
+# by the server (~/wafferna-publisher/indexnow_submit.py in cron). Pushes made by the rebuild workflow
+# (GITHUB_TOKEN) do not start this one.
 on:
   push:
     branches: [main]

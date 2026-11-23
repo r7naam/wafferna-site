@@ -2,8 +2,10 @@
 """Tell Bing / Yandex / other IndexNow engines which pages changed in a push (Bing also feeds ChatGPT search and Copilot).
 Run from the repo root:  python3 tools/indexnow.py <before_sha> <after_sha> [--dry-run]
 
-Sent: every added or deleted page, and every modified page except offers/offer-*.html (the offers publisher
-rewrites all offer pages on each post, so "modified" there is mostly noise; new offers are still sent as "added").
+Sent: every added, modified or deleted page outside offers/. Everything under offers/ is left to the server:
+~/wafferna-publisher/indexnow_submit.py runs in cron after each publisher sync and sends what changed in
+sitemap.xml lastmod (offers and their lists). Hand-edited pages (articles, hubs, tools, videos) usually keep
+their lastmod, so the server does not send them; this script does.
 The key file is the one already in the site root; IndexNow checks it at https://wafferna.com/<key>.txt.
 """
 import json, subprocess, sys, urllib.request, urllib.error
@@ -35,7 +37,7 @@ def pick(files):
             continue
         if path.startswith(".") or path.startswith("tools/"):
             continue
-        if status == "M" and path.startswith("offers/offer-"):
+        if path.startswith("offers/"):  # sent by the server's indexnow_submit.py
             continue
         urls.append(url_for(path))
     return list(dict.fromkeys(urls))[:LIMIT]

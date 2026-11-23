@@ -18,7 +18,7 @@ LF = chr(10)  # write LF line endings on Windows too (the repo is LF)
 
 HUBS = [
   {
-    "slug": "tools", "name": "أدوات التسوق الذكي",
+    "slug": "tools", "name": "أدوات التسوق الذكي", "side": "أدوات التسوق الذكي",
     "title": "حاسبات التسوق: الجمارك والضريبة والخصم | Wafferna",
     "h1": "أدوات التسوق الذكي: احسب قبل ما تدفع",
     "desc": "حاسبات مجانية تحسب لك قبل الشراء: الجمارك والضريبة على طلبك الخارجي، ضريبة 15%، الخصم الحقيقي، ومقارنة السعر النهائي بين نون وأمازون وعلي إكسبرس.",
@@ -38,7 +38,7 @@ HUBS = [
     "note": "الحاسبات تعطي تقديراً مبنياً على القواعد المنشورة، والرقم النهائي هو ما يظهر في صفحة الدفع أو في فاتورة شركة الشحن.",
   },
   {
-    "slug": "customs-shipping", "name": "دليل الجمارك والشحن والاسترجاع",
+    "slug": "customs-shipping", "name": "دليل الجمارك والشحن والاسترجاع", "side": "الجمارك والشحن والاسترجاع",
     "title": "دليل الجمارك والشحن والاسترجاع في السعودية | Wafferna",
     "h1": "دليل الجمارك والشحن والاسترجاع في السعودية",
     "desc": "كل ما يخص طلبك بعد الدفع: الحد المعفى من الجمارك، حساب رسوم الطلب الخارجي، تتبع الشحنة ومعنى حالاتها، وحقك في الإلغاء والاسترجاع عند التأخير أو التلف.",
@@ -59,7 +59,7 @@ HUBS = [
     "note": "الأنظمة والرسوم قد تتغير. نذكر المصدر الرسمي داخل كل دليل، وإن وجدت معلومة تغيّرت فراسلنا على info@wafferna.com.",
   },
   {
-    "slug": "scam-protection", "name": "دليل الحماية من الاحتيال",
+    "slug": "scam-protection", "name": "دليل الحماية من الاحتيال", "side": "الحماية من الاحتيال",
     "title": "الحماية من الاحتيال والخصم الوهمي أونلاين | Wafferna",
     "h1": "الحماية من الاحتيال والخصم الوهمي عند التسوق أونلاين",
     "desc": "اكشف المتجر الوهمي والرابط المزيف ورسائل الشحن الاحتيالية والتقييمات المدفوعة والخصم المضخّم قبل ما تدفع، بأدلة وفيديوهات قصيرة بخطوات عملية.",
@@ -80,7 +80,7 @@ HUBS = [
     "note": "لو دفعت لمتجر أو رابط احتيالي: تواصل مع بنكك فوراً لإيقاف البطاقة، ثم بلّغ عن الحساب أو المتجر عبر القنوات الرسمية.",
   },
   {
-    "slug": "payment-installments", "name": "دليل الدفع والتقسيط",
+    "slug": "payment-installments", "name": "دليل الدفع والتقسيط", "side": "الدفع والتقسيط",
     "title": "الدفع الآمن والتقسيط والاشتراكات أونلاين | Wafferna",
     "h1": "الدفع الآمن والتقسيط: قبل ما تضغط «ادفع»",
     "desc": "احمِ بطاقتك عند الشراء أونلاين، واحسب مجموع أقساط تابي وتمارا قبل ما تقسّط، وتجنّب الخصم التلقائي بعد التجربة المجانية، مع فحوصات سريعة قبل الدفع.",
@@ -224,10 +224,38 @@ def link_member(slug, hub):
     if t != o:
         p.write_text(t, "utf-8", newline=LF); print("  linked", slug, "->", hub["slug"])
 
+def patch_menus():
+    """Hub links in the side menu of every page this repo owns. Offer pages, offers/index.html and the
+    under-*/big-discounts lists are written by the offers bot on the server, so they are not touched here
+    (their menu comes from the server's theme_header.html)."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from wf_lib import add_hub_links
+    files = sorted(ROOT.glob("*.html")) + [ROOT / "offers" / f"{s}.html" for s in ("amazon", "noon", "aliexpress")]
+    n = 0
+    for p in files:
+        t = p.read_text("utf-8"); new = add_hub_links(t)
+        if new != t:
+            p.write_text(new, "utf-8", newline=LF); n += 1
+    print(f"menu: hub links added to {n} pages")
+
+HOME_AT = "<hr>\n<h2>عن وفّرنا</h2>"
+HOME_ADD = ("<hr>\n<h2>أدلة حسب الموضوع</h2>\n" + "".join(
+    f'<a class="side-link" href="/{h["slug"]}.html">{E(h["side"])} <span>←</span></a>\n' for h in HUBS))
+
+def patch_home():
+    """A "أدلة حسب الموضوع" group in the homepage sidebar, above "عن وفّرنا". Idempotent."""
+    p = ROOT / "index.html"; t = p.read_text("utf-8")
+    if "<h2>أدلة حسب الموضوع</h2>" in t or HOME_AT not in t:
+        return
+    p.write_text(t.replace(HOME_AT, HOME_ADD + HOME_AT, 1), "utf-8", newline=LF); print("home: hub group added")
+
 if __name__ == "__main__":
+    patch_menus()  # first, so the hubs built from tips.html carry the new menu too
     tpl = (ROOT / "tips.html").read_text("utf-8")
     for h in HUBS:
         build(h, tpl, HUBS)
     for h in HUBS:
         for s in h["members"]:
             link_member(s, h)
+    patch_home()

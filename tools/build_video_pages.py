@@ -4,6 +4,7 @@ Run from the repo root:  python3 tools/build_video_pages.py
 Uses offers/under-100.html as the shell (head, header, drawer, footer)."""
 import json, html, re
 from pathlib import Path
+from wf_lib import add_hub_links
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://wafferna.com"
@@ -13,6 +14,7 @@ head_end = shell.index("</head>")
 main_start = shell.index("<main")
 main_end = shell.index("</main>") + len("</main>")
 head, middle, tail = shell[:head_end], shell[head_end:main_start], shell[main_end:]
+middle = add_hub_links(middle)  # the shell is written by the offers bot; add the topic hub links to its side menu
 for pat in (r'<title>.*?</title>\n?', r'<meta name="description"[^>]*>\n?', r'<link rel="canonical"[^>]*>\n?',
             r'<meta property="og:(title|description|url|image|image:width|image:height|type)"[^>]*>\n?',
             r'<script type="application/ld\+json">.*?</script>\n?'):

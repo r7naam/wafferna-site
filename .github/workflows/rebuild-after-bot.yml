@@ -5,7 +5,7 @@ name: Rebuild after offers bot
 on:
   push:
     branches: [main]
-    paths: ["data/offers.json", "index.html", "amazon-*.html", "tools/**"]
+    paths: ["data/offers.json", "index.html", "amazon-*.html", "offers/offer-*.html", "tools/**"]
   workflow_dispatch:
 permissions:
   contents: write

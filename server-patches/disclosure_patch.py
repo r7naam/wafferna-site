@@ -1,6 +1,6 @@
 # One-off patch for ~/wafferna-publisher/publisher.py (runs on the bot server, not part of the site).
 # Pages without a price (all Amazon pages) get a disclosure line that does not mention a publish-time price.
-import shutil, sys
+import shutil, sys, time, os
 p = "publisher.py"
 s = open(p, encoding="utf-8").read()
 if "_disclosure" in s:
@@ -14,7 +14,10 @@ add = anchor + '''    if "amazon" in str(store).lower() or "أمازون" in str
     else:
         _disclosure = "السعر المعروض هو سعر وقت النشر (%s) وقد يتغير، والسعر النهائي هو المكتوب في صفحة المتجر." % date_txt
 '''
-shutil.copy(p, "publisher_backup20_before_disclosure.py")
+bak = "publisher_backup_disclosure_%s.py" % time.strftime("%m%d_%H%M%S")
+if not os.access(p, os.W_OK):
+    print("NOT patched: publisher.py is not writable by this user (try with sudo)"); sys.exit(1)
+shutil.copyfile(p, bak); print("backup:", bak)
 s = s.replace(anchor, add).replace(old_txt, '{_disclosure}')
 open(p, "w", encoding="utf-8").write(s)
 print("patched")

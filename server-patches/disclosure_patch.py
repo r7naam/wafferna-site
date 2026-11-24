@@ -15,9 +15,13 @@ add = anchor + '''    if "amazon" in str(store).lower() or "أمازون" in str
         _disclosure = "السعر المعروض هو سعر وقت النشر (%s) وقد يتغير، والسعر النهائي هو المكتوب في صفحة المتجر." % date_txt
 '''
 bak = "publisher_backup_disclosure_%s.py" % time.strftime("%m%d_%H%M%S")
-if not os.access(p, os.W_OK):
-    print("NOT patched: publisher.py is not writable by this user (try with sudo)"); sys.exit(1)
+if not os.access(".", os.W_OK):
+    print("NOT patched: folder is not writable by this user"); sys.exit(1)
 shutil.copyfile(p, bak); print("backup:", bak)
+mode = os.stat(p).st_mode
 s = s.replace(anchor, add).replace(old_txt, '{_disclosure}')
-open(p, "w", encoding="utf-8").write(s)
+# publisher.py is kept read-only: write a new file and swap it in (same way sed -i does), keeping its permissions
+open(p + ".new", "w", encoding="utf-8").write(s)
+os.chmod(p + ".new", mode)
+os.replace(p + ".new", p)
 print("patched")

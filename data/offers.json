@@ -9259,7 +9259,6 @@
   "created": "2026-11-07T20:47:00+00:00",
   "archived": true,
   "updated": "2026-11-19T00:00:00+00:00",
-  "img_path": true,
   "img_w": 993,
   "img_h": 1000,
   "history": []
@@ -9337,7 +9336,6 @@
   "created": "2026-11-08T14:45:00+00:00",
   "archived": true,
   "updated": "2026-11-19T00:00:00+00:00",
-  "img_path": true,
   "img_w": 720,
   "img_h": 720,
   "history": []

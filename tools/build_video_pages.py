@@ -72,6 +72,19 @@ def summary(v):
         out += f'  <h2 id="sources">المصادر الرسمية</h2>\n  <div class="srcs"><ul>{src}</ul></div>\n'
     return out + f'  {v.get("more", "")}\n  </section>'
 
+def affiliate(v):
+    """Optional affiliate links box (e.g. Amazon), with the Arabic + English Amazon Associates disclosure."""
+    if not v.get("aff"): return ""
+    a = v["aff"]
+    lis = "".join(f'<li><a href="{E(x["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{E(x["text"])}</a>'
+                  f'{(" " + E(x["note"])) if x.get("note") else ""}</li>' for x in a["links"])
+    intro = f'  <p>{E(a["intro"])}</p>\n' if a.get("intro") else ""
+    kind, gain = ("روابط تسويق بالعمولة أو روابط دعوة", "عمولة أو مكافأة إذا اشتركت أو سجّلت") if a.get("referral") else ("روابط تسويق بالعمولة", "عمولة إذا اشتركت أو اشتريت")
+    return (f'  <section class="vp-sum" id="links">\n  <h2>{E(a["title"])}</h2>\n{intro}  <ul>{lis}</ul>\n'
+            f'  <p class="note"><b>إفصاح:</b> الروابط أعلاه {kind}، وقد نحصل على {gain} عن طريقها دون أي تكلفة إضافية عليك. '
+            f'بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr">As an Amazon Associate I earn from qualifying purchases.</span></p>\n'
+            f'  </section>\n')
+
 for i, v in enumerate(videos):
     url = f'{SITE}/{v["slug"]}.html'
     short = cut(v["title"], 52)
@@ -105,7 +118,7 @@ for i, v in enumerate(videos):
   </div>
   {note}
   {summary(v)}
-{transcript(v)}  <h2>فيديوهات أخرى</h2>
+{affiliate(v)}{transcript(v)}  <h2>فيديوهات أخرى</h2>
   <div class="vp-more">{more}</div>
   <a class="vp-back" href="/videos.html">← كل الفيديوهات</a>
 </main>'''

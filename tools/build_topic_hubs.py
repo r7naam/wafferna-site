@@ -95,6 +95,7 @@ HUBS = [
     "groups": [
       ("الأدلة", ["safe-payment", "tabby-tamara-installments", "free-trial-auto-charge", "shopping-mistakes"]),
       ("فيديوهات: قرار الشراء", ["video-before-you-pay", "video-24h-rule", "video-impulse-buying"]),
+      ("فيديوهات: الخصم من حسابك والاشتراكات", ["video-charged-no-order", "video-amazon-prime-price"]),
     ],
     "members": ["safe-payment", "tabby-tamara-installments", "free-trial-auto-charge", "shopping-mistakes"],
     "note": "شروط التقسيط والرسوم المتأخرة تحددها كل شركة وتتغير. ارجع دائماً لشروط الشركة قبل الموافقة.",

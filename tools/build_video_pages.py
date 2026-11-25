@@ -78,8 +78,10 @@ def affiliate(v):
     a = v["aff"]
     lis = "".join(f'<li><a href="{E(x["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{E(x["text"])}</a>'
                   f'{(" " + E(x["note"])) if x.get("note") else ""}</li>' for x in a["links"])
-    return (f'  <section class="vp-sum" id="links">\n  <h2>{E(a["title"])}</h2>\n  <ul>{lis}</ul>\n'
-            f'  <p class="note"><b>إفصاح:</b> الروابط أعلاه روابط تسويق بالعمولة، وقد نحصل على عمولة إذا اشتركت أو اشتريت عن طريقها دون أي تكلفة إضافية عليك. '
+    intro = f'  <p>{E(a["intro"])}</p>\n' if a.get("intro") else ""
+    kind, gain = ("روابط تسويق بالعمولة أو روابط دعوة", "عمولة أو مكافأة إذا اشتركت أو سجّلت") if a.get("referral") else ("روابط تسويق بالعمولة", "عمولة إذا اشتركت أو اشتريت")
+    return (f'  <section class="vp-sum" id="links">\n  <h2>{E(a["title"])}</h2>\n{intro}  <ul>{lis}</ul>\n'
+            f'  <p class="note"><b>إفصاح:</b> الروابط أعلاه {kind}، وقد نحصل على {gain} عن طريقها دون أي تكلفة إضافية عليك. '
             f'بصفتي مشارك لأمازون، فإنني أكسب من عمليات الشراء المؤهلة. <span lang="en" dir="ltr">As an Amazon Associate I earn from qualifying purchases.</span></p>\n'
             f'  </section>\n')
 

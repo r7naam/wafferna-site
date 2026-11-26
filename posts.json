@@ -1,5 +1,15 @@
 [
  {
+  "title": "الغاء",
+  "image": "/offers/img/offer-amzB07N6PFCN6.jpg",
+  "price": "22.86 ر.س",
+  "old_price": "27.9 ر.س",
+  "link": "https://www.amazon.sa/dp/B07N6PFCN6?tag=wafferna-21",
+  "store": "Amazon",
+  "date": "2026-11-26",
+  "page": "/offers/offer-amzB07N6PFCN6.html"
+ },
+ {
   "title": "جهاز غسيل وجه كهربائي دافئ يساعد على تنظيف المسام وإزالة البثور، ويعطي البشرة إحساساً مريحاً مع تدليك لطيف. مناسب لروتين",
   "image": "/offers/img/offer-1005009177512062.jpg",
   "price": "127.46 ر.س",
@@ -228,15 +238,5 @@
   "store": "AliExpress",
   "date": "2026-11-22",
   "page": "/offers/offer-1005007078790760.html"
- },
- {
-  "title": "سدادات أذن إيساجر للنوم",
-  "image": "/offers/img/offer-1005012520282894.jpg",
-  "price": "31.24 ر.س",
-  "old_price": "62.48 ر.س",
-  "link": "https://s.click.aliexpress.com/e/_c2zO7shB",
-  "store": "AliExpress",
-  "date": "2026-11-22",
-  "page": "/offers/offer-1005012520282894.html"
  }
 ]
